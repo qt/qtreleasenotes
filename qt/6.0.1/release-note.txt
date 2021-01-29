@@ -1,0 +1,490 @@
+Relase note
+===========
+
+Qt 6.0.1 release is a bug fix releases to the top of Qt 6.0.0.
+
+The goal has been to retain as much source compatibility with Qt 5.15 as
+possible, but some changes were inevitable to make Qt a better framework.
+
+To make it easier to port to Qt 6.0, we have created a porting guide to
+summarize those changes and provide guidance to handle them. In the guide, you
+can find links to articles about changes that may affect your application and
+help you transition from Qt 5.15 to Qt 6.0:
+
+https://doc.qt.io/qt-6/portingguide.html
+
+For more details refer to the online documentation of Qt 6.0:
+https://doc.qt.io/qt-6/index.html
+
+Note: This release note is only for Qt 6.0.1 release and so on does not contain
+details for Additional Modules released together with Qt 6.0.1
+
+Important Changes
+_________________
+
+[qtbase]
+3bfcab1718571a04109b3b30e54ea310a11f3d4a Pen patterns are restrained to a
+maximum length and values of 1024, fixing oss-fuzz issue 25310.
+
+
+d3397c92a03bb7b261530b2e8e73338b4c21bd76 Restored pre-5.15.0 behavior when
+parsing a date-time from a string (and document what it implies): if
+the string has the right form but represents a date-time that was
+skipped by a time-zone transition (e.g. a DST spring-forward), the
+invalid date-time object returned can, none the less, be used to
+recover a near-by date-time that may be more useful in some cases.
+From 5.15.0 to 5.15.2 and in 6.0.0, a default-constructed QDateTime
+was returned in place of this more informative invalid date-time.
+
+
+94983639fc559fd57c6075b1323b28f034a49071 QSslSocket::verify - do not change the default configuration
+
+
+792caf98246101fead7af81dbb31784cbc88535a PCRE2 has been updated to version
+10.36.
+
+
+69f7b6be724296f1a67eca90b3a8bd3924972065 Opaque pixmaps on devices with a non-standard
+opaque format will now correctly match format for faster blitting.
+Same with semitransparent pixmaps on devices with a non-standard
+semitransparent format.
+
+
+597f0d9681f22f564d249b14d39b13221161ab53 It was possible to
+create a QPropertyBinding from a property; this would steal any set
+binding from the property or create an invalid binding if none was set.
+Use makePropertyBinding if you want to to create a binding which depends
+on the property's value, or takeBinding if you want to repurpose the
+property's binding.
+
+
+28ba7ac1780b41924de267861826b01233618570 QLineF::setLength() will now set the
+length if the line's length() is non-zero. Previously, it was
+documented to only set the length if isNull() was false; this is a
+fuzzy check, so isNull() could be true for a line with non-zero
+length().
+
+
+9e278ec1f570fb7150cf0053727fe45d187a6bab Fixed an issue where QPainterPath::addText()
+would get inconsistent kerning for smaller font sizes when hinting is
+enabled.
+
+
+7133780bc626460299ace2c7df99c0c9d67115e6 XF86LaunchXX keys have been remapped, so the Qt names
+and X11 names match, instead of being 2 off.
+
+
+d6bca7b1982338927fa9e20c8e9cb08dcdb2fcbc QTimeZone instances created by offset
+from UTC (in seconds) shall now only include minutes in their ID when
+the offset is not a whole number of hours. They shall also include the
+seconds in their ID when the offset is not a whole number of minutes.
+
+
+c17643b64f6b8e99c8db93f6cc67492804ed3065 Updated to 3.34.0
+
+
+
+[qtdeclarative]
+f473d38c87e7ca0d6aebd09c33fc3149807ddf23 Flickable now tries to detect whether
+you're using a "clicky" wheel on a desktop mouse.  A laptop trackpad can
+generate QWheelEvent::angleDelta values that are not multiples of 120;
+in that case, smooth scrolling with momentum is disabled, to avoid
+losing control of scrolling. Set the environment variable
+QT_QUICK_FLICKABLE_WHEEL_MOMENTUM_ENABLED=0 to opt out of the old
+behavior entirely, or set it to 1 to opt in unconditionally.
+
+
+224cebe0d96af0f3f4de27aff03918fc319687fa Remove import sorting and the (now obsolete) -n parameter to disable it
+
+
+f7240980050bdf4f9fa8566e3064c15b94891249 When subclassing QQuickItem, you
+should call setAcceptTouchEvents(true) if you need the item to receive
+touch events. It will be required in Qt 6.
+
+
+
+[qtwayland]
+be5a2d2ff56f0ea39a891f3b04604b9e4835871f Fixed a memory leak when creating
+QOpenGLContexts on Wayland and using the wayland-egl backend.
+
+
+
+[qtquickcontrols2]
+8885cd8748c5c5be8f745b3fc560881584ead9e5 Setting the style to "Default"
+now behaves the same way as not specifying a style; a relevant style
+will be chosen based on the platform. To use the style previously known
+as "Default", use "Basic".
+
+
+
+[qtshadertools]
+73ce37546c2c4dc460007dd4243ccb38f647952e Changed identified license of SPIRV-Cross
+to Apache License 2.0 and Khronos License, and fixed copyright attributions.
+
+
+36ea6638342d4e56c8ae525a6aad9a877a31cf5b Changed identified licenses in glslang
+to BSD 3-Clause "New" or "Revised" License, and Khronos License,
+and Apache License 2.0, and GNU General Public License v3.0 or later
+with Bison exception 2.2, and NVIDIA 2002 License. Augment Copyright
+information with details from file headers.
+
+
+
+Fixes
+_____
+
+[qtbase]
+5a233f75561d104edb42b9af9540ac385cdcfe34 Fixes: QTBUG-88624
+3965eb230523a2d90d65b8ebaf8de9399fa899d7 Fixes: QTBUG-88501
+0bc41f5601826215fc9a6302b5dca7e53a8ddeab Fixes: QTBUG-88221
+0eac6af035d703d862f8d9391788d27a0660502a Fixes: QTBUG-88609
+c0b0ade6223c7ed492069f2fe0d801b4a5893e3d Fixes: QTBUG-88683
+2acf1122eaf0ec4a3bd06fb0c199374a4fe1c66d Fixes: QTBUG-88589
+2f7fcebf3bda12a21c27af9b043d748cfd5477f2 Fixes: QTBUG-88718
+9abc84a131d41d6e4fa6fd1f4f1c5f66a4cbccfa Fixes: QTBUG-88445
+e0cb10e4be59fe4ec16156da7ca7d5c47237084d Fixes: QTBUG-88764
+c4888edfb84dc77fb25d46f468f0d11d5d1b4a89 Fixes: QTBUG-88581
+db2045a0a0d77f7802192ac4daf137887ebf3e5e Fixes: QTBUG-88864
+8a425518809d6e9d3102487b4fa55a7deba15802 Fixes: QTBUG-88506
+f4ff1e73b0caf7dcd20c96519d0b6ade806b725e Fixes: QTBUG-88834
+a754477b734661bc0850fb36b3fc4b55445ff2c2 Fixes: QTBUG-88656
+2e09a400323fcdd41133cf41a49938a0c3e2e149 Fixes: QTBUG-87036
+fba60d8cbcafc0eadb37971c2ca397630cf11872 Fixes: QTBUG-88932
+5fef8c22c6349025c5b193554dcc4189a840e8bd Fixes: QTBUG-88970
+d9a950aea91277071928487b2a6ae8990a073d3c Fixes: QTBUG-86295
+be01af7c343cdf7ea1bd6604bc3fa0a1f6ce6419 Fixes: QTBUG-88476
+455d009a608eacd40577da2d0741a4d11259e126 Fixes: QTBUG-87289
+b16f9068c27b69d7fb55ab20920d835c6f91a7f5 Fixes: QTBUG-88975
+569385a639285e46f7ba1b4073e37452cf3eb1bc Fixes: QTBUG-88951
+c967ed95a720e210dff398624b97810703815874 Fixes: QTBUG-88688
+94983639fc559fd57c6075b1323b28f034a49071 Fixes: QTBUG-88639
+35b2e74fd77d912cdd7efed379b648609a95d4b5 Fixes: QTBUG-88990
+b5ecdce605685996a5e280edd164f8853f8326df Fixes: QTBUG-88926
+ee0e17c73c6f1bcca7232b9bc2a5a9b22585b26d Fixes: QTBUG-88999
+96ea154b0fb6894a9e76357bd7047c648751849b Fixes: QTBUG-88780
+3053bc172b22f89933601f8fddf85af69ac0546d Fixes: QTBUG-88417
+aeb0a36015f69f301aa6aa87dd84c644c825308e Fixes: QTBUG-89008
+2537b5c6c34a360f943fd79327eee7a7ba6c3fc8 Fixes: QTBUG-86179
+faaf8f5c0a73a27a159f00027ebeba5d486be6a9 Fixes: QTBUG-88825
+2f747bb57cd958f9fc65f406474c429ca00941ac Fixes: QTBUG-88966
+cc785b9b68d1b3b848be67e672dea91ee5715b7b Fixes: QTBUG-86857
+56d41d9b8b693eba38cf41aa5292843089f2361f Fixes: QTBUG-89047
+539a16a69fa1ef302cf4eb97ff5a7f8afb606d15 Fixes: QTBUG-89124
+5b7fd9e4e4f11a90d4f3b75c1b70884c9aca8254 Fixes: QTBUG-85986
+622efb8ecc2e7f25ddf7d6a54b8a3d3ac650916e Fixes: QTBUG-88053
+9f03c9304f85ff48620062c191d71e7700b49a2f Fixes: QTBUG-88042
+01474c31ba2a3ca225cbc2440bd0ee28458b2a26 Fixes: QTBUG-89118
+15abeed11687dc19afdc73e7c54c0f87da4286ba Fixes: QTBUG-88053
+3caacb2f2bbd3947f79d9351b7c9af4517271875 Fixes: QTBUG-88253
+c5623e5bb13824ef7d735e8d429278223b2887c1 Fixes: QTBUG-88256
+46aae17ac1a4d3612aea487f37b747f32e772408 Fixes: QTBUG-88188
+491cb6b17ec2d5cd18db402897ba77f99306015d Fixes: QTBUG-89182
+15d497c38d1f1a482553f5f3db852d9dfcd78c24 Fixes: QTBUG-89059
+6c546342c2de23cb2061b78c422eb61a53ebf017 Fixes: QTBUG-88982
+86b72d481f1d041b0250405d2805b229a4bb5efd Fixes: QTBUG-89201
+3c8d95afa56e9787f222086b1918616aeb9d5337 Fixes: QTBUG-88840
+fbcc6a346b81a04f8a5f1a8a05aa973a58a64fc7 Fixes: QTBUG-89172
+0908175a1aafe9131c501c3a653ba7621e701f80 Fixes: QTBUG-83457
+6f0129d20571b742ef1aff72cb9d67320c86ac11 Fixes: QTBUG-89281
+5b41787c1a6ff8834aa85c06a99b689842a9eb8c Fixes: QTBUG-88053
+9fd0c6afc75663451316f8e010e77e2439505287 Fixes: QTBUG-89493
+8f0eb2c6b0371afc60028398b908f4500979e7d6 Fixes: QTBUG-89530
+b8f9c649dfb503a09dc3bc5714701bd059994cf5 Fixes: QTBUG-86960
+136cbafad59909c991a80db0b992a3920a9696c6 Fixes: QTBUG-84737
+b97001aa1cbd21008ebc48fe61b15fbcacb14875 Fixes: QTBUG-89176
+10c9e5282ebca2844c82b5d2fe12d882db421be1 Fixes: QTBUG-85962
+6341e89e2874101754698c732c125c13e19a954f Fixes: QTBUG-89283
+597f0d9681f22f564d249b14d39b13221161ab53 Fixes: QTBUG-89507
+18e5df3c95181e2b559bbfe616954f9190922355 Fixes: QTBUG-75319
+e49e2a4a154d1e4730be3088550e186c79b0d0ef Fixes: QTBUG-66448
+701934d39f50892273b733b55040b550568ca635 Fixes: QTBUG-89133
+f815382114bce9c28468a770a6b6e342619b15c2 Fixes: QTBUG-86557
+5d6f2238548fe8415e84099fc14470e189c9e726 Fixes: QTBUG-89476
+d598f7b9b7b0e1aa08c07bcf54d7d698315ea5f5 Fixes: QTBUG-89470
+e0121157db5d83cf72dec11da193fe63a07d88ce Fixes: QTBUG-89013
+b14a33ff671b555b3677a012867489e174cb98e7 Fixes: QTBUG-89434
+6663d90d19fe40f297cb2e1d5cf9a33a053f4d98 Fixes: QTBUG-89366
+d5c99c7dfc69caa61f9073a11742051f9abda4ce Fixes: QTBUG-87830
+294f89890e5db0d511b1cc0bf59bb60df99dd68a Fixes: QTBUG-88054
+96c1380900bc3ef455627ab8477120466e3e7c46 Fixes: QTBUG-87830
+dbfd3d2892b453e009360ec73bb0040dd482bf58 Fixes: QTBUG-88984
+d356876a7375936f04abdf0ed57f75e3f177b102 Fixes: QTBUG-83865
+80bcba5661311ed0934884899420ed435f3a20c6 Fixes: QTBUG-89729
+fc36fadeffe76e2b2ab93aefc5c87b83d0503f97 Fixes: QTBUG-89700
+2491c4745899f1cf91838cd16a9d88ff97e8a02b Fixes: QTBUG-89714
+fc33f71f819ef5cba6ad9d8a546e47c69443bf6d Fixes: QTBUG-89760
+efc8ee12eff0f8970c49db49960cca21849cec02 Fixes: QTBUG-89387
+f0a0c00a0ad97143c4a9a190da1a827e2b2d38a9 Fixes: QTBUG-89711
+a6e8dd7bf8dcbf806bcefae8309d33051e3cb5a2 Fixes: QTBUG-83648
+0e1114f8e41111b79866fa22481d2f3e6263e5c6 Fixes: QTBUG-89547
+1176959b47ef81833998d41b822290d2788f9a4b Fixes: QTBUG-89761
+2c3fabfafd6064e0678e52d211da4364e996ad13 Fixes: QTBUG-85791
+078bd54a38b020635751cd0e96d7bbe7409f3ec0 Fixes: QTBUG-88054
+562fb69d75c48f6d116134537ff502ddbc12e763 Fixes: QTBUG-88287
+51e940260af183228798c7741646ac88252e1f3b Fixes: QTBUG-89184
+91a97187ac385c24344d1d062abe7c9d7611c1c4 Fixes: QTBUG-85484
+7b356d73671fb7b097399bcde9d8855264625dac Fixes: QTBUG-89687
+54e31e82c3d858e42da1e802a0d856e201b3e5b6 Fixes: QTBUG-89628
+fd5491ad9a52e75dd400321befa64ee62c5d8ec8 Fixes: QTBUG-89766
+28ba7ac1780b41924de267861826b01233618570 Fixes: QTBUG-89569
+254aa011b1a783d29db542ed9450be333b943133 Fixes: QTBUG-89580
+340f777e01accae71c48a6de3acc1006fa4511a3 Fixes: QTBUG-89812
+c6b6bb5653691125a6e17287077be7d81c919369 Fixes: QTBUG-89846
+53471c16eccbc5163c51292bd833cd3e02e934b0 Fixes: QTBUG-89737
+062d42e355693a6d66bbd1ffb897cc85e69f41ac Fixes: QTBUG-89769
+4460711a802b4dfb6a9e71666185b15c59fb2e3a Fixes: QTBUG-89599
+357df7b3a17ca61d7c454cbd2a8576dba244f791 Fixes: QTBUG-89915
+9e287b50ee77d7a9a52483e86954d0eb2f5760df Fixes: QTBUG-88661
+38159913b88dd894d22c4522df23035a7965e58d Fixes: QTBUG-89727
+96dac3e057f3373cc00367cb7b7a3e864aaa338d Fixes: QTBUG-88839
+6f74e99d970d86f5f3351c932db6b6b083c735f8 Fixes: QTBUG-89709
+cf5439c59a134de57f47bfa4e310035d9347d62f Fixes: QTBUG-87107
+9e278ec1f570fb7150cf0053727fe45d187a6bab Fixes: QTBUG-20900
+87bf4053310a949c98abb1312d34cea8f0ea0db2 Fixes: QTBUG-89959
+80a0119012db15b2664716463338db706c6a8085 Fixes: QTBUG-81467
+a6aa9bca33dd6c0d0312ff50a547950530943cee Fixes: QTBUG-89815
+5aa3cf7b9a9d2932c95f9fbcd89011c968f7426a Fixes: QTBUG-89688
+1d7fc87b89167e678f2f66bd05423f493b51a7fd Fixes: QTBUG-89780
+c688bcb2f60274bf4e746d5b434ed637d59fe31a Fixes: QTBUG-85683
+59785478c3912551da9308942eccef8f0987dd1c Fixes: QTBUG-88715
+3f2b5fdf48e32ee01bcc1154adef5b3c530fb9bc Fixes: QTBUG-86776
+133e989cee5b4e3b32afa10618d700c0590a9c63 Fixes: QTBUG-89426
+4b3417f0f41b6b62091c90ca35bbbed2b232c354 Fixes: QTBUG-83056
+e15d63baa34a586084f826093d6fd76278f5946d Fixes: QTBUG-75106
+3b1cb25eb026e3a85d616df0b9ed20d508468694 Fixes: QTBUG-85621
+9e4d9fca8a5ed0a10033345bc88b4ae39d20b952 Fixes: QTBUG-90033
+de74f4fdad0f4fa57e95c00031f79c13a14bbad8 Fixes: QTBUG-81097
+c00f52e821a3a982e91d9c4515c3d4d944305a16 Fixes: QTBUG-89910
+16d0e9ab795303f63e71fbeb85173155d6bf3b32 Fixes: QTBUG-89082
+a24816ade4d18a3d04d5b0cca0f67b4c1eadbb2e Fixes: QTBUG-88230
+d96f00286cd570d70d9e8829e665a38928aefc20 Fixes: QTBUG-85846
+978131ba7106df99e010f5ea5559204424f29ab7 Fixes: QTBUG-90246
+85fd5b70d6af42e5db14a17a21f56770b3f448b7 Fixes: QTBUG-39791
+7133780bc626460299ace2c7df99c0c9d67115e6 Fixes: QTBUG-25261
+b4937f32956b28f476bf9530d53576c23873024a Fixes: QTBUG-90354
+78735236f329ac55c442de3c90b07250cf3531eb Fixes: QTBUG-90350
+170a8693d3b77587792c99605413666ad9b3ce74 Fixes: QTBUG-90039
+93e4f88204e604d9196c99c297b081e3f61b7a1c Fixes: QTBUG-86020
+f120933e53970ee425cfa5ce621b29c435a1000e Fixes: QTBUG-89130
+9e006d6a3c39482ae2d97d115a259b038e845916 Fixes: QTBUG-89398
+b5eb77a5520b130b172567fd0d96754d11d737ce Fixes: QTBUG-90402
+fe32ed66534ba3cca8112442f1fa37bdff73696e Fixes: QTBUG-85715
+32734f351b076b8774c490c27ef18ddd2243dcaf Fixes: QTBUG-90414
+8cb8dab0309f2baf74b351d3a1d26807c3af4483 Fixes: QTBUG-65229
+b2af6332ea37e45ab230a7a5d2d278f86d961b83 Fixes: QTBUG-90395
+7d0cbfc257ac18d14140f5516a0269a4d8ac320a Fixes: QTBUG-89647
+1580c84e1a3c6658f317f7bc78c64575160c1d65 Fixes: QTBUG-85556
+a48f500c3486a5df995be82ee39a6ed5585f8231 Fixes: QTBUG-90332
+1baf4d9ea45d03cc1cbdcccdaebb633e9dc7d961 Fixes: QTBUG-80298
+e0fecdc7bc7b3dbd6a6f9046d43450b3bdd38a60 Fixes: QTBUG-90308
+c17643b64f6b8e99c8db93f6cc67492804ed3065 Fixes: QTBUG-90226
+198a985c094232dce0a7a956004dd2ae1fec68f5 Fixes: QTBUG-88610
+1a07e7899261c044a5325ca21dd20c9c7be3e6ef Fixes: QTBUG-89899
+684f26caad745d04dfc85fa4c850e13ea57a4a84 Fixes: QTBUG-89650
+f9f0238557a46f1ba4795cacfa1d6702461ed788 Fixes: QTBUG-86632
+f193e7a793171bd8c3b46f5980c1cf847cb171a6 Fixes: QTBUG-90520
+7d3fee7ca9b8b0c47fc2cb8092bf21ba28d582e3 Fixes: QTBUG-85547
+a6a8a4e06e435885a86516a63745f743944187ae Fixes: QTBUG-86518
+27cde011277b18e06de75b3369c4a13451e6c3b0 Fixes: QTBUG-84575
+191e1bbf37c44aff8b208947754b9000a679912d Fixes: QTBUG-90595
+9b43d8a98aed87da9fb366cd916cd2e7747090db Fixes: QTBUG-89625
+54980200c79b466a276a4d3054390e4b3162e9ed Fixes: QTBUG-90529
+
+[qtdeclarative]
+62625e243558d9f4203596dad1c01b6a65cf7e8f Fixes: QTBUG-88623
+9c733e3944e93c7eb7c9e1f4dcd22dce3d34206e Fixes: QTBUG-88673
+dcbde9793533fbe79d8facf2e9089494765cf2bd Fixes: QTBUG-87150
+e0d6cd449822055148e1226eef03bd9b001150fc Fixes: QTBUG-87228
+951a4cb3a9c66efac574826cf6fe7aca02a5e101 Fixes: QTBUG-88581
+54b4e08a2a9e0d82cb2107e3df0613a0da13a48a Fixes: QTBUG-88761
+28e48455946deca8a63e054fb4f240e4a24f94e4 Fixes: QTBUG-88807
+b3848de6945d8514b6bea0909659310cbe38af61 Fixes: QTBUG-88786
+f9af3434498b65ecb89bf7054c71773d066fef0b Fixes: QTBUG-85888
+f03615260cf6bba41393a700ca1cc58ce8742dba Fixes: QTBUG-75223
+f725e2d6d8087db9d508c9795bcd0670d35f1032 Fixes: QTBUG-88604
+6d852a7e65d56519f1d73cd853430946f5526f8e Fixes: QTBUG-87526
+a259a46488e089d22ad8a78c11348d5987d58044 Fixes: QTBUG-89187
+01f3bb703e22ef6722cb2d9a04a57fc9d7f2a2bc Fixes: QTBUG-89356
+2b9dda3e4c6aeb294f38e827c0d98ac63d2863b3 Fixes: QTBUG-89203
+224cebe0d96af0f3f4de27aff03918fc319687fa Fixes: QTBUG-89295
+90307d688e8485c143ba291685aa847fb571f6fb Fixes: QTBUG-86323
+e4290a332d795257db01a1a8c175d69ec5cf8113 Fixes: QTBUG-83352
+68c3a6128469c435810e319411cceb72992ac6b5 Fixes: QTBUG-89513
+a6202f87710c2778844b7d8cd80b54ac8742185c Fixes: QTBUG-89738
+7d5b9f5954faa7c24680e3ac433e11dbfa710ffd Fixes: QTBUG-29378
+6f04dffb4ee8b49327a19b1f32246188ddc23267 Fixes: QTBUG-85103
+2fee8f1f310406af41fd104892be012d4e633b94 Fixes: QTBUG-83408
+0c3866a5ba406fe7d04ec19cbf8378e9b0150fb0 Fixes: QTBUG-57245
+0b5ae19f733c7d59e6138c677fe432a0e6f25938 Fixes: QTBUG-87253
+ae8fb3800ac880bfa9805f9163709d96b66b7788 Fixes: QTBUG-90245
+76b2d6b7e50ce211641fc6aa9a902719a124e9ca Fixes: QTBUG-89594
+5a2c0b364a3a5830dd6d5069b5f8d3921aeac73a Fixes: QTBUG-88682
+8483a1ea8271d45edd89e97ddd37edc73b83ce99 Fixes: QTBUG-90485
+adece5d3bb5940d7bb9f7afe49ed4ce10ee60c1b Fixes: QTBUG-90513
+1fc81ad78c66e76d6c96b43bd67cf969b91d67ca Fixes: QTBUG-90489
+
+[qttools]
+bf8e0906c1f009e274340b0aafb58f5081f97944 Fixes: QTBUG-88647
+65fe530ea4b2d9afb0ec03fae4712adb3b90723c Fixes: QTBUG-88603
+690ac170a61976e3d4e3b4f35de51c28c29aa07e Fixes: QTBUG-88687
+0e4f26a9d11264201dfc380a96a80c59957660ca Fixes: QTBUG-88972
+725f4c16ca7a05c3db2337f565c68e09ab9d75ac Fixes: QTBUG-89515
+cd1c8a0ae057ecf6f77e7e3d61713aa79c54b139 Fixes: QTBUG-89597
+f4363ec1eb9d638f04a8b3abec85ebddde0749a3 Fixes: QTBUG-89645
+44ce7a195f166173a4c3975cdc9150753e9b31bd Fixes: QTBUG-89700
+3fecac735ff94b0184a054b542cc1070fc0597ca Fixes: QTBUG-89835
+f1158156a06bc03ba16c01c353f0f57a66d0fede Fixes: QTBUG-89918
+22cd1490aec3b714314fb7c599f770d886236ede Fixes: QTBUG-85572
+893f7245100af943d324706090cc7cfd3ce3ce28 Fixes: QTBUG-89003
+
+[qtdoc]
+18619b395ca7368fb708093a654d74e92c77794e Fixes: QTBUG-87156
+60544c8e10dafb15beb3e2466d8e8c42683ad5ab Fixes: QTBUG-84250
+bbbdf8025126c299931fdae22eb86a984d004748 Fixes: QTBUG-83651
+2c00f559d18a8480ae18cf0371409fad326039f5 Fixes: QTBUG-88931
+46dd909099c5e9d6814f34a13f63ac1fca96b408 Fixes: QTBUG-89026
+480cedef907f8fc3379826c25b1d7fd4676041ab Fixes: QTBUG-89040
+
+[qtwayland]
+fe83a2ede1a2fd821553e33eabc6a63a4ae2ec02 Fixes: QTBUG-88969
+be5a2d2ff56f0ea39a891f3b04604b9e4835871f Fixes: QTBUG-85608
+
+[qtquickcontrols2]
+30ec2136766b5ba2c49763c53d8c751b8b4e0410 Fixes: QTBUG-88955
+c10094db91891f292d4886c68d6c8e7e45b07c2c Fixes: QTBUG-89006
+80e53d4eda0acabbe83a9feb80fc5f2dc47f969b Fixes: QTBUG-89290
+e19e923f52217e82be9e11aadeacfbc917a00126 Fixes: QTBUG-88162
+9143832e9a7470cd17ab1dcce983fbaf7448c0cd Fixes: QTBUG-85770
+fed2f43784e3407b833674997e50f52b0a26161f Fixes: QTBUG-89909
+44f37f37f6a21db4d9d8e10735203d485924a5da Fixes: QTBUG-84426
+2f84f44840a38d2a2cb1b0e4ba6478f2e0946dbc Fixes: QTBUG-89673
+
+[qtquicktimeline]
+0d782ba2d46b3532e8ed14b9b76440506503cb64 Fixes: QTBUG-88664
+31c23847b5e45a559843cdb575cca600770ee052 Fixes: QTBUG-89479
+
+[qtquick3d]
+08eff80a2e111596ceef0fb8d68250f845290a22 Fixes: QTBUG-89012
+e3fa2c1d25a2ffc0f6f685b6a893c47468866dc3 Fixes: QTBUG-89062
+786b67b21f63c19f940b06ea78b562f73aa0f11e Fixes: QTBUG-89104
+ef1e5b7b40fe910c601849ce5b5d972e1adff306 Fixes: QTBUG-89105
+9cbb01db78f5ec49e362d0ed88111f22c5402811 Fixes: QTBUG-89350
+bfc6433fb6df402e3e888d97e572a95715648351 Fixes: QTBUG-88241
+1d728bcde991e92203211f7dfa82624b40fd1a94 Fixes: QTBUG-82331
+89a5af14661ad6911e56e965b2501f359bd9d386 Fixes: QTBUG-89372
+fe66c20e49d5a2cce2cf544883c414f3e5166bda Fixes: QTBUG-89657
+fc5b1f8c1967d2e9f0b6fe98c59b0573b5ddfb0a Fixes: QTBUG-89385
+d0e0323cdefeb11862dd99cdd32d69d0ce6d1d60 Fixes: QTBUG-89433
+66e8de19319e53bea00b8edfe9a3452e91cd06e2 Fixes: QTBUG-89942
+
+[qtshadertools]
+36ea6638342d4e56c8ae525a6aad9a877a31cf5b Fixes: QTBUG-89186
+5bcda4db46114be5831dd9aac50f9fcc660df467 Fixes: QTBUG-89288
+
+[qt5compat]
+7b2e9816b6b0a89a289a53015f682131b5946c6f Fixes: QTBUG-89070
+
+Contributors
+______________
+Eirik Aavitsland
+Eskil Abrahamsen Blomfeldt
+Mike Achtelik
+Cristian Adam
+Laszlo Agocs
+Dimitrios Apostolou
+Joerg Bornemann
+Assam Boudjelthia
+Florian Bruhin
+Oswald Buddenhagen
+Andreas Buhr
+Kirill Burtsev
+Wang Chuan
+Alexandru Croitor
+Mitch Curtis
+Giuseppe D'Angelo
+Ole-Morten Duesund
+Alexey Edelev
+Oliver Eftevaag
+Christian Ehrlicher
+Fabio Falsini
+Simo Fält
+David Faure
+Nicolas Fella
+Pekka Gehör
+Lucie Gérard
+Christophe Giboudeaux
+Frederik Gladhorn
+Maximilian Goldstein
+Andrei Golubev
+Cameron Gutman
+Ralf Habacker
+Andre Hartmann
+Jani Heikkinen
+Karsten Heimrich
+Ulf Hermann
+Volker Hilsheimer
+Morten Johan Sørvig
+Jonas Karlsson
+Marius Kittler
+Friedemann Kleint
+Michal Klocek
+Lars Knoll
+Jarek Kobus
+Kai Koehne
+Antti Kokko
+Fabian Kosmale
+Sona Kurazyan
+Igor Kushnir
+Inho Lee
+Qiang Li
+Robert Loehning
+Antti Määttä
+Thiago Macieira
+Sergio Martins
+Leena Miettinen
+Piotr Mikolajczyk
+Richard Moe Gustavsen
+Matthias Möller
+Bartlomiej Moskal
+Andy Nichols
+Mårten Nordheim
+Shinichi Okada
+Jerome Pasion
+Kai Pastor
+Samuli Piippo
+Timur Pocheptsov
+Joni Poikelin
+Aleix Pol
+Alessandro Portale
+Liang Qi
+Topi Reinio
+Shawn Rutledge
+Toni Saario
+Jan Arve Sæther
+Ahmad Samir
+Volodymyr Samokhatko
+Allan Sandfeld Jensen
+Tony Sarajärvi
+Craig Scott
+Andy Shaw
+Venugopal Shivashankar
+David Skoland
+Ivan Solovev
+Christian Strømme
+Alex Trotsenko
+Tuomas Vaarala
+Doris Verria
+Nico Vertriest
+Tor Arne Vestbø
+Valery Volgutov
+Alexander Volkov
+ChunLin Wang
+Richard Weickelt
+Edward Welbourne
+Paul Wicking
+Oliver Wolff
+Xiang Xiaojun
+Li Xinwei
+Zhang Yu
+
+
