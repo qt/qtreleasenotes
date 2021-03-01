@@ -1,0 +1,172 @@
+Relase note
+===========
+
+Qt 6.0.2 release is a bug fix releases to the top of Qt 6.0.1.
+
+The goal has been to retain as much source compatibility with Qt 5.15 as
+possible, but some changes were inevitable to make Qt a better framework.
+
+To make it easier to port to Qt 6.0, we have created a porting guide to
+summarize those changes and provide guidance to handle them. In the guide, you
+can find links to articles about changes that may affect your application and
+help you transition from Qt 5.15 to Qt 6.0:
+
+https://doc.qt.io/qt-6/portingguide.html
+
+For more details refer to the online documentation of Qt 6.0:
+https://doc.qt.io/qt-6/index.html
+
+Note: This release note is only for Qt 6.0.2 release and so on does not contain
+details for Additional Modules released together with Qt 6.0.2
+
+Important Changes
+_________________
+
+[qtbase]
+ed3edec3ba Fixed a possible crash with certain fonts
+when shaping strings consisting only of control characters.
+
+
+c67eaed846 Fixed crash when calling
+QRawFont::alphaMapForGlyph() with subpixel antialiasing on Wayland.
+
+
+249b310046 Fixed QList::fill() regression introduced in
+6.0: calling fill() with size < current list size wouldn't truncate the
+list
+
+
+
+Fixes
+_____
+
+[qtbase]
+443ce5d073 Fixes: QTBUG-89578
+b61275ee72 Fixes: QTBUG-90042
+e255716291 Fixes: QTBUG-74088
+ddc1805fa2 Fixes: QTBUG-90743
+7b8178c9d6 Fixes: QTBUG-90672
+976ee88149 Fixes: QTBUG-90553
+eef3fe88d5 Fixes: QTBUG-89639
+b1fbaec04c Fixes: QTBUG-90628
+f1efd15d43 Fixes: QTBUG-90777
+8b1194edea Fixes: QTBUG-89905
+2a2783e824 Fixes: QTBUG-89784
+7e6adc1115 Fixes: QTBUG-85787
+cf848323a3 Fixes: QTBUG-79059
+ed3edec3ba Fixes: QTBUG-89155
+3409cda1bc Fixes: QTBUG-90860
+d482d8b1b5 Fixes: QTBUG-84616
+38c6e5ebbd Fixes: QTBUG-90315
+cdeed3f2ad Fixes: QTBUG-90683
+c67eaed846 Fixes: QTBUG-90236
+59e4fe68e5 Fixes: QTBUG-90946
+bce9a182ad Fixes: QTBUG-90698
+cc5a1473f1 Fixes: QTBUG-77937
+9d49f19291 Fixes: QTBUG-90850
+3fec6597a5 Fixes: QTBUG-75630
+dc34954d4c Fixes: QTBUG-88579
+98e9275112 Fixes: QTBUG-90870
+249b310046 Fixes: QTBUG-91042
+405bf69ebe Fixes: QTBUG-90937
+5506313d54 Fixes: QTBUG-89735
+5c63d158c2 Fixes: QTBUG-90625
+8de9fefed8 Fixes: QTBUG-89889
+3c7db6ce41 Fixes: QTBUG-90699
+4d1808e502 Fixes: QTBUG-89952
+44bc8a6353 Fixes: QTBUG-90969
+33bc82f466 Fixes: QTBUG-91158
+4cafeba508 Fixes: QTBUG-86733
+4a541564f4 Fixes: QTBUG-88031
+41743795ae Fixes: QTBUG-32778
+18fd74c70d Fixes: QTBUG-87871
+aebbf928fa Fixes: QTBUG-91194
+e1cc406ea4 Fixes: QTBUG-83632
+25d8f9da70 Fixes: QTBUG-83295
+47be67d65a Fixes: QTBUG-90925
+7833eae304 Fixes: QTBUG-91161
+723077eb35 Fixes: QTBUG-91038
+
+[qtdeclarative]
+4946a6ebc3 Fixes: QTBUG-90740
+7f99a69e25 Fixes: QTBUG-90538
+2a5b952a62 Fixes: QTBUG-89955
+4b2eabdf21 Fixes: QTBUG-90038
+c48ba63c90 Fixes: QTBUG-86482
+4f2cc0d258 Fixes: QTBUG-87197
+aa90901c4f Fixes: QTBUG-91196
+f839f2f3d6 Fixes: QTBUG-90239
+
+[qttools]
+912d5f0e Fixes: QTBUG-90691
+0681e456 Fixes: QTBUG-89980
+62e01b86 Fixes: QTBUG-90867
+c3510a42 Fixes: QTBUG-91244
+
+[qtdoc]
+122560ce Fixes: QTBUG-90640
+707bb7a1 Fixes: QTBUG-90747
+10dfefa0 Fixes: QTBUG-86614
+
+[qtquickcontrols2]
+0ef54c14 Fixes: QTBUG-75042
+46dd9419 Fixes: QTBUG-61021
+
+[qtquick3d]
+6e2bdb9c Fixes: QTBUG-90514
+c79f0499 Fixes: QTBUG-89886
+
+Contributors
+____________
+
+Alex Blasche
+Alexey Edelev
+Allan Sandfeld Jensen
+Andreas Buhr
+Andreas Hartmetz
+Andrei Golubev
+Andy Nichols
+Andy Shaw
+Assam Boudjelthia
+Bartlomiej Moskal
+Bastien Bouclet
+Christian Ehrlicher
+Christian Strømme
+Craig Scott
+David Edmundson
+Dmitry Shachnev
+Dong Rui
+Edward Welbourne
+Eirik Aavitsland
+Eskil Abrahamsen Blomfeldt
+Fabian Kosmale
+Fabio Falsini
+Friedemann Kleint
+Giuseppe D'Angelo
+Jan Arve Sæther
+Jan Grulich
+Jani Heikkinen
+Joerg Bornemann
+Lars Schmertmann
+Laszlo Agocs
+Leena Miettinen
+Li Xinwei
+Liang Qi
+Lucie Gérard
+Maximilian Goldstein
+Michael Brasser
+Mitch Curtis
+Morten Johan Sørvig
+Mårten Nordheim
+Nick Shaforostov
+Peter Seiderer
+Richard Moe Gustavsen
+Robert Löhning
+Shawn Rutledge
+Topi Reinio
+Tor Arne Vestbø
+Ulf Hermann
+Valery Volgutov
+Volker Hilsheimer
+Wang Chuan
+Zhang Hao
