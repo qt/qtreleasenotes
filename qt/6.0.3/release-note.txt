@@ -1,0 +1,134 @@
+Relase note
+===========
+
+Qt 6.0.3 release is a bug fix releases to the top of Qt 6.0.2.
+
+The goal has been to retain as much source compatibility with Qt 5.15 as
+possible, but some changes were inevitable to make Qt a better framework.
+
+To make it easier to port to Qt 6.0, we have created a porting guide to
+summarize those changes and provide guidance to handle them. In the guide, you
+can find links to articles about changes that may affect your application and
+help you transition from Qt 5.15 to Qt 6.0:
+
+https://doc.qt.io/qt-6/portingguide.html
+
+For more details refer to the online documentation of Qt 6.0:
+https://doc.qt.io/qt-6/index.html
+
+Note: This release note is only for Qt 6.0.3 release and does not contain
+details for Additional Modules released together with Qt 6.0.3
+
+Important Changes
+_________________
+
+[qtbase]
+e815198402 Fixed matching against fonts which has a family name that ends or starts with a space.
+5463203fa2 libjpeg-turbo was updated to version 2.0.6
+d49a37a5e7 Updated SQLite to v3.35.2
+
+[qtwayland]
+268e66f0 Fixed a problem where a virtual keyboard would not be updated correctly if two clients were started at almost the same time.
+
+Fixes
+_____
+
+[qtbase]
+60c5f9502f fixes QTBUG-91401 Error loading PNG: Unsupported ICC profile class 70727472
+8893205533 fixes QTBUG-91500 There is no file 'QWGLContext'
+0a69974827 fixes QTBUG-91532 tst_QMenu::QTBUG_89082_actionTipsHide() failing on Windows
+081eb5d636 fixes QTBUG-91620 QFuture documentation incorrectly linked
+46b0f3e170 fixes QTBUG-87078 xcb: showMaximized() in full screen only restores the window with some WMs
+3a2fe41c9f fixes QTBUG-42469 QTreeWidget animated crashes when QTreeWidgetItems are set hidden to true
+2ed9bae3df fixes QTBUG-91630 Rendering error with OpenGL in Lancelot test case involving Item2D
+b130d16a27 fixes QTBUG-91438 iOS enormous leak ends with "Terminated due to memory issue"
+1c0c2c4ded fixes QTBUG-86857 QPushButton style "text-align: bottom" not working in Qt 5.15.1
+8182507ac0 fixes QTBUG-91141 qdoc/WebXML (Qt 6): Invalid links to "Changes to Qt <Module>" are inserted into \brief of classes and other places
+341654213b fixes QTBUG-91704 QMultiHash::count(key) crashes on empty container
+de9a97a47a fixes QTBUG-91455 Qt.ImhFormattedNumbersOnly flag does not show minus sign in iOS keyboard
+049e14870c fixes QTBUG-91909 QtConcurrenceThreadEngine > ThreadEngineStarter<VOID>?
+b668373477 fixes QTBUG-90812 androiddeployqt doesn't bundle JARs or include permissions set on a plugin
+774f4542ed fixes QTBUG-91223 qt_memrotate270, qt_memrotate180 , qt_memrotate90, segfaults
+90267af5df fixes QTBUG-89922  tst_QSslSocket::setSslConfiguration(WithoutProxy fails with macOS 10.15 and Xcode 12.3
+d3b24a14bb fixes QTBUG-91261 Invalid pointer return with QGridLayout::itemAt(-1)
+945c607db6 fixes QTBUG-89082 The previous tips is still displayed when mouse move to another Action without tips.
+e4f9ddc9eb fixes QTBUG-82617 Crash on exit via back button on Huawei Mate 20 Pro
+4e1bd90f3f fixes QTBUG-91392 ProtocolFailure with certain HTTP requests to transmission-daemon
+aac5b02e28 fixes QTBUG-91500 There is no file 'QWGLContext'
+b9091e4cec fixes QTBUG-91253 QConcatenateTablesProxyModel crushes being sourceModel in QSortFilterProxyModel
+562ee2f3a8 fixes QTCREATORBUG-23574 cmake support for iOS
+e815198402 fixes QTBUG-79140 [REG 5.13.0 -> 5.14.0]OTF fonts don't work correctly
+4c32d983b9 fixes QTBUG-89082 The previous tips is still displayed when mouse move to another Action without tips.
+
+[qtsvg]
+0fa5229 fixes QTBUG-91507 Out of bounds read in function `QRadialFetchSimd<QSimdSse2>::fetch` when input craft svg file
+
+[qtdeclarative]
+e1ab5c04c7 fixes QTBUG-91519 [REG 5.14.2 -> 5.15.0] Call QQmlIncubator::clear() inside QQmlIncubator::setInitialState() crashes afterward
+b1e47b795e fixes QTBUG-91491 Crash in Generator::method_next when creating new properties on Generator
+a453e59c2a fixes QTBUG-91182 Atlas textures with size not greater than QSG_ATLAS_TRANSIENT_IMAGE_THRESHOLD are not visible with ShaderEffect
+5a85460b2a fixes QTBUG-92076 TableView: forceLayout() fails when all columns are hidden
+
+[qttools]
+dc5f87bd fixes QTBUG-91746 Incomplete statement in QDoc documentation on \instantiates
+05f23a21 fixes QTBUG-91754 qdoc crash when generic documents of qtbase
+b554c4db fixes QTBUG-91990 qdoc: \property command fails with a const property type
+
+[qtwayland]
+268e66f0 fixes QTBUG-91096 >1 Programs on QtWayland causes QtVirtualKeyboard to not work
+
+[qtquickcontrols2]
+6a6e603e fixes QTBUG-87018 Touch/mouse-related test failures in qtquickcontrols2
+99d9214c fixes QTBUG-91141 qdoc/WebXML (Qt 6): Invalid links to "Changes to Qt <Module>" are inserted into \brief of classes and other places
+
+[qtquick3d]
+d76240bc fixes QTBUG-91412 Texture.sourceItem does not handle all textureProvider items correctly
+908feebc fixes QTBUG-91879 Invisible but item layer View3D with Inline render mode crashes
+
+Contributors
+____________
+
+Aavitsland Eirik
+Agocs Laszlo
+Blomfeldt Eskil Abrahamsen
+Bornemann Joerg
+Boudjelthia Assam
+Buhr Andreas
+Croitor Alexandru
+Curtis Mitch
+Eftevaag Oliver
+Faure David
+Genkhel Roman
+Goldstein Maximilian
+Golubev Andrei
+Grulich Jan
+Grönholm Kaj
+Gustavsen Richard Moe
+Halmet Heikki
+Hartmetz Andreas
+Heikkinen Jani
+Hermann Ulf
+Heskestad Øystein
+Hilsheimer Volker
+Jensen Allan Sandfeld
+Kleint Friedemann
+Kosmale Fabian
+Kurazyan Sona
+Li Qiang
+Löhning Robert
+Nordheim Mårten
+Pocheptsov Timur
+Pohjanheimo Milla
+Poikelin Joni
+Qi Liang
+Reinio Topi
+Rutledge Shawn
+Scott Craig
+Shaw Andy
+Solovev Ivan
+Vestbø Tor Arne
+Voutilainen Ville
+Welbourne Edward
+Wicking Paul
+Yu Zhang
+Zhang JiDe
