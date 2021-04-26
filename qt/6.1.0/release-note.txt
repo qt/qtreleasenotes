@@ -1,0 +1,1241 @@
+Relase note
+===========
+
+Qt 6.1 introduces many new features and improvements as well as bugfixes
+over the 6.0.x series. For more details, refer to the online documentation
+included in this distribution. The documentation is also available online:
+
+https://doc.qt.io/qt-6/index.html
+
+The Qt version 6.1 series is binary compatible with the 6.0.x series.
+Applications compiled for 6.0 will continue to run with 6.1.
+
+Some of the changes listed in this file include issue tracking numbers
+corresponding to tasks in the Qt Bug Tracker:
+
+https://bugreports.qt.io/
+
+Each of these identifiers can be entered in the bug tracker to obtain more
+information about a particular change.
+
+To make it easier to port to Qt 6, we have created a porting guide to
+summarize those changes and provide guidance to handle them. In the guide, you
+can find links to articles about changes that may affect your application and
+help you transition from Qt 5.15 to Qt 6:
+
+https://doc.qt.io/qt-6/portingguide.html
+
+Important Changes
+_________________
+
+[qtbase]
+612a01be65 Deprecate QScopedPointer::take()
+    The take() function has been deprecated. This was an API mistake, as it allowed the pointer/pointee to escape from the scope, defeating the point of the QScopedPointer class. If you need such semantics, use std::unique_ptr (and call release()).
+
+d8602ce58b QFont: Prefer setFamilies() over setFamily()
+    Indicated that setFamilies/families is preferred over setFamily/family to ensure that font family names are preserved when spaces, commas and so on are used in the name.
+
+fb6b7869e8 QPoint(F): add support for structured binding
+    QPoint is usable in a structured binding.
+
+c63669bb8c QLayout: add a way to unset user-defined contents margins
+    Added unsetContentsMargins().
+
+8ae9431c79 QMargins(F): add support for structured binding
+    QMargins is usable in a structured binding.
+
+54875be84d Add convenience functions for QFuture creation
+    Add convenience functions to create a ready QFuture and a QFuture with an exception
+
+1ff25785ff Avoid integer overflow and division by zero
+    Pen patterns are restrained to a maximum length and values of 1024, fixing oss-fuzz issue 25310.
+
+3f8896d77e QSet: add missing insert-with-hint
+    Added insert() overload taking an insertion hint, for STL compatibility.
+
+5771591fbc QString/QByteArray: add erase() for iterators
+    Added erase().
+
+3a4115d123 Return a more useful date-time on parser failure in spring-forward gap
+    Restored pre-5.15.0 behavior when parsing a date-time from a string (and document what it implies): if the string has the right form but represents a date-time that was skipped by a time-zone transition (e.g. a DST spring-forward), the invalid date-time object returned can, none the less, be used to recover a near-by date-time that may be more useful in some cases. From 5.15.0 to 5.15.2 and in 6.0.0, a default-constructed QDateTime was returned in place of this more informative invalid date-time.
+
+d27d2b5d72 QMetaProperty::typeName: use name from metatype
+    QMetaProperty::typeName returns now always the same name as name() of the corresponding metatype. This can cause a change for enum properties which were not fully-qualified.
+
+d982fdfca4 QHeaderView: allow un-sorting of models
+    Added the sortIndicatorClearable property. Setting this property allows the user to clear the sort indicator on a section, resetting the model to its default ordering.
+
+81e893fb2d QHash: support std::hash as hashing function
+    QHash, QMultiHash and QSet now support for key types anything that can be hashed via std::hash, instead of always requiring a qHash() overload.
+
+1158ff67b4 QSslSocket::verify: do not alter the default configuration
+    QSslSocket::verify - do not change the default configuration
+
+c176525f13 Sequential general purpose containers: add erase/erase_if
+    Added erase() and erase_if(), for consistent container erasure. Added removeIf() as a method, complementing removeOne() / removeAll().
+
+62dad9be9e QSet: add erase_if
+    Added erase_if() for consistent container erasure. Added removeIf() as a method.
+
+b2ea30dde0 QString/QByteArray: add erase/erase_if
+    Added erase() and erase_if() for consistent container erasure.
+
+e12e2b43b7 Associative containers: add erase_if
+    Added removeIf() and erase_if().
+
+427da06414 QRE: discourage users from assuming that QRE stores the subject
+    QRegularExpression takes a shallow copy of a QString subject when matching over it. This means that users can destroy or modify the string data while still having match results over it. This behavior is deprecated; in a future version of Qt, QRegularExpression will no longer take a copy. Note that behavior has always been undocumented and users were never supposed to modify a subject string while match objects were alive on it. In practice, it's very unlikely that your code is relying on the existing behavior.
+
+a1a55d5b93 QTestLib: add a abort-on-fail environment variable
+    When the QTEST_FATAL_FAIL environment variable is set to a non-zero value, a test immediately aborts its execution. This is useful to debug intermittent failures.
+
+509c257521 PCRE: update to 10.36
+    PCRE2 has been updated to version 10.36.
+
+2b8674a2fc Make the overflow math functions public
+    The overflow-safe math functions qAddOverflow(), qSubOverflow(), qMulOverflow() were added.
+
+4d94384612 QHeaderView: respect the font role while calculating the elided text
+    QStyleOptionHeader got a new member textElideMode.
+
+7c3208c97d QString: fix count(QRegularExpression)
+    Fixed a corner case when using QString::count(QRegularExpression), causing an empty in the last position not to be accounted for in the returned result.
+
+ce0b767310 QStringView: add some QRegularExpression-related overloads
+    Added the indexOf(), contains(), lastIndexOf() and count() methods taking a QRegularExpression.
+
+6dac45b246 QSocketNotifier: extend API to provide more flexible startup
+    Added setSocket() and an additional constructor which requires no socket.
+
+30811f6428 Fix qt_alphaVersion and qt_opaqueVersion in the trivial case
+    Opaque pixmaps on devices with a non-standard opaque format will now correctly match format for faster blitting. Same with semitransparent pixmaps on devices with a non-standard semitransparent format.
+
+c88905f0a9 Disallow construction of QPropertyBinding from a property
+    It was possible to create a QPropertyBinding from a property; this would steal any set binding from the property or create an invalid binding if none was set. Use makePropertyBinding if you want to to create a binding which depends on the property's value, or takeBinding if you want to repurpose the property's binding.
+
+04c34eb799 QProcess: allow merged channels forwarding for detached processes
+    Added support for QProcess::MergedChannels mode with startDetached().
+
+e334d6f9a7 QProcess: allow pipelining for detached processes
+    Added support for setStandardOutputProcess() with startDetached().
+
+6974737695 Change QLineF::setLength() to work whenever length() is non-zero
+    QLineF::setLength() will now set the length if the line's length() is non-zero. Previously, it was documented to only set the length if isNull() was false; this is a fuzzy check, so isNull() could be true for a line with non-zero length().
+
+b211148e4b Sql ODBC driver: add direct support for float and short datatype
+    The ODBC driver now properly maps QMetaType::Float to real sql datatype and QMetaType::Short to smallint
+
+f8f629cc13 QSql/QSqlite: return extended error codes by default
+    The plugin now returns the extended error codes by default.
+
+6a3f8cbc3a Use design metrics when adding text to QPainterPath
+    Fixed an issue where QPainterPath::addText() would get inconsistent kerning for smaller font sizes when hinting is enabled.
+
+376e3bd8ec Introduce QUrlResourceProvider to load resources for HTML
+    Introduced QUrlResourceProvider that allows to load resources for HTML. It is intended to replace the use of QTextDocument::loadResource().
+
+b2a3389cfe Extend qIsInf() and friends to handle integral types sensibly
+    qIsInf(), qIsNaN() and qIsFinite() now, like std::isinf() and friends, accept integral types (returning false, false and true, respectively) as well as floating-point ones.
+
+539553a572 QTestlib/JUnit XML: Log most messages to standard output instead of error output
+    In JUnit XML, output that is not a warning/error is now logged under <system-out> instead of <system-err>.
+
+cfd935fe6c Fix XCB launch key mapping
+    XF86LaunchXX keys have been remapped, so the Qt names and X11 names match, instead of being 2 off.
+
+f1465c621c QLocale: Allow direct conversion to language, country, and script codes
+    Added static languageToCode(), countryToCode() scriptToCode() methods that convert enum values to the respective ISO code strings.
+
+5a0e5521e4 QVectorND: make some constructors explicit
+    The QVector2D/3D/4D converting constructors from another QVectorND now explicit. This was done to prevent a category of bugs resulting from operations accidentally mixing QVectorND objects.
+
+50c63446f5 Fix problems with offset-derived ids for QTimeZone
+    QTimeZone instances created by offset from UTC (in seconds) shall now only include minutes in their ID when the offset is not a whole number of hours. They shall also include the seconds in their ID when the offset is not a whole number of minutes.
+
+aa09bea00c control scrolling of QTabBar using StyleHint
+    Added SH_TabBar_AllowWheelScrolling as a style hint to enable/disable cycling through tabs using the scroll wheel. This defaults to true in all styles except the macOS one so there is no change in existing behavior.
+
+722a7dda56 SQLite: Update to 3.34.0
+    Updated to 3.34.0
+
+d79a9b1a4f Implement vertical subpixel positioning where available
+    Added render hint flag QPainter::VerticalSubpixelPositioning which will position text at subpixel positions vertically whenever supported. In absence of this, text position will be rounded vertically as before.
+
+e7c028bb9c QLocale: Allow direct conversion from language, country, and script codes
+    Added static codeToLanguage(), codeToCountry(), codeToScript() methods that convert ISO code strings to the respective enum values.
+
+b08368d99f Add qHypot() to qmath.h, exposing and extending std::hypot()
+    Header <QMath> now provides qHypot(), an implementation of std::hypot() taking arbitrarily many numeric values, including support for qfloat16, while avoiding the overflow and underflow problems that arise when naively taking the square root of a sum of squares.
+
+4e60681c87 Make QJniObject and QJniEnvironment public API
+    Add new QJniObject, QJniEnvironment and QJniExceptionCleaner APIs.
+
+065527825e Remove false Q_UNREACHABLE from shaping code
+    Fixed a possible crash with certain fonts when shaping strings consisting only of control characters.
+
+9807573764 Fix crash when requesting A32 glyph on Wayland
+    Fixed crash when calling QRawFont::alphaMapForGlyph() with subpixel antialiasing on Wayland.
+
+dca5a2ca39 Restore pre-Qt6 QList::fill() behavior
+    Fixed QList::fill() regression introduced in 6.0: calling fill() with size < current list size wouldn't truncate the list
+
+f576e22f6e QMatrix4x4: deprecate operator*(QMatrix4x4, QVector3D/QPoint(F))
+    operator* between a QMatrix4x4 and a QVector3D, QPoint, or QPointF has been deprecated in favor of map() and mapVector().
+
+2c55e121c2 QMatrix4x4: deprecate operator*(QVector3D, QMatrix4x4)
+    The multiplication operator (operator*) between a QVector3D and a QMatrix4x4 has been deprecated. User code needs to extend the QVector3D to a QVector4D first (by specifying the intended w coordinate), and then multiply the QVector4D by the matrix.
+
+64c47d7f61 QProcess::startDetached: set the error condition on failure to start
+    If a startDetached() fails to start the target application, the QProcess object should now have a proper error string in errorString().
+
+c515ee178f Move build tools to libexec instead of the bin dir
+    Tools that are called by the build system and are unlikely to be called by the user are now installed to the libexec directory.
+
+82f4c5ebe5 QNetworkInterface/Unix: fix DNS eligibility of global addresses
+    Fixed the reporting the "DNS eligibility" factor (QNetworkAddressEntry::dnsEligibility) for global IP addresses. Previously, QNetworkInterface interface erroneously reported all global addresses as eligible, regardless of whether they had already been deprecated by the OS or were temporary in the first place.
+
+a441548f42 Update bundled libjpeg-turbo to version 2.0.6
+    libjpeg-turbo was updated to version 2.0.6
+
+97ffc571ae Support family names that end/start with space
+    Fixed matching against fonts which has a family name that ends or starts with a space.
+
+474ec0ac9a SQLite: Update to 3.35.2
+    Updated SQLite to v3.35.2
+
+86729df9d4 QTextHtmlParserNode: Limit colspan to avoid segfault
+    QTextDocument::setHtml: column spans are limited to 20480, an arbitrarily high but reasonable value.
+
+6e8a74712f QString: add missing char8_t* constructor / fromUtf8 overloads
+    Added a constructor and a fromUtf8() overload taking a `const char8_t *` argument.
+
+
+[qtdeclarative]
+db0b7cfcb2 qmlformat: Add indent options
+    Added option to customize indentation.
+
+f8f39f6ee4 Find qml imports inside subdirectories of symlinks
+    Follow sybmolic links in findQmlImportsInDirectory
+
+6eb35df60e QML engine: Deprecate DefaultMethod
+    Assigning an object to a signal handler is deprecated. Instead, create the object, give it an id, and call the desired slot from the signal handler. For instance, instead of of ListView.onRemove: SequentialAnimation {...} use SequentialAnimation {id: removeAnimation; ...} ListView.onRemove: removeAnimation.start() A warning will be printed whenever an assignment of an object to a signal handler occurs. The warning can be controlled via the qt.qml.defaultmethod logging category.
+
+33c87736db Kill Flickable's wheel momentum if angleDeltas not multiples of 120
+    Flickable now tries to detect whether you're using a "clicky" wheel on a desktop mouse.  A laptop trackpad can generate QWheelEvent::angleDelta values that are not multiples of 120; in that case, smooth scrolling with momentum is disabled, to avoid losing control of scrolling. Set the environment variable QT_QUICK_FLICKABLE_WHEEL_MOMENTUM_ENABLED=0 to opt out of the old behavior entirely, or set it to 1 to opt in unconditionally.
+
+cf3e0559b0 qmlformat: Remove import sorting
+    Remove import sorting and the (now obsolete) -n parameter to disable it
+
+6f181768a3 Add a QJSManagedValue
+    The new QJSManagedValue should be used instead of QJSValue for manipulating properties and prototypes of JavaScript values, as well as for calling JavaScript functions.
+
+7c648280bb doc: explain QQItem event delivery, handlers, setAcceptTouchEvents()
+    When subclassing QQuickItem, you should call setAcceptTouchEvents(true) if you need the item to receive touch events. It will be required in Qt 6.
+
+831efa14e9 Update hovered on disabled QQuickItems
+    QQuickItem::hovered will now update even when the item is disabled.
+
+c1bcaca07f QJSEngine: Add a function to throw a pre-generated error object
+    QJSEngine has gained an additional overload to the throwError() method, with the effect that calling throwError() with a character literal as argument is now ambiguous. You should explicitly construct a QString instead.
+
+06d819cd71 QML: Warn about variables being used before their declaration
+    QML warns about JavaScript variables being used before their declaration now. This is almost always a mistake. It is particularly dangerous in the presence of injected signal parameters because qmlcachegen cannot identify a name collision between an injected signal parameter and a variable being used before its declaration. It therefore miscompiles such code. You can turn off the deprecation warning using the "qt.qml.compiler" logging category.
+
+b7412dc866 QML: Warn about usage of injected signal parameters
+    The automatic injection of signal parameters into signal handlers is deprecated. This is because we cannot determine the names of the signal parameters at compile time. Furthermore, also for human readers it is difficult to discern between arguments, context properties, properties of the current object, and properties of the root object of the component. Requiring the signal parameters to be explicitly named resolves some of this confusion. You can turn the deprecation warning off using the "qt.qml.compiler" and "qt.qml.context" logging categories.
+
+
+[qtwayland]
+38fc568b Fix leaked subsurface wayland items
+    Fixed a memory leak when creating subsurfaces.
+
+bd1713ef Fix memory leak in QWaylandGLContext
+    Fixed a memory leak when creating QOpenGLContexts on Wayland and using the wayland-egl backend.
+
+3aa1b351 Fix race condition when attaching client to text input
+    Fixed a problem where a virtual keyboard would not be updated correctly if two clients were started at almost the same time.
+
+
+[qt3d]
+c6aec09f4 Introduce QGeometryRenderer::sortIndex
+    Add sortIndex property to QGeometryRenderer to explicitly control the order in which entities are rendered
+
+86eb86514 Fix feature names in cmake
+    Configuration time command line arguments have changed to use dashes rather than underscores
+
+
+[qtimageformats]
+d1819db Fix linking of WebP through CMake API
+    Fixed an error that might have led to not compiling webp plugin when configuring Qt yourself.
+
+2932b4c Update bundled libwebp to version 1.2.0
+    Update bundled libwebp to version 1.2.0
+
+16601c1 Update bundled libtiff to version 4.2.0
+    Bundled libtiff was updated to version 4.2.0
+
+
+[qtquickcontrols2]
+4a718113a Allow style to be set to "Default" for compatibility
+    Setting the style to "Default" now behaves the same way as not specifying a style; a relevant style will be chosen based on the platform. To use the style previously known as "Default", use "Basic".
+
+df33c79fb Reset the opacity and scale properties after the exit transition
+    After the exit transition is finished, then the opacity and scale properties will be reset to their values before the enter transition is started.
+
+
+[qtcharts]
+227020b1 Remove charts namespace for Qt6
+    Use QT_NAMESPACE as other modules.
+
+
+[qtvirtualkeyboard]
+dfb10af Move qtvirtualkeyboard over to the new configure system
+    The build system was switched to the new configure system. See documentation for updated instructions.
+
+90d64de Fix activation of input panel when initial active focus is set
+    It is now possible to open the input panel implicitly when activating the window. Before, this failed because the "visible" state was reset (due to a bug) during activation.
+
+6ce4fc1 Sort language list by active languages
+    The language list can now be sorted in any order by specifying the order in the active language list.
+
+6421dbd Add new setting for user data path
+    Added new property to settings VirtualKeyboardSettings.userDataPath. This allows the application or middleware to change the path to user files at runtime. Added also a signal to indicate user data reset - when the application triggers the signal, the virtual keyboard closes all files in the user's directory.
+
+5b81a28 Add new setting for handwriting timeout
+    Add new settings VirtualKeyboardSettings.hwrTimeoutForAlphabetic and VirtualKeyboardSettings.hwrTimeoutForCjk to allow the application to adjust the handwriting recognition timeout.
+
+e923b4f Add new setting for input method hints
+    Add new setting VirtualKeyboardSettings.inputMethodHints, which allows the application to set persistent application wide input method hints.
+
+1477134 Add new setting for disabling handwriting mode
+    Add new setting VirtualKeyboardSettings.disableHandwritingMode, which allows to disable handwriting mode at runtime.
+
+c82d462 Add new settings defaultInputMethodDisabled, defaultDictionaryDisabled
+    Add new settings VirtualKeyboardSettings.defaultInputMethodDisabled and VirtualKeyboardSettings.defaultDictionaryDisabled.
+
+6e83e31 Add new method clearInputMode() to input method v2
+    Added new method clearInputMode() to input method.
+
+87d6c20 Add generic dictionary API for the virtual keyboard v2
+    Added a generic dictionary API. The API allows applications to create/update/remove dictionaries at runtime. The desired dictionaries can be activated from the application. The implementation of the dictionaries depends on the input method. A typical use case for this API would be a phone book.
+
+3a703e5 Add new function Trace.startHideTimer
+    Added new function Trace.startHideTimer(), which allows the input method to hide trace before destroying the trace object.
+
+32c025d Add new key type FlickKey v2
+    Added a new key type FlickKey.
+
+d22313c Add Stroke and Romaji values to the InputMode enumeration
+    Added Stroke and Romaji values to the InputMode enumeration.
+
+d3dbc82 CMake: Fix pinyin and tcime resource bundling
+    Added vkb- prefix to no-bundle-pinyin no-bundle-tcime command line options (e.g. vkb-no-bundle-pinyin) and restored them as part of configuration.
+
+
+[qtscxml]
+96a69e7 Only return uniquely named services from invokedServices()
+    If you have multiple equally named children of an invoked service, only one of them will be included in the "children" property now. Before, the fact that QVariantMap was actually a multimap was used to squeeze all of them in.
+
+cfb46e8 Name and mark the scxml datamodel plugin headers as private
+    The QScxmlEcmaScriptDataModel class is no longer part of the public API. This relates to moving the ecmascript datamodel's QML dependency from build time to runtime.
+
+
+[qtquick3d]
+c460e497 balsam: Return error codes
+    balsam now returns an error code if no source was given, or the conversion failed.
+
+
+[qtshadertools]
+bbfcb67 Augment attributions for SPIRV-Cross
+    Changed identified license of SPIRV-Cross to Apache License 2.0 and Khronos License, and fixed copyright attributions.
+
+4e1806a Augment attributions for glslang
+    Changed identified licenses in glslang to BSD 3-Clause "New" or "Revised" License, and Khronos License, and Apache License 2.0, and GNU General Public License v3.0 or later with Bison exception 2.2, and NVIDIA 2002 License. Augment Copyright information with details from file headers.
+
+
+[qt5compat]
+94966f0 Move graphical effects to qt5compat
+    Added version of Qt Graphical Effects for compatibility with Qt 5 code. This can be accessed by importing "Qt5Compat.GraphicalEffects"
+
+
+Fixes
+_____
+
+[qtbase]
+ce29ce586f fixes QTBUG-88624 lupdate: exectuion sometimes fails with return value 1
+4111d8e8e7 fixes QTBUG-88042 tst_QTcpSocket::connectToHostError() failed on Ubuntu 20.04 in CI
+a6aaa2b707 fixes QTBUG-88600 SystemTrayIcon icon too big /squashed on second screen (Big Sur)
+7d5ba1c17e fixes QTBUG-86976 Input method widget is closed on destructing a widget
+85f0792d2b fixes QTBUG-88501 [REG v6.0.0-beta3 -> dev] configure -no-gui still wants to build GUI
+98e6234bd4 fixes QTBUG-88221 Some module .pri files unexpectedly do not have corresponding prl files.
+e395cbb43d fixes QTBUG-88609 cmake: unable to build qtbase statically with precompiled headers
+8ec9a48e80 fixes QTBUG-88653 QEventLoop::processEvents does not take the timeout into account as expected
+a31484302d fixes QTBUG-88683 QPainter artifacts when scale() and antialiasing is used
+1d14067680 fixes QTBUG-88589 tst_QFont::serialize() failed on openSUSE in CI
+f785849768 fixes QTBUG-85712 WebAssembly: RoundButton has odd behaviour on repeated clicks
+0de0a6a54c fixes QTBUG-85361 When a dialog has a resize grip handle then it is not possible to resize with it
+e8d8b1a5e4 fixes QTBUG-88718 Android build for non-qtbase modules fails:  include could not find load file: QtBuildInternals/QtBuildInternalsAndroid
+f9d172f5a1 fixes QTBUG-88445 Fix tst_qlibrary on Andreas' machine
+8302ca22f4 fixes QTBUG-88781 QFont crashes in family() after setFamilies with empty list
+2548438e32 fixes QTBUG-88581 qtquickcontrols2 won't build due to .objs getting too long paths for MSVC in static builds
+7f1e145f7e fixes QTBUG-88764 Path to QtStandaloneTestTemplateProject is incorrect for non-prefix build
+78cbb25b9d fixes QTBUG-88834 [REG 6.0.0beta5->RC1] embedded/flickable not compiling
+97b914b3e7 fixes QTBUG-88506 tst_Android::assetsRead fails on Android
+89b49e5231 fixes QTBUG-88864 QMAKE_PRL_TARGET refers to .dll instead of .lib
+6269438af9 fixes QTBUG-86857 QPushButton style "text-align: bottom" not working in Qt 5.15.1
+380d97e1bd fixes QTBUG-88656 Undefined behavior in QDateTime::fromString
+e1def46f37 fixes QTBUG-72233 Improve QCollator documentation
+66acca3316 fixes QTBUG-86850 QSortFilterModel forwards dataChanged() when the source model changes data incolumns that the filter model refuses
+9aa34f3bf2 fixes QTBUG-88970 qtwidgets example manifest has broken image URL
+af7f7732cb fixes QTBUG-87036 Document Q_PROPERTY's new BINDABLE attribute in properties.html
+3789ca6c99 fixes QTBUG-88932 Doc: Hidden friends of QVector[2|3|4]D are missing docs
+99abdd180b fixes QTBUG-86295 QDoc warnings in qtbase for 6.0
+bf7cec737f fixes QTBUG-87386 tst_QSslKey::passphraseChecks fails on Android
+92a57e0b01 fixes QTBUG-86287 Static 5.15.0 compile results in "undefined reference to xcb_aux_create_gc"
+dbd1c8b047 fixes QTBUG-88435 QXcbConnection::getTimestamp runs in indefinite loop when X server shuts down
+1158ff67b4 fixes QTBUG-88639 QSslConfiguration::setCaCertificates() does not disable system certificates
+c140b26959 fixes QTBUG-88476 Setting FEATURE_<x> breaks its condition should actually print the CONDITION it breaks.
+92d60ae589 fixes QTBUG-88951 hellovulkanwindow example build fails with qmake on Windows/MSVC
+ca8e9ff2ef fixes QTBUG-88975 Doc: Embedded video links do not work in offline docs when using the litehtml backend
+5494f0af32 fixes QTBUG-88990 Q_DECLARE_METATYPE debug operators regression on namespaced builds
+b21dba98e3 fixes QTBUG-88999 Eager properties can create spurious dependencies
+95cea24fa2 fixes QTBUG-87289 ASan reports multiple leaks in tst_QFuture::onCanceled()
+60ea10e70b fixes QTBUG-82916 qRegisterStreamOperators<T>() has no paired QMetaType::hasRegisteredStreamOperators(int type)
+def1b97849 fixes QTBUG-88417 tst_qnetworkreply authenticationCacheAfterCancel fails on Ubuntu 20.04
+21e7777230 fixes QTBUG-88780 [REG 5.15.2 -> 6.0.0] undefined behavior in qmake
+34fa01be82 fixes QTBUG-89008 tst_QFontDatabase::aliases() failed on openSUSE 15.2
+d9a6517076 fixes QTBUG-63406 widget-based MessageDialog doesn't get centered over its transient parent
+8df2bf0491 fixes QTBUG-86179 QTranslator::load() search order doesn't follow uiLanguages order
+df8fbcf382 fixes QTBUG-88825 Undefined behavior in moc
+27f52942b4 fixes QTBUG-89089 tst_QTcpSocket::connectToHostError() failed on win10 msvc2019 developer build
+f071ba31b2 fixes QTBUG-89047 [REG 5.15 -> 6.0.0] Configure fails in oss-fuzz
+6012285e7d fixes QTBUG-88966 [REG 5.15 -> 6.0.0] Crash when expanding items in QTreeView
+24f12d0cef fixes QTBUG-85986 CMake Qt CI jobs that build examples should also build the qmake .pro examples
+e4395f3f68 fixes QTBUG-89124 Qt 6 for Python: rcc/uic still produce import PySide 2
+f19266bd02 fixes QTBUG-88053 Implement TESTRUNNER and TESTARGS feature for Qt autotests
+9a55f40937 fixes QTBUG-88253 [REG 5.15 -> 6.0] QCborStreamReader allocates 2 GiB for 8 B file
+638171eb10 fixes QTBUG-88256 [REG 5.15 -> 6.0] QCborValue::fromCbor allocates 2 GiB for 8 B input
+04fed9f77e fixes QTBUG-89118 style animated scroll bars might freeze(stop animating) if we do a heavy paint event
+4a9ed41075 fixes QTBUG-88053 Implement TESTRUNNER and TESTARGS feature for Qt autotests
+ae3594436b fixes QTBUG-88188 Cannot click to select an item in a QTreeWidget
+192d37099d fixes QTBUG-89182 qmake -query from a CMake developer build returns wrong paths
+4d94384612 fixes QTBUG-86426 QHeaderView draws elided text wrong when using a non-default font (size)
+c2c163a7d8 fixes QTBUG-89059 Mac: Missing namespace mangling in corelib/kernel
+fdc687913d fixes QTBUG-88982 QSplashScreen missing QPainter::SmoothPixmapTransform
+fa0dc83135 fixes QTBUG-89281 Android apps don't include QML modules
+88fe9d3d97 fixes QTBUG-89201 FTBFS qt6 with MT(d) runtime
+ce0b767310 fixes QTBUG-89050 there seems to be no way to search backwards in QStringView with QRegularExpression
+b94b7687b0 fixes QTBUG-86669 Investigate automatic calling of qt6_import_qml_plugins for examples using a static Qt build
+36ccbee34e fixes QTBUG-89172 Integer-overflow in QFixed::fromReal(qreal r) through QImage::.loadFromData(QByteArray);
+d5bafc80cd fixes QTBUG-88053 Implement TESTRUNNER and TESTARGS feature for Qt autotests
+0e4cc2aca7 fixes QTBUG-89116 QTableView size hints do not honor the span
+b283ce1e83 fixes QTBUG-83457 secureupdclient example crashes
+3d785249ba fixes QTBUG-86960 QDateTime at beginning of DST is created wrongly with recent glibc
+98292b369e fixes QTBUG-89283 Link in documentation wrong
+0ca4635832 fixes QTBUG-89176 QCache related crash
+3eb35d3241 fixes QTBUG-89530 compile error on qsslsocket_schannel.cpp when using MinGW
+494da40f29 fixes QTBUG-89493 Typo in QtOpenGL docs
+61943aefd6 fixes QTBUG-85962 Improve FEATURE_foo to QT_FEATURE_foo detection
+2eb77139a2 fixes QTBUG-84737 When using Qt NFC to scan NFC tags it will not work when the application is first started
+c88905f0a9 fixes QTBUG-89507 calling setBinding has not the intended effect
+f2d22d5a51 fixes QTBUG-75319 [REG 5.12.1 -> 5.12.2] QApplication::clipboard()->text() call blocks execution for ~5 seconds sometimes
+096b4590d5 fixes QTBUG-66448 Android KEYCODE_MEDIA_PLAY_PAUSE is incorrectly translated to Qt.Key_MediaPlay in QML
+c6379e3499 fixes QTBUG-89133 Button with focus looks wrong in macOS Big Sur for QMessageBox
+e40b31fe68 fixes QTBUG-89387  Project ERROR: Library 'openssl' is not defined.
+ed432b070a fixes QTBUG-89473 Cannot build Android with -openssl-linked
+56bdef9437 fixes QTBUG-86557 QT6_HOST_INFO_BINDIR in returning an empty string
+1021cbf45b fixes QTBUG-89470 Numbered lists are rendered as bulleted lists in help mode
+bbebfa0be2 fixes QTBUG-89013 --enable-new-dtags isn't used when enabled
+f8a175afba fixes QTBUG-83198 Playing back QPicture ignores QPainter::setPen(Qt::black)
+6fbcfd9164 fixes QTBUG-89434 Crash in QIconModeViewBase::itemsRect() when overriding QListView::startDrag()
+41e665a452 fixes QTBUG-89366 [REG 5.15] Style Sheet text-align: bottom
+6baf36d774 fixes QTBUG-87830 config.summary is missing
+642ee46f98 fixes QTBUG-88054 Last qt_configure_add_report_entry always ignored/missing
+94b6bec01f fixes QTBUG-87830 config.summary is missing
+6e9125608f fixes QTBUG-88984 Memory leak in QPSQLDriver when connection is lost before the connection could be closed
+f0818f6ed8 fixes QTBUG-83865 Add missing null check in QAbstractButtonPrivate::queryButtonList()
+1dc4e5d3eb fixes QTBUG-89729 Error compiling Qt with MSVC and c++2a
+179696fcb8 fixes QTBUG-89093 Qt Designer makes use of AllDockWidgetFeatures which is marked as depricated
+173f163ad2 fixes QTBUG-89714 CMake cannot separately build sqldrivers
+8bd58a97d7 fixes QTBUG-89760 RHI on Vulkan: Write-after-write hazard reported from sync validation for depth-stencil
+133af89038 fixes QTBUG-89761 RHI on Vulkan: shadowmap manual test validation warning (SDK 1.2.154)
+f6cb24f4c0 fixes QTBUG-85791 Vulkan Validation Error VUID-VkSwapchainCreateInfoKHR-minImageCount-01271
+672d2ea8f4 fixes QTBUG-89711 QAbstractItemView::SelectionMode is not working
+f319974488 fixes QTBUG-89547 Comparison of QSslCertificate broken (extensions() crashes)
+6d41d0f2b7 fixes QTBUG-88282 [REG v6.0.0-beta3 -> dev] Asking configure for an unavailable feature causes obscure crash instead of informative error message
+01708a44de fixes QTBUG-88054 Last qt_configure_add_report_entry always ignored/missing
+52e1603e33 fixes QTBUG-88287 Fix -debug-and-release on Linux
+6974737695 fixes QTBUG-89569 [REG] Division by 0 in QLineF::setLength()
+e688b99995 fixes QTBUG-89184 Unicode key mappings are not working in all Qt based applications
+9d36ee1904 fixes QTBUG-85484 [Reg. 5.14->5.15]Resize Widget inside QTableWidget
+22416ecaaf fixes QTBUG-89687 QMultiHash::equal_range crashes when called in a const member function
+ae91e3365b fixes QTBUG-89628 Android deployment settings file uses wrong key for qml-import-paths
+32a46a1dcf fixes QTBUG-89766 Doc: wrong include for QtFuture namespace
+6a664d0660 fixes QTBUG-89846 QObject::dumpObjectInfo might segfault
+5f8efb2597 fixes QTBUG-89780 Quick node in View3D can make rendering unstable
+f0d1a50333 fixes QTBUG-89764 Vulkan: Sync validation reports WAW hazard with point/spot light shadows
+3ce5128d80 fixes QTBUG-89812 OpenGLWidget in QDockWidget not painted when flaoting
+e7370d0583 fixes QTBUG-89580 [regression 5.15 -> 6.0] QApplication::quit() no longer works within closeEvent()
+0f38f69d44 fixes QTBUG-89769 Qt 6.0.0: qch files installed to wrong location
+a62fa9b7cc fixes QTBUG-20354 Disappearing lines when using a syntax highlighter
+867b11596b fixes QTBUG-79442 QScreen signals emitted only for the first display rearrangement on Windows after  update to Win10/1903
+d5a980df97 fixes QTBUG-89915 MediaPlayPause key incorrectly reported as MediaPlay
+0c7042defa fixes QTBUG-88661 How to build MySQL plugin in Qt 6
+3d5f86e77d fixes QTBUG-89922  tst_QSslSocket::setSslConfiguration(WithoutProxy fails with macOS 10.15 and Xcode 12.3
+05706bd2b0 fixes QTBUG-89727 Texts in generated PDF documents can't be displayed by many Linux viewers
+b211148e4b fixes QTBUG-8963 Driver for ODBC - qsql_odbc.cpp should use the QMetaType:float when sql type is SQL_FLOAT instead of QVariant::Double
+0be2ecee37 fixes QTBUG-84482 QML_ROOT_PATH and QML_IMPORT_PATH are not documented well
+713829b718 fixes QTBUG-89709 Broken link in QMatrix4x4 docs
+149ad1e615 fixes QTBUG-87107 QFontMetricsF::boundingRect handles a null QRectF differently when passed in as it does not constrain to the size of it
+9f894788dd fixes QTBUG-89688 flickering white background when resizing window
+6a3f8cbc3a fixes QTBUG-20900 QPainterPath::addText has incorrect font spacing on Windows only
+163d9c7cc4 fixes QTBUG-89959 Saving a new file fails on Big Sur (11.1)
+bb00b63dee fixes QTBUG-89815 [Reg 5.11->5.12.2] Wrong color for placeholder text for QLineEdit if disabled in constructor of parent
+29b2387587 fixes QTBUG-85683 Windows: "Unable to enumerate family" for fonts with lengthy family name
+ee409a536e fixes QTBUG-88715 QComboBox DropDown items are displayed very closed to its right edge.
+2054f451b1 fixes QTBUG-83056 Stylesheet with pseudo state on QTextBrowser does not work
+b3b28faf26 fixes QTBUG-86776 QComboBox showPopup doesn't select all columns of an item
+2d4a40f93f fixes QTBUG-89426 Error when building qtbase 6.0.0 with LTCG
+583668005d fixes QTBUG-75106 Entries in the QAccessiblePluginsHash should be removed when a QQuickWindow is deleted
+47c6b5b91e fixes QTBUG-85621 Lower color depths don't seem to be handled correctly in VNC QPA
+1bcfada9f0 fixes QTBUG-8004 QProxyStyle: When setting a style that is a subclass of QProxyStyle on a widget, then this will have the effect of influencing other widgets using that same base style
+c2657f9762 fixes QTBUG-73286 QODBC driver doesn't count decimal point when calculate string length for NUMERIC type with QSql::HighPrecision numericalPrecisionPolicy
+e9ccdf4d84 fixes QTBUG-86736 QPushButton ignore normalOn/Off icon in fusion
+00505ed2b5 fixes QTBUG-81097 When the tab order is explicitly set then Backtabbing might not work correctly
+dafd26acbe fixes QTBUG-89910 The default font resolution of a QWidget subclass is random w.r.t. QApplication::font
+f3251bcb87 fixes QTBUG-88230 When the display is set to 200% then the icons used for the close button in a QTabBar are too small in comparison to the text
+baff03d3d4 fixes QTBUG-90031 qt_no_entrypoint target property is not documented
+3f3d5e6716 fixes QTBUG-89082 The previous tips is still displayed when mouse move to another Action without tips.
+257edbfa53 fixes QTBUG-85992 Make optimization flags consistent for Release and RelWithDebInfo in relation to qmake
+efa5a69972 fixes QTBUG-89130 setLibraryPaths keeps the applications directory in path, docs should mention it
+ade24763c7 fixes QTBUG-90246 QImage::scale doesn't work for Format_Grayscale16 images
+154573929a fixes QTBUG-85846 Top level QTextEdit looses cursor  after right mouse click to show context menu
+8d76903b97 fixes QTBUG-90319 [REG v6.0.0-beta3 -> dev] Configuring with -dirctfb or -sctp when they aren't available causes obscure crash instead of informative error message
+9cd3ff2bde fixes QTBUG-39791 QFileDialog::DontConfirmOverwrite option does not work when OS X App is sandboxed
+98a89fb711 fixes QTBUG-90308 REG: uic creates ambiguous signal/slot connections
+7f5d41e286 fixes QTBUG-79147 Windows: QColorDialog displays at wrong position when reshowing after closing via title bar
+539553a572 fixes QTBUG-86540 QtTest: qDebug output counted as <system-err> (std error output) in junitxml
+2cf2f99ab1 fixes QTBUG-20681 fillRect does not render correctly onto 16bpp image with scaling and antialias hint enabled
+cfd935fe6c fixes QTBUG-25261 Qt key mapping is wrong
+b101f84f86 fixes QTBUG-90354 Failed to build Qt Core on dev on 32 bit system
+9573441236 fixes QTBUG-90350 Could not close DRM (NV) device (Bad file descriptor).
+036021b0d0 fixes QTBUG-90329 qvkgen shows warnings after header.LGPL is removed
+b0add5bf2f fixes QTBUG-90039 Qt6 CMake MSVC setup links against debug version in non-debug configurations
+5a0e5521e4 fixes QTBUG-90327 QVectorND classes allow implicit conversion due to constructors not being explicit
+6ee13db700 fixes QTBUG-89905 QTimeZone IANA id broken on Android
+12d8bb0709 fixes QTBUG-86020 Items removed from QListWidget during InternalMove
+0392dce4f0 fixes QTBUG-89398 tst_QFile::moveToTrash fails on Android
+e74fd6897b fixes QTBUG-89866 FindMySQL.cmake doesn't follow CMake conventions for variable naming
+341b0ef501 fixes QTBUG-90363 Blurry title bar and task bar icons on Windows with fractional DPI scaling
+8b7894cb63 fixes QTBUG-89951 Why does Qt 6 cmake add `UNICODE` to public definitions on Windows?
+65cc6ec16b fixes QTBUG-89782 sqldrivers build docs must be adjusted to CMake
+0d5b43bed4 fixes QTBUG-85715 Android: Problem entering IP address with Samsung Number and regex validator
+bd8d74e0e2 fixes QTBUG-90402 Building Qt3D with Qt 6.0.1 fails at headersclean
+9c56d4da2f fixes QTBUG-90395 FTBFS: qendian.h missing <limits> include
+c111aad270 fixes QTBUG-89647 ARM OpenSSL DLLs for Windows are not found due to missing suffix
+96e9c8cc8a fixes QTBUG-90242 QMenu stylesheet has alignment issue when one item has icon/checkable
+f254d62cb1 fixes QTBUG-89961 Build issue with private headers
+a5bb7b3ca5 fixes QTBUG-65229 [Android] Text select handle misplaced on fields inside QDialog
+15576c9610 fixes QTBUG-85727 Qt app doesn't receive Shortcut or Keys.onPressed input when using physical keyboard
+df788cca8b fixes QTBUG-90414 CMake Error at /Users/qt/work/install/target/lib/cmake/Qt6EntryPoint/Qt6EntryPointConfig.cmake:51 (include):agent:2021/01/19 07:26:53 build.go:379: include could not find load file
+d0071a4f87 fixes QTBUG-89643 CMake plugins Qt6::QSvgPlugin and Qt6::QSvgIconPlugin are not found using static build
+61c3f3539c fixes QTBUG-85556 QProxyStyle will not work properly with another proxy style as a baseStyle
+2e35a03cd6 fixes QTBUG-80298 iOS: edit menu shows while selecting text
+427e639275 fixes QTBUG-90332 iOS: edit menu doesn't hide when tapping on screen
+b002c21087 fixes QTBUG-89619 QPushButton's text is clipped when adding an icon and set a QMenu to it
+f0ccdbb439 fixes QTBUG-90465 Static Qt builds add duplicate plugin import sources every time find_package() is called on a module
+6797506840 fixes QTBUG-89899 Integer-overflow in QFixed::QFixed
+d5eda37baa fixes QTBUG-88610 [Android] JNI crash at QTimeZone::systemTimeZone (Regression?)
+e425a2a4b8 fixes QTBUG-89952 [Reg 5.15 -> 6] Windows, MSVC: DLL-s are bigger with CMake, than QMake.
+1ef5016bab fixes QTBUG-90520 QMAKE_PRL_LIBS contains wrong entries on Windows
+1a9095e1fa fixes QTBUG-86632 QCombobox text elide doesnot work with fusion style
+d79a9b1a4f fixes QTBUG-35682 No floating point precision in QPainter::drawText on raster device.
+4e2a942369 fixes QTBUG-79059 Postgres SQL plugin leaks memory when failing to convert QByteArray
+0180a1ab82 fixes QTBUG-88815 QDate::FromString breaks when accessed from multiple threads using default calendar parameter
+aa3b42d634 fixes QTBUG-89959 Saving a new file fails on Big Sur (11.1)
+7c69eb8868 fixes QTBUG-90556 bootstrap lib should not use bundled pcre2 if not cross-compiling
+ecc2a28cab fixes QTBUG-90237 Enforced compiler flags not consistent between languages/linker types
+fce391fefb fixes QTBUG-86518 QSystemTrayIcon menu is not opened on press
+293b7fab55 fixes QTBUG-90353 QT_WARNING_DISABLE_* macros do not work under MinGW 8.1
+e3e1fc4820 fixes QTBUG-89639 PostgreSQL plugin not build in CMake build
+127a1ada32 fixes QTBUG-89979 "No target "XCB::XFIXES"" when building qtvirtualkeyboard with CMake
+b69b04c479 fixes QTBUG-90042 QIcon not using Hi DPI pixmap version
+114d5c045d fixes QTBUG-90345 Qt6HostInfo package loading fails if QT_REPO_MODULE_VERSION is not 6
+6da6b6da44 fixes QTBUG-90595 QCombobox placeholderText not visible
+00b759a8d0 fixes QTBUG-89625 QJsonObject The take function caused an error!!
+71e3857f7c fixes QTBUG-90529 Unable to build QtOpcua Add-On with Conan, Qt6.0.1, linux-g++-Ubuntu20.04-x64
+dac4d5a492 fixes QTBUG-89952 [Reg 5.15 -> 6] Windows, MSVC: DLL-s are bigger with CMake, than QMake.
+795ea19ca0 fixes QTBUG-89578 QLineEdit Cursor show white line when use property of  setInputMask
+0ca3f1732a fixes QTBUG-89574 CLONE - QDial's knob not centered around background circle
+f2c3b52c6c fixes QTBUG-90705 qtquick3d dependency update failed on 'dev'
+115bcdb862 fixes QTBUG-74088 Menu Bar Items Disabled When QMainWindow Has Window Modal Child and Another Window Made Active
+566ba523ad fixes QTBUG-90556 bootstrap lib should not use bundled pcre2 if not cross-compiling
+59252a3a96 fixes QTBUG-90672 CoreWLan support missing on macOS
+3811be28ad fixes QTBUG-90743 iOS: edit menu and magnifier glass is showing simultaneously
+d6a8560eae fixes QTBUG-90617 INTERFACE_QT_COORD_TYPE not set on Core target
+38a72af4fd fixes QTBUG-90553 tst_QDateTime::timeZones fails with glibc 2.31 on Clear Linux
+90dc13ae5f fixes QTBUG-90628 [REG: 5.14.2->5.15.0]: When resizing a window that is translucent and using stylesheets then this can flicker quite a lot when the window is resized smaller
+a4574bfd34 fixes QTBUG-90777 CMake: Freetype duplicate symbols when linking
+dafe9e2363 fixes QTBUG-90716 QGuiApplication::primaryScreen() not returning the correct screen if the user changes their main display.
+b23f5621d7 fixes QTBUG-74978 When QT_SCALE_FACTOR is used for an application and the edit menu is shown in a TextArea then the selection handles are not correctly placed
+5e95fab53f fixes QTBUG-85787 [Android] TextField password becomes visible
+1e3b0d9280 fixes QTBUG-69131 Android: tst_QTimeZone::transitionEachZone fails
+065527825e fixes QTBUG-89155 Assertion violation in text shaping on special string with EmojiOneColor font.
+76c76d76ec fixes QTBUG-90860 [iOS] The edit menu doesn't hide when typing on the input panel
+fd15b28cf8 fixes QTBUG-84616  Mac Checkbox Accessibility does not returns mixed State
+9807573764 fixes QTBUG-90236 QRawFont::alphaMapForGlyph() shows garbage and eventually leads to crash
+80cc01aeb5 fixes QTBUG-90937 [iOS] edit menu stays open after changing focus
+ac05ca5072 fixes QTBUG-90698 tst_QTextLayout::softHyphens() failed on macos 11 in CI
+0da2b24991 fixes QTBUG-90946 Qt configure option is translated to the incorrect cmake variable
+69f267defa fixes QTBUG-90963 QDoc manual has overlapping captions with images
+bbdcc86c52 fixes QTBUG-77937 Extra whitespace accessible with scroll-bars at the end of QPlainTextEdit widget
+2be22ecf29 fixes QTBUG-90850 MinGW static build: fail to build PostgreSQL driver
+ab9032acbb fixes QTBUG-88579 CMake testing expect a fake_prefix folder resembling the installation prefix
+dca5a2ca39 fixes QTBUG-91042 REG Qt 6.0: QList/QVector::fill does not support shrinking list
+8c2860672f fixes QTBUG-75630 QPainter drops e.g. lines using small (< 1e-12) user world coords
+db06e85722 fixes QTBUG-91038 tst_QTextLayout::longText failures
+89590a1fed fixes QTBUG-90925 Cannot specify link libraries for target "OpenSSL::Crypto"
+cdf8c96118 fixes QTBUG-63018 [iOS]: When moving the selection handles in a TextEdit the cursorRectChanged signal is emitted even if the cursor rect is not actually changed
+71fc71c96e fixes QTBUG-90870 Add Qt::Gui dependency by default to Android tests
+c1781dd958 fixes QTBUG-90914 configure can't find compiler although CC/CXX are given
+4a3fe46313 fixes QTBUG-89735 MultiPointTouchArea delays release on three finger tap
+2983fe8f09 fixes QTBUG-91061 [REG 6.0.1->6.1.0] qml/quick examples not compiling on iOS (Undefined symbols for architecture arm64)
+329a99605c fixes QTBUG-90625 subset of downloads stall and die with connection closed on some systems
+aa499b5fbc fixes QTBUG-90699 tst_QApplication::focusWidget() and focusMouseClick() failed on macos 10.15 in CI
+90860224c8 fixes QTBUG-87457 Example not compiling due 'AutoUic error'
+1122a204d5 fixes QTBUG-87078 xcb: showMaximized() in full screen only restores the window with some WMs
+37d6083690 fixes QTBUG-90969 Cannot build qtquickcontrols2 examples on Qt6
+ce7ab499f3 fixes QTBUG-89952 [Reg 5.15 -> 6] Windows, MSVC: DLL-s are bigger with CMake, than QMake.
+6e1b0f9d14 fixes QTBUG-89889 tst_QDateTime::systemTimeZoneChange fails on 32bit systems
+cc4bcf94e0 fixes QTBUG-85287 Hanging tst_qprocess test on qemu armv7 CMake builds
+933162c445 fixes QTBUG-91158 INPUT_ variables having a corresponding feature are converted to "ON/OFF"
+bb1a550d58 fixes QTBUG-86733 [Android] NoSuchMethodException when using QtMultimedia
+9b8b1fe6d1 fixes QTBUG-88031 iOS: quickcontrols2/gallery fails to build in release mode (Failed to parse qmlimportscanner output)
+cbe0da5975 fixes QTBUG-87871 QMdiSubWindow's window icon size is incorrect for system scaling 150% or more
+3ebe798f2d fixes QTBUG-91194 Android Service - Exception on startup
+78d71d156b fixes QTBUG-32778 Documentation colors conflicting with system theme make text unreadable
+f9d13af6d1 fixes QTBUG-91224 BIC breakage in QStyleOptionHeader
+57e2003982 fixes QTBUG-83632 In top level frameless window Qt.CrossCursor does not comes in effect
+a363e1e8ea fixes QTBUG-83295 QLineEdit::editingFinished() not emitted when pressing the clear button and moving focus away
+2d32e38e3a fixes QTBUG-91223 qt_memrotate270, qt_memrotate180 , qt_memrotate90, segfaults
+b87a916453 fixes QTBUG-91155 QNetworkManagerNetworkInformationBackend without DBus
+26e34fcb52 fixes QTBUG-90949 UI rendering and interaction dead lock when used as an window embedded application
+627bae700f fixes QTBUG-91401 Error loading PNG: Unsupported ICC profile class 70727472
+8b837ad05b fixes QTBUG-91532 tst_QMenu::QTBUG_89082_actionTipsHide() failing on Windows
+d23cd35e45 fixes QTBUG-91620 QFuture documentation incorrectly linked
+e4efa00c72 fixes QTBUG-91531 Inconsistent use of Qt_6_PRIVATE_API breaks BC between Qt 6.0 and Qt 6.1
+542f2036e7 fixes QTBUG-91496 Cross Compilation of Android from Windows fails after libexec changes
+13cb272a70 fixes QTBUG-42469 QTreeWidget animated crashes when QTreeWidgetItems are set hidden to true
+e591f14117 fixes QTBUG-91076 syncqt.pl is in bin and libexec
+ebd4d0cbf4 fixes QTBUG-88305 [REG v6.0.0-beta3 -> dev] Asking configure for an unavailable feature causes obscure crash instead of informative error message (version 2)
+0b490df50f fixes QTBUG-91630 Rendering error with OpenGL in Lancelot test case involving Item2D
+ae1869ab63 fixes QTBUG-91438 iOS enormous leak ends with "Terminated due to memory issue"
+ba0a105c61 fixes QTBUG-91539 QThread::quit() is unreliable on Windows
+42f364c494 fixes QTBUG-86857 QPushButton style "text-align: bottom" not working in Qt 5.15.1
+6db4495929 fixes QTBUG-91141 qdoc/WebXML (Qt 6): Invalid links to "Changes to Qt <Module>" are inserted into \brief of classes and other places
+3c224d1122 fixes QTBUG-91704 QMultiHash::count(key) crashes on empty container
+49c5851054 fixes QTBUG-91431 CommpareNotEqual misspelled
+583776b0d5 fixes QTBUG-90812 androiddeployqt doesn't bundle JARs or include permissions set on a plugin
+1a7faeef94 fixes QTBUG-91866 MSVC warns about C4250 in network/openssl
+466177c911 fixes QTBUG-91261 Invalid pointer return with QGridLayout::itemAt(-1)
+c5859822eb fixes QTBUG-91915 Gui applications that are built as part of a static Qt build miss the default QPA plugin
+434c2a6be6 fixes QTBUG-87326 Removal of "old time-zone lookup fallbacks" breaks TZ handling on Gentoo
+84f0b4df0e fixes QTBUG-91402 [REG: 5.15 - 6.x] Wheel events get lost when connecting from macOS via ssh
+9a72beca56 fixes QTBUG-92087 No shortcuts possible with SysReq key
+7c3311e196 fixes QTBUG-92011 Qt 6.1.0 betas fail to compile: qpaintengine_x11.cpp:2457:43: error: no matching member function for call to 'loadGlyph'
+516316e9a2 fixes QTBUG-92173 [iOS]: Crash occurs when showing a new QQuickWindow after the first one is deleted
+1b1f2b265e fixes QTBUG-92220 QAbstractItemModelTester false positive
+3dca0aaf09 fixes QTBUG-81316 QGraphicsItem::setZValue not working
+f930f6a797 fixes QTBUG-90396 QFontDialog highlights default value for the font style list
+c0220acd71 fixes QTBUG-91455 Qt.ImhFormattedNumbersOnly flag does not show minus sign in iOS keyboard
+0497f16fa7 fixes QTBUG-91788 Assert when removing a model from QConcatenateTablesProxyModel that is bound to a QSortFilterProxyModel
+84364d8099 fixes QTBUG-92046 Description of Julian calendar is wrong
+098701edba fixes QTBUG-91909 QtConcurrenceThreadEngine > ThreadEngineStarter<VOID>?
+1a1d981b56 fixes QTBUG-84342 QTuioTouchPlugin fails to build with "Unix Makefiles" generator on macOS
+7432281cc9 fixes QTBUG-91029 Windows/Accessibility: Focused QListWidget is not announced by screen readers
+8e5f2252cc fixes QTBUG-90449 Wrong CMAKE_INSTALL_PREFIX when building a module against an installer-provided Qt
+d4a79dba3b fixes QTBUG-91511 Can't build user project with qmake with a Qt6 built with -qtlibinfix XX
+734d2cdbc4 fixes QTBUG-92235 Update dependencies failed on 'dev' in qt/qtsvg
+307da60fb0 fixes QTBUG-69214 Android: tst_QFont::resetFont fails
+a0def9b90d fixes QTBUG-86134 [Reg 5.9 -> 5.12] QPushButton: icon not aligned when menu-indicator is removed
+
+[qtsvg]
+9f7ccbf fixes QTBUG-91507 Out of bounds read in function `QRadialFetchSimd<QSimdSse2>::fetch` when input craft svg file
+e0dd65e fixes QTBUG-90744 [REG: 5.13 -> 5.14] QPixmap::load returns false for svg files if file encoding not utf-8 & format not specified
+
+[qtdeclarative]
+8753390073 fixes QTBUG-88623 Implicitly registering types with QML_ELEMENT fails with multiple inheritance
+57d7cb697e fixes QTBUG-88712 ASSERT: "rc <= 0xffff" in tst_qquicktextinput::keypress_inputMask()
+56f428c360 fixes QTBUG-87150 QML_FOREIGN needs clearer documentation to indicate that it is using the name of the struct or QML_NAMED_ELEMENT
+f95b99902f fixes QTBUG-88673 REG: Major performance regression for shader effects
+3a5617dc45 fixes QTBUG-87228 When running Valgrind/Leak Sanitizer there are indications that there are problems with the property cache
+08eb485a00 fixes QTBUG-88581 qtquickcontrols2 won't build due to .objs getting too long paths for MSVC in static builds
+d2d8e90e9f fixes QTBUG-88807 direct memory leak in qquicktextinput.cpp
+bbb6298204 fixes QTBUG-88761 Deleting QRhiRenderPassDescriptor that was used with QQuickRenderControl rendering crashes the renderer
+9b321a3449 fixes QTBUG-88786 Crash when calling hasOwnProperty() on a JS Proxy Object
+acc5e48a90 fixes QTBUG-85888 Qml *.qmltypes files are incomplete for android
+7c751a5731 fixes QTBUG-88229 QtQuick Text property contentHeight does not behave as expected
+1e1674849a fixes QTBUG-75223 TapHandlers in flickable block flicking on touch screen
+bad85119bf fixes QTBUG-83599 Signal parameter referenced in a JS closure is undefined while QML debugger is attached
+b0f49c8978 fixes QTBUG-88604 qsgrhisupport doesn't build with -no-opengl
+c3860cd04b fixes QTBUG-89173 Adding an object with a null property in a nested object in an array crashes QQmlListModel::append
+27c254203b fixes QTBUG-87526 QML HorizontalHeaderView does not show up if rowcount in Tablemodel is 0
+c2ca14ce22 fixes QTBUG-89173 Adding an object with a null property in a nested object in an array crashes QQmlListModel::append
+fb4de27768 fixes QTBUG-89203 qtdeclarative build error due to 'trunc' already defined when doing a static build on Windows
+b6a1648915 fixes QTBUG-87266 Qt6: QML_ELEMENT does not work with classes within namespaces
+323cdf820c fixes QTBUG-89187 qqmltypeloader test needs CMakeLists adjustments for MinGW
+cf3e0559b0 fixes QTBUG-89295 qmlformat breaks QtQml import
+86a595b126 fixes QTBUG-89513 Generating JIT code crashes QML app
+dd740d6b34 fixes QTBUG-86323 Iterating over Properties of a Proxied Object does not work
+44f74f56e6 fixes QDS-3301 Resetting scale and pivot values for 3D models doesn't update 3D Editor
+14d80c3ec4 fixes QTBUG-89622 With CMake 3.19: "CMake Error: File /Qt6qmldirTemplate.cmake.in does not exist"
+7f5d74fb6f fixes QTBUG-89715 QtQuick window title bar scaled to wrong monitor's DPI setting with d3d11 backend
+357e426d98 fixes QTBUG-89738 QDoc: Formatting errors on Creating C++ Plugins for QML page
+b23b12dcad fixes QTBUG-89561 Fallback to Qt Quick's software backend needs to be explicit with platform plugins like vnc in Qt 6, unlike Qt 5
+d53fdc516b fixes QTBUG-85602 reference binding to misaligned address
+a87621ae15 fixes QTBUG-89861 Documentation for WheelHandler acceptedDevices is wrong
+8a3ede5ba1 fixes QTBUG-86017 DelegateModel: Warning and assert with a persisted item
+2c82f4f8b6 fixes QTBUG-85932 QML Singleton crash with duplicate id
+24372250de fixes QTBUG-29378 Particle system docs should link to examples
+843be43f18 fixes QTBUG-89804 The QtTest QML module needs cleanup
+a129c02e7b fixes QTBUG-85103 Qml Shape as Button's background  doesn't manage well transparent color
+127c79fb7f fixes QTBUG-83408 Text disappears with ElideRight.
+96763dbb10 fixes QTBUG-85106 Crash when restoring/apply PropertyChanges during a StateMachine state change in certain cases
+4f8041b014 fixes QTBUG-87253 Quick Layout causes crash if child item Layout.preferredWidth bound to the Layouts width
+dccd8f0b5c fixes QTBUG-57245 Nested flickables allow flicking with two fingers touchpad gesture only in one direction
+e68b498424 fixes QTBUG-90245 SegFault when calling Component.createObject with properties
+3d6e8b7a28 fixes QTBUG-88677 Crash with qtwebengine demo simplebrowser tab webpage close
+2b15a1fbe2 fixes QTBUG-89594 [REG 5.15-6.0] WheelHandler handler function crashes app
+6511b17038 fixes QTBUG-88682 Not able to trigger "Alt+Enter" shortcut
+831efa14e9 fixes QTBUG-30801 Button: tooltip not shown when the button is disabled
+65b88e61a5 fixes QTBUG-90373 Cannot write function to var property through alias
+3ae2a6a47c fixes QTBUG-90448 tst_qmllint and tst_qquickloader failing on dev
+a738c35667 fixes QTBUG-90485 iOS: tapping inside the line edit will not move the cursor
+9b407b68d1 fixes QTBUG-90513 qmllint with memory leak when providing qmltypes
+9eda73354c fixes QTBUG-87733 QQmlPropertyBinding needs better binding loop detection
+bac93541ba fixes QTBUG-90489 Segfault in QQuickWindowIncubationController when accessing QSGRenderLoop on Application shutdown
+8a485894de fixes QTBUG-90468 tst_qquickfolderlistmodel::nameFilters fails on macOs
+f5877880c5 fixes QTBUG-90786 tst_qqmlecmascript.cpp:906:43: error: no match for ‘operator=’
+edca9f3d60 fixes QTBUG-90762 QuickTest: List testcases when testcase is inline component
+b322a971f0 fixes QTBUG-90538 "required" existing property not reflects model data if CONFIG+=qtquickcompiler enabled
+3dda593050 fixes QTBUG-89955 Ambiguous string comparison in QML Plugin Dumper
+83f69cf291 fixes QTBUG-90038 Crash in QQmlObjectCreator::setupBindings
+b2fccf2f2d fixes QTBUG-86482 Missing string conversion in QJSValue parameter in a c++ signal  connected to QML
+f853db24bd fixes QTBUG-87197 MouseArea containsMouse value incorrect after visibility changes
+85e622f863 fixes QTBUG-91196 Locale QML documetnation lists misspelled property
+39a214773d fixes QTBUG-90239 TextField with regex clears text if unmatched char is typed
+0c029b420e fixes QTBUG-85615 qmlRegisterSingletonType (QJSValue) only works for Objects
+ae68d95b8c fixes QTBUG-86669 Investigate automatic calling of qt6_import_qml_plugins for examples using a static Qt build
+4d77a0727e fixes QTBUG-90632 Particles are causing unnecessary batch uploads
+ec34177c08 fixes QTBUG-84060 qmllint: warning when accessing JS array declared as a var
+25e26270a1 fixes QTBUG-91519 [REG 5.14.2 -> 5.15.0] Call QQmlIncubator::clear() inside QQmlIncubator::setInitialState() crashes afterward
+703f41d5a5 fixes QTBUG-91491 Crash in Generator::method_next when creating new properties on Generator
+6b78cc0e87 fixes QTBUG-91694 Colors comparison with QML fuzzyCompare() always results in 'equal'
+3908cf16c0 fixes QTBUG-91717 QJSPrimitiveValue must not use std::variant
+3162c140f3 fixes QTBUG-91182 Atlas textures with size not greater than QSG_ATLAS_TRANSIENT_IMAGE_THRESHOLD are not visible with ShaderEffect
+92d1cf4db7 fixes QTBUG-92076 TableView: forceLayout() fails when all columns are hidden
+69b4706dbf fixes QTBUG-92064 PinchHandler target scale jumps when pinching a second time via native gesture
+032b12cd50 fixes QTBUG-92099 TableView: content height doesn't change when adding new rows
+fa54c39062 fixes QTBUG-92078 qmleasing uses removed API
+43cd08cde3 fixes QTBUG-92026 qt6_qml_type_registration() generates CMP0116 warnings with CMake 3.20
+9ed9a14be8 fixes QTBUG-83980 HoverHandler: sometimes point.position returns (0, 0)
+62400a6278 fixes QTBUG-92447 [Reg 5.15 -> 6.0] qmllint: Property "length" not found on type "QString"
+81c2da0c7c fixes QTBUG-92236 When the cache for a QML file is generated and then loaded it will cause a crash
+d250e00707 fixes QTBUG-89892 crash when assigning null to anchors.horizontalCenter
+bcd7b0fe55 fixes QTBUG-92562 qtdeclarative build error on x86-windows
+ab253c6bc7 fixes QTBUG-89736 focusable item becomes impossible to focus after reparenting to a newly loaded item
+ae1b9c6d94 fixes QTBUG-84458 QML Text doesn't reset lineCount when text is empty
+06f333bfc5 fixes QTBUG-88626 tst_qqmltimer::restartWhenEventPosted() failed on msvc2019 developer build in CI
+1ddc6b5216 fixes QTBUG-88646 tst_qquicktext::contentSize() failed on msvc2019 developer build in CI
+19226ef1f1 fixes QTBUG-88644 tst_QQuickGridView::snapToRow() failed on msvc2019 developer build in CI
+fe2d3a8397 fixes QTBUG-88643 tst_QQmlImport::importPathOrder() failed on msvc2019 developer build in CI
+8734fb80e0 fixes QTBUG-41043 tst_qquickcanvasitem tends to fail on CI
+f1a9c9b427 fixes QTBUG-86729 many Qt Quick test failures after input event refactoring
+d15f6e0b23 fixes QTBUG-66360 PointHandler goes inactive releasing mouse button when multiple pressed
+e94eeb48b5 fixes QTBUG-86729 many Qt Quick test failures after input event refactoring
+d0733d1406 fixes QTBUG-86729 many Qt Quick test failures after input event refactoring
+c5c05498a7 fixes QTBUG-86729 many Qt Quick test failures after input event refactoring
+ca4d628836 fixes QTBUG-86729 many Qt Quick test failures after input event refactoring
+def8107066 fixes QTBUG-79611 QAccessible::notifyAccessibilityUpdate not implemented on Android
+71588f7b3d fixes QTBUG-66475 OpacityAnimator shouldn't require explicit from value
+f7adf69869 fixes QTBUG-87702 [REG 5.15.1->6.0.0] qml/quick examples crash when running on iPad
+e2a7457985 fixes QTBUG-88965 QML property with 'url' type resolves incorrectly
+6b68117dc2 fixes QTBUG-89023 tst_Animators::testTransitionsWithImplicitFrom is flaky on Ubuntu 20.04
+ff7c11c481 fixes QTBUG-88533 qdoc errors in QtCore
+f87c4c7c2a fixes QTBUG-89023 tst_Animators::testTransitionsWithImplicitFrom is flaky on Ubuntu 20.04
+e0cb58feb9 fixes QTBUG-86729 many Qt Quick test failures after input event refactoring
+ed098189d5 fixes QTBUG-88533 qdoc errors in QtCore
+815b347abe fixes QTBUG-88533 qdoc errors in QtCore
+33c87736db fixes QTBUG-38570 QtQuick scrolling behavior erratic with XInput2 high-precision scrolling
+98c189d231 fixes QTBUG-89023 tst_Animators::testTransitionsWithImplicitFrom is flaky on Ubuntu 20.04
+b67de9c660 fixes QTBUG-80412 QtQuick: examples/text/imgtag references dead logo link
+93c791eaf3 fixes QTBUG-88643 tst_QQmlImport::importPathOrder() failed on msvc2019 developer build in CI
+5d85844f7b fixes QTBUG-87221 Qt6's *_qmltyperegistrations.cpp generation breaks when using includes with folder names
+7c648280bb fixes QTBUG-87018 Touch/mouse-related test failures in qtquickcontrols2
+900ebd280d fixes QTBUG-89889 tst_QDateTime::systemTimeZoneChange fails on 32bit systems
+338ae625a3 fixes QTBUG-89889 tst_QDateTime::systemTimeZoneChange fails on 32bit systems
+30136b1a82 fixes QTBUG-89822 Error with readonly alias property
+2d6b8f3e5e fixes QTBUG-89889 tst_QDateTime::systemTimeZoneChange fails on 32bit systems
+8dbe5b2be4 fixes QTBUG-89659 Crash in with JITting enabled
+131e2c81d4 fixes QTBUG-89659 Crash in with JITting enabled
+7660c30e08 fixes QTBUG-89659 Crash in with JITting enabled
+e3cca3df71 fixes QTBUG-89898 REG 5.15.0 - > 5.15.1 clip: true with rotation asserts
+b64f8dacae fixes QTBUG-57792 QQmlPropertyMap inserting new properties is O(N^2)
+f1410debc7 fixes QTBUG-57792 QQmlPropertyMap inserting new properties is O(N^2)
+2996439993 fixes QTBUG-85557 When doing a sort on a ListModel in a WorkerScript then after syncing the ListView does not show the updated model
+28f515e633 fixes QTBUG-88682 Not able to trigger "Alt+Enter" shortcut
+653d5a4745 fixes QTBUG-83950 Q_PROPERTY with using-declared enum cannot be compared in QML
+eb6525f126 fixes QTBUG-89977 Qt build on GCC 11
+81ba03768d fixes QTBUG-90448 tst_qmllint and tst_qquickloader failing on dev
+09563cda63 fixes QTBUG-90448 tst_qmllint and tst_qquickloader failing on dev
+e9997bc969 fixes QTBUG-90468 tst_qquickfolderlistmodel::nameFilters fails on macOs
+3c6b913123 fixes QTBUG-90439 Doc: Fix CI warnings qtdeclarative
+90be89d771 fixes QTBUG-86368 QQmlContext leak when connecting to and destroying dynamically created object
+75437f824d fixes QTBUG-90401 Heap-use-after-free in QAbstractAnimationJob
+21b975f186 fixes QTBUG-75042 [Accesssibility] Qt Quick Control 2 Dialog parts (title, body, footer) are read in wrong order
+c923d04386 fixes QTBUG-90412 Fix CI warnings for qtdoc
+2338818565 fixes QTBUG-90439 Doc: Fix CI warnings qtdeclarative
+0c530f2873 fixes QTBUG-84906 qt6_qml_type_registration requires automoc
+15f2d3f0d5 fixes QTBUG-90444 Math.round() and qRound() have different behavior on ARM64
+065c3f5732 fixes QTBUG-90401 Heap-use-after-free in QAbstractAnimationJob
+96a6563964 fixes QTBUG-90869 tst_qquickdesignersupport: tests segfault when running on QEMU
+81b3675a88 fixes QTBUG-63185 grabImage() doesn't work on software renderer
+2ba30fcc06 fixes QTBUG-90401 Heap-use-after-free in QAbstractAnimationJob
+9b6869b35d fixes QTBUG-41867 disabled particle Emitter still causes QSG renderer uploads
+06d819cd71 fixes QTBUG-89943 Deprecate injected arguments for signal handlers
+8784a27780 fixes QTBUG-89943 Deprecate injected arguments for signal handlers
+b7412dc866 fixes QTBUG-89943 Deprecate injected arguments for signal handlers
+9f864cc127 fixes QTBUG-90239 TextField with regex clears text if unmatched char is typed
+e337ba277b fixes QTBUG-89943 Deprecate injected arguments for signal handlers
+5136cc1f7b fixes QTBUG-90869 tst_qquickdesignersupport: tests segfault when running on QEMU
+04350f5129 fixes QTBUG-46350 Crash when deleting item currently set in PropertyChanges target
+c19e529d55 fixes QTBUG-91548 tst_qquickitem::hoverEvent fails on qemu/b2qt platform
+3185c4ce6c fixes QTBUG-91276 DelegateModel can crash with retranslate()
+8c0e1b73ae fixes QTBUG-86708 When using DelegateModelGroup to group items then when a created item which is set to not be included will trigger an assert
+06b332fe74 fixes QTBUG-92447 [Reg 5.15 -> 6.0] qmllint: Property "length" not found on type "QString"
+
+[qtactiveqt]
+ec019ce fixes QTBUG-83735 Dumpcpp name collision leads to undefined symbols when method names clash with QAxBase's ones
+782710f fixes QTBUG-86666 dumpcpp tool not working for x64 components
+dadcade fixes QTBUG-92237 Document the qaxserver_no_register configuration
+0bcdc74 fixes QTBUG-82945 Reg->Qt 6/963c47aece12a0025707c76f6f8cb3de306752b8/MSVC2019/Windows: Crashes in property system
+b4d9652 fixes QTBUG-82945 Reg->Qt 6/963c47aece12a0025707c76f6f8cb3de306752b8/MSVC2019/Windows: Crashes in property system
+5b18c6d fixes QTBUG-82978 Allow "-Wextra-semi-stmt" on Q_UNUSED
+88b4ca5 fixes QTBUG-85467 When calling querySubObject() for something that returns an IDispatch*, it does not load the interface correctly
+f83ed6b fixes QTBUG-88533 qdoc errors in QtCore
+
+[qttools]
+6f3c749f fixes QTBUG-88647 Qt6: lupdate crashes when building Qt translations
+9eb64077 fixes QTBUG-88603 qdoc: Excess warnings about undocumented namespaces
+e197fcdc fixes QTBUG-88687 qdoc: ASSERT: "rc <= 0xffff" in file qt5/qtbase/src/corelib/text/qchar.h, line 114
+db481c15 fixes QTBUG-88710 tst_lupdate triggers QChar assert
+afd117a4 fixes QTBUG-88972 CMake: phrasebooks are not installed
+0f8eec1d fixes QTBUG-89515 static build of Qt 6.0.0 using MinGW failes on 2 tools
+ae89f193 fixes QTBUG-89597 windeploy fails to link with qtnamespace specified
+317c2b4a fixes QTBUG-89645 [REG 5.15.2 -> 6.0.0] windeployqt deploys VCRedist regardless of --no-compiler-runtime
+09b1fb4a fixes QTBUG-89093 Qt Designer makes use of AllDockWidgetFeatures which is marked as depricated
+228be3bd fixes QTBUG-89835 qdoc: Group links missing from the navigation bar
+3f600283 fixes QTBUG-89918 Regression: Designer crashes when creating new form
+8a20d5b6 fixes QTBUG-85572 Documentation errors in SwipeDelegate QML
+550c3031 fixes QTBUG-89003 QChar  listed in classes with obsolete members
+0f3c3156 fixes QTBUG-89913 qdoc: Allow QML type to override property documentation from inherited abstract type
+fa117865 fixes QTBUG-88584 Designer does not completely undo adding a Dock Widget
+cf8eb842 fixes QTBUG-90691 Qdoc generates an empty TOC for a \qmlbasictype page with members
+39b120a7 fixes QTBUG-89980 Tools (Assistant, Designer, Linguist) copyright still 2020
+7719453b fixes QTBUG-90867 qdoc: Warning limit has no effect in single-exec mode
+0c11e6c3 fixes QTBUG-91088 QFormBuilder does not save 'name' attribute on 'widget' elements in UI-file
+c72bc916 fixes QTBUG-91244 [REG] qdoc fails to find overloaded functions from the global namespace
+a4a4c76f fixes QTBUG-91558 [REG 6.0] lconvert can not read .qm files
+f02e1544 fixes QTBUG-91753 Designer cannot change font
+b3242805 fixes QTBUG-91746 Incomplete statement in QDoc documentation on \instantiates
+419a0d3e fixes QTBUG-91754 qdoc crash when generic documents of qtbase
+96f53ec6 fixes QTBUG-91990 qdoc: \property command fails with a const property type
+b463cd69 fixes QTBUG-62697 qhc files cannot be created in a reproducible way
+62a01a55 fixes QTBUG-89093 Qt Designer makes use of AllDockWidgetFeatures which is marked as depricated
+147e098c fixes QTBUG-89479 TimelineAnimation type documentation is missing properties
+19002292 fixes QTBUG-89003 QChar  listed in classes with obsolete members
+dcd18a23 fixes QTBUG-88584 Designer does not completely undo adding a Dock Widget
+e7af10cf fixes QTBUG-89926 Regression: Designer crashes when closing the form
+d1b6d15f fixes QTBUG-89926 Regression: Designer crashes when closing the form
+7c3c43a6 fixes QTBUG-88584 Designer does not completely undo adding a Dock Widget
+f68c6a71 fixes QTBUG-91141 qdoc/WebXML (Qt 6): Invalid links to "Changes to Qt <Module>" are inserted into \brief of classes and other places
+
+[qtdoc]
+629a90fa fixes QTBUG-89026 Qt6: tutorials/alarms not launching, "module "Qt.labs.calendar" is not installed"
+9cd6e104 fixes QTBUG-89040 samegame: Issues with relative image paths
+b784e557 fixes QTBUG-90640 examples-android.html links to invalid Creating a Mobile Application page
+563dfa08 fixes QTBUG-90747 Highlighted example demos/photosurface not compiling with Android (unknown target 'apk')
+09aa835c fixes QTBUG-86614 When a service is set to be started at boot time it is not being started after a reboot of the device
+8c2c14f5 fixes QTBUG-92047 Configure "-help" does not mention "-xplatform"
+53d40c60 fixes QTBUG-86800 QDoc link errors qtdoc Qt 6
+41593a00 fixes QTBUG-86800 QDoc link errors qtdoc Qt 6
+fff18204 fixes QTBUG-88833 Unable to install Qt6.0.0 on openSUSE15.1
+8e9d07a0 fixes QTBUG-86800 QDoc link errors qtdoc Qt 6
+6a324e50 fixes QTBUG-88533 qdoc errors in QtCore
+e896196f fixes QTBUG-89033 Do not use versioned QML imports in Qt 6 documentation & examples
+199db257 fixes QTBUG-88533 qdoc errors in QtCore
+9194f860 fixes QTBUG-89033 Do not use versioned QML imports in Qt 6 documentation & examples
+88b1cace fixes QTBUG-89033 Do not use versioned QML imports in Qt 6 documentation & examples
+0a7e3dee fixes QTCREATORBUG-24995 Debugging doesn't work on Android
+9ed66b6f fixes QTBUG-88533 qdoc errors in QtCore
+046389f7 fixes QTBUG-88533 qdoc errors in QtCore
+a70d88c7 fixes QTBUG-88847 Provide a currently supported versions of Qt page
+67e1d0f3 fixes QTBUG-89289 Remove Delayed Encoding example
+d1ae5646 fixes QTBUG-88839 Document qt6_add_executable and Android specific functions for CMake
+aba2d51e fixes QTBUG-90412 Fix CI warnings for qtdoc
+7b36723f fixes QTBUG-88635 No support for Qt version specific qt.conf
+
+[qtwayland]
+532dabfb fixes QTBUG-88969 examples not shown in Qt Creator
+bd1713ef fixes QTBUG-85608 Qt5.15, it created 2 more commandbuffer. but they were not freed.
+fb3081f7 fixes QTBUG-91206 Input hints not delivered to virtual keyboard with new text input protocol
+3aa1b351 fixes QTBUG-91096 >1 Programs on QtWayland causes QtVirtualKeyboard to not work
+ab3a1a07 fixes QTBUG-87597 Race conditions/improper texture handling in multi-screen wayland compositor
+38fc568b fixes QTBUG-88782 Wayland compositor memory leak
+3054da0d fixes QTBUG-87597 Race conditions/improper texture handling in multi-screen wayland compositor
+1aa6ec2c fixes QTBUG-89977 Qt build on GCC 11
+
+[qt3d]
+b03f20ef4 fixes QTBUG-88790 tst targets in qtbase and qt3d clash
+44cae613f fixes QTBUG-88838 CMake: Qt 3D is missing documentation build targets
+c6716fa7f fixes QTBUG-88821 [REG: 5.15.1->5.15.2] Assimp plugin is only built for gcc
+1f391d58e fixes QTBUG-89412 Building with qmake uses wrong library name
+9c6563c78 fixes QTBUG-64110 Parameter prioritization doesn't match documentation
+8329ade04 fixes QTBUG-89433 Unredistributable files in qt3d and qtquick3d
+2bbd5f2ac fixes QTBUG-92259 Missing qmltypes support for quick3dcoreplugin
+1e4a3f9ba fixes QTBUG-92259 Missing qmltypes support for quick3dcoreplugin
+36707b549 fixes QTBUG-88757 qt3d: Compiliation error in qt3d\src\input\frontend\qmouseevent.cpp
+af56e7966 fixes QTBUG-87842 Invalid projection with Qt3D on DirectX11
+3c57abc7b fixes QTBUG-89020 QtNetworkauth iOS build fails with conan
+86eb86514 fixes QTBUG-89386 Project ERROR: Could not find feature qt3d-extras
+a70e42561 fixes QTBUG-90243 Unable to build Qt3D Add-On with Conan, Qt6.0.1, Qt6.1.0Alpha,6.0.2, 6.0.3, 6.0.4
+53c3d955b fixes QTBUG-90583 conanfile.py: Accept QTDIR in addition to QT_PATH
+
+[qtimageformats]
+cd27055 fixes QTBUG-88734 Could NOT find Qt6Gui (missing: Qt6Gui_DIR)
+d1819db fixes QTBUG-89280 qtimageformats wrong target wrapped for webp
+1a75853 fixes QTBUG-90583 conanfile.py: Accept QTDIR in addition to QT_PATH
+
+[qtquickcontrols2]
+71249db0c fixes QTBUG-88955 [REG 5.15.2 -> 6.0.0] Cannot change style of quickcontrols2 gallery example using the menu
+c24f5232a fixes QTBUG-89006 Native style: running controls on Windows with a dpr = 1.25 has drawing glitches
+885abf614 fixes QTBUG-89290 "Target "gallery_controls2" links to target "Qt::QuickTemplates2" but the  target was not found" when building gallery example
+df33c79fb fixes QTBUG-87283 REG: Popup position changes after opening once
+51d416cdf fixes QTBUG-89673 Destroying a modal Dialog with exit transition blocks all mouse input to other dialogs
+837b3795c fixes QTBUG-88162 Crash when NinePatchImage's source is changed
+83f49d3f4 fixes QTBUG-85770 SwipeDelegate resizes incorrectly while it is open
+2f509278a fixes QTBUG-89909 tst_controls Dialog tests fail on offscreen platform
+1fe83c1fd fixes QTBUG-84426 Tumbler without wrap ignores initial currentIndex
+80039621c fixes QTBUG-90580 tst_QQuickMenu::Material::subMenuDisabledMouse(non-cascading) fails on Ubuntu 20.04
+4b1acb290 fixes QTBUG-75042 [Accesssibility] Qt Quick Control 2 Dialog parts (title, body, footer) are read in wrong order
+60f0d475b fixes QTBUG-90928 Update dependencies on '6.1' in qt/qtquickcontrols2 failed
+71b2ed58d fixes QTBUG-87018 Touch/mouse-related test failures in qtquickcontrols2
+6495c0da7 fixes QTBUG-91989 Default theme in Gallery on Windows is 'Basic' (expecting the 'Windows')
+386ff4f6a fixes QTBUG-87236 NinePatchImage causes crash due to repeated presses.
+3013fce99 fixes QTBUG-89006 Native style: running controls on Windows with a dpr = 1.25 has drawing glitches
+84c44a805 fixes QTBUG-89006 Native style: running controls on Windows with a dpr = 1.25 has drawing glitches
+b5b36db63 fixes QTBUG-88533 qdoc errors in QtCore
+c094aa6f1 fixes QTBUG-88492 QmlComponent: Component is not ready error with static compiled Controls 2
+8166660e3 fixes QTBUG-88553 "invalid nullptr parameter" when running Qt Quick Controls - Contact List example
+42cb341a8 fixes QTBUG-52466 Styles need to be explicitly imported to work with static builds
+b87cada5e fixes QTBUG-61021 Autocomplete of editable ComboBox not working on Android
+aa5e04503 fixes QTBUG-91141 qdoc/WebXML (Qt 6): Invalid links to "Changes to Qt <Module>" are inserted into \brief of classes and other places
+
+[qtcharts]
+ee3db24c fixes QTBUG-86036 callout example has a bug
+d7ee3f3c fixes QTBUG-85909 QList::insert(): Index out of range
+dfca8967 fixes QTBUG-83320 Qt 6 / QtCharts: Spurious Quick  test failures in namespaced builds (g++ 9.2)
+6852c79c fixes QTBUG-82978 Allow "-Wextra-semi-stmt" on Q_UNUSED
+e71430cd fixes QTBUG-75500 Stack overflow on high zoom out of QChart with a logarithmic axis
+
+[qtdatavis3d]
+587d44e8 fixes QTBUG-90400 QtDataVisualization is namespaced
+8bf87c7b fixes QTBUG-90737 Conan build fails
+a87f31f2 fixes QTBUG-91032 Some autotests fail on Qt 6.1
+1a6f9765 fixes QTBUG-90710 Some tests fail
+502857f0 fixes QTBUG-91053 macOS coin build fails
+a6a96e6e fixes QTBUG-91381 tst_qmltestWrapperRelWithDebInfo is failing in 6.1
+a6e2c06a fixes QTBUG-91347 tst_proxy::multiMatch() Received a fatal error
+a2d7e0a5 fixes QTBUG-90663 RHI backend selection is not documented
+1d067e8a fixes QTBUG-92167 Adding additional libraries to qt5.git fails
+09e93778 fixes QTBUG-82978 Allow "-Wextra-semi-stmt" on Q_UNUSED
+32203587 fixes QTBUG-90583 conanfile.py: Accept QTDIR in addition to QT_PATH
+95ebd340 fixes QTBUG-90664 Some examples do not work correctly
+751f7552 fixes QTBUG-90664 Some examples do not work correctly
+dd4d4fe1 fixes PYSIDE-1438 Using QBar3DSeries.dataProvider().addRow() segfaults
+
+[qtvirtualkeyboard]
+5760593 fixes QTBUG-74664 Wrong cursor position after inputting some Japanese with Qt Virtual Keyboard
+e409ba1 fixes QTBUG-83217 rotation of virtualkeyboard does not work
+bcd9320 fixes QTBUG-89018 The prediction of Pinyin input method is incorrect
+2dadd23 fixes QTBUG-90297 Decide fate of lipi-toolkit in Qt6
+90d64de fixes QTBUG-86190 Shift button on virtual keyboard is disabled on startup of application
+9247332 fixes QTBUG-89979 "No target "XCB::XFIXES"" when building qtvirtualkeyboard with CMake
+9b4a16c fixes QTBUG-85245 Candidate characters are mixed in uppercase and lowercase when using Pinyin in Simplified Chinese
+02c76e9 fixes QTBUG-82978 Allow "-Wextra-semi-stmt" on Q_UNUSED
+fe1fea7 fixes QTBUG-82989 Decide upon and document our stance on binding to parent in delegates
+bbb35e0 fixes QTBUG-85877 Handle CONFIG += thread (aka Threads::Threads)
+3fc59b8 fixes QTBUG-85789 Update dependencies is failing in Virtual keyboard
+b6a307c fixes QTBUG-87661 Rename add_qt_gui_executable in examples to qt_add_executable across all repos
+
+[qtscxml]
+2427b67 fixes QTBUG-83420 Q2-2020 Flaky failing autotest function dynamic in scion
+0299c25 fixes QTBUG-85710 Connecting to nonexistent states connects to destroyed signal
+0e4c916 fixes QTBUG-89521 When connecting to the relevant state changed signals for a StateMachine then when running via Valgrind there is an invalid read on exit
+5b77d41 fixes QTBUG-82978 Allow "-Wextra-semi-stmt" on Q_UNUSED
+
+[qtnetworkauth]
+c1a84e5 fixes QTBUG-90583 conanfile.py: Accept QTDIR in addition to QT_PATH
+
+[qtquicktimeline]
+077b41a fixes QTBUG-89479 TimelineAnimation type documentation is missing properties
+
+[qtquick3d]
+c9c1669d fixes QTBUG-89012 Changing sourceItem size dynamically does not function as expected
+50afefe8 fixes QTBUG-89062 Qt Quick 3D adding PointLight leads to an exception
+85517898 fixes QTBUG-89104 Having more than 8 shadow casting lights leads to validation errors (and broken rendering) with Vulkan
+f3c711f8 fixes QTBUG-89105 Adding more than 15 active lights is not handled gracefully
+0ab8b236 fixes QTBUG-78975 Importing .dae file with global scale only applies the scale to x-axis
+8361bdd2 fixes QTBUG-89350 Unshaded Custom Materials with VARYING don't work when not using uniforms
+7b54647c fixes QDS-3330 Crash when importing 3D studio project
+803efea4 fixes QTBUG-89372 Qt Quick 3D random crashes if skeleton joints are created via Loader3D
+57e1219d fixes QTBUG-89657 DefaultMaterial.NoLighting ignores opacity map
+4d5d7750 fixes QTBUG-89385 View3D.pick doesn't work on custom geometry
+d905ee28 fixes QTBUG-89629 QQuick3DGeometry only supports UV0
+f08a937b fixes QTBUG-89942 Something is wrong with the way custom materials and effects parse comments
+ede9952e fixes QTBUG-90450 can't use event handlers as children of View3D
+e0df3e35 fixes QTBUG-89886 assert/segfault on exit in MultipleViews.qml
+790f8a45 fixes QTBUG-89433 Unredistributable files in qt3d and qtquick3d
+326f5b43 fixes QTBUG-90514 Loader with View3D crashes
+1a8f4438 fixes QTBUG-89872 Error with instancing in depth pre-pass and shadows
+8c418681 fixes QTBUG-91118 Texture.indexUV is unstable
+1fafbc5e fixes QTBUG-91412 Texture.sourceItem does not handle all textureProvider items correctly
+b221043b fixes QTBUG-91879 Invisible but item layer View3D with Inline render mode crashes
+6ed12331 fixes QTBUG-88320 Dynamically creating a View3D second time crashes
+3ab266ec fixes QTBUG-91871 View3D with no size specified crashes with OpenGL only
+99e4087d fixes QTBUG-91888 Item2D + importScene = crash due to the well-known dead-rhi-objects-in-cache-key problem
+4659266a fixes QTBUG-89946 SpotLight doesn't work properly with PBR materials
+05c82169 fixes QTBUG-92215 custom shaders example: no ui elements interacatable
+
+[qtshadertools]
+4e1806a fixes QTBUG-89186 Fix license attributions for src/3rdparty/glslang
+0374848 fixes QTBUG-89288 Add 'Licenses and Attributions' section to Qt ShaderTools documentation
+
+[qt5compat]
+0ceb280 fixes QTBUG-89070 doc build failure for qt5 on Ubuntu 20.04
+
+[qtcoap]
+432791f fixes QTBUG-88729 FAIL!  : tst_QCoapMessage::addOption() Received a fatal error
+98a418d fixes QTBUG-92253 qtcoap/.gitignore file included in 6.1.0 sources
+7c19eda fixes QTBUG-92256 Qt src build fails on MinGW
+aa20b99 fixes QTBUG-90583 conanfile.py: Accept QTDIR in addition to QT_PATH
+
+[qtmqtt]
+c9ad3db fixes QTBUG-90583 conanfile.py: Accept QTDIR in addition to QT_PATH
+
+[qtopcua]
+a9feb68 fixes QTBUG-91256 qtopcua top-level build error
+fc6832f fixes QTBUG-88518 compilation error in qtopcua 'dev' branch against Qt6.0.0 beta5
+f7a47c7 fixes QTBUG-89427 qtopcua missing limits include
+4c9a304 fixes QTBUG-89219 qtopcua build fails
+fc942e5 fixes QTBUG-90531 Unable to build QtOpcua Add-On with Conan, Qt6.0.1 windows MSVC 2019
+e09f1fe fixes QTBUG-86360 Successfully executed OPC UA method closes client connection
+d51c38d fixes QTBUG-90583 conanfile.py: Accept QTDIR in addition to QT_PATH
+
+Contributors
+____________
+
+Aavitsland Eirik
+Achtelik Mike
+Adam Cristian
+Agocs Laszlo
+Aiguo Ma
+Akulich Alexander
+Albamont Jim
+Apostolou Dimitrios
+Avila Risto
+Avtomonov Nikolay
+Beernaert Leander
+Blasche Alex
+Blomfeldt Eskil Abrahamsen
+Bornemann Joerg
+Bot Qt Forward Merge
+Bouclet Bastien
+Boudjelthia Assam
+Brasser Michael
+Bruhin Florian
+Buhr Andreas
+Burtsev Kirill
+Butirsky Andrey
+Chuan Wang
+ChunLin Wang
+Cord-Landwehr Andreas
+Croitor Alexandru
+Curtis Mitch
+D'Angelo Giuseppe
+Duesund Ole-Morten
+Edelev Alexey
+Edmundson David
+Eftevaag Oliver
+Ehrlicher Christian
+Eklund Iikka
+Falsini Fabio
+Faure David
+Fedin Ilya
+Fella Nicolas
+Funk Kevin
+Fält Simo
+Gaist Samuel
+Gehör Pekka
+Genkhel Roman
+Giboudeaux Christophe
+Gladhorn Frederik
+Goldstein Maximilian
+Golubev Andrei
+Goolcharan Avindra
+Griebl Robert
+Grulich Jan
+Grönholm Kaj
+Guichard Nicolas
+Gustavsen Richard Moe
+Gutman Cameron
+Gérard Lucie
+Habacker Ralf
+Halmet Heikki
+Hao Zhang
+Hartmann Andre
+Hartmetz Andreas
+Hausmann Simon
+Heikkinen Jani
+Heikkinen Miikka
+Heimrich Karsten
+Hermann Ulf
+Heskestad Øystein
+Hilsheimer Volker
+Jensen Allan Sandfeld
+Jenssen Tim
+Jie Huang
+Jung Jaeyoon
+Kandeler Christian
+Karlsson Jonas
+Keller Christoph
+Kittler Marius
+Kleint Friedemann
+Klocek Michal
+Klos Martin
+Knoll Lars
+Kobus Jarek
+Koehne Kai
+Koivikko Jarkko
+Kokko Antti
+Korpipaa Tomi
+Kosmale Fabian
+Krems Marcel
+Krus Mike
+Kums Sophie
+Kurazyan Sona
+Kushnir Igor
+Kyzivat Keith
+Köhne Kai
+Lee Inho
+Lei Hou
+Lemire Paul
+Li Qiang
+Liang Zhang
+Loehning Robert
+Löhning Robert
+Macieira Thiago
+Mao Sheng
+Martinec Tamas
+Martins Sergio
+Meerkötter Frank
+Miettinen Leena
+Mikolajczyk Piotr
+Mohamed Fawzi
+Moskal Bartlomiej
+Mutz Marc
+Myöhänen Janne
+Määttä Antti
+Möller Matthias
+Naumov Maks
+Nichols Andy
+Nishihara Yuya
+Nordheim Mårten
+Okada Shinichi
+Ollila Kimmo
+Oomkes Jeroen
+Paeglis Gatis
+Pasion Jerome
+Pastor Kai
+Pelkonen Tuomo
+Piippo Samuli
+Pocheptsov Timur
+Pohjanheimo Milla
+Poikelin Joni
+Pol Aleix
+Portale Alessandro
+Potter Lorn
+Qi Liang
+Raschbauer Reinhard
+Reinio Topi
+Ritt Konstantin
+Rocha Andre de la
+Rosenvik Niclas
+Rui Dong
+Rutledge Shawn
+Saario Toni
+Samir Ahmad
+Samokhatko Volodymyr
+Sarajärvi Tony
+Schmertmann Lars
+Scott Craig
+Seiderer Peter
+Seo Siyeon
+Seppänen Mikko
+Sergey Mosolov
+Shachnev Dmitry
+Shaforostov Nick
+Shaw Andy
+Shivashankar Venugopal
+Shouwei Niu
+Skoland David
+Solovev Ivan
+Strømme Christian
+Sæther Jan Arve
+Sørvig Morten
+Sørvig Morten Johan
+Trotsenko Alex
+Tuliniemi Jere
+Tvete Paul Olav
+Uzumcu Furkan
+Vaarala Tuomas
+Verria Doris
+Vertriest Nico
+Vestbø Tor Arne
+Viot Camille
+Voelker Jannis
+Volgutov Valery
+Volkov Alexander
+Voutilainen Ville
+Vuolle Juha
+Wang ChunLin
+Weickelt Richard
+Welbourne Edward
+Wicking Paul
+Winkelmann Michael
+Wolff Oliver
+Worledge Rebecca
+Xiaojun Xiang
+Xinwei Li
+Xuetian Weng
+Ya Zou
+Yanghe Xu
+Yicun Wang
+Yrjänä Marianne
+Yu Wang
+Yu Zhang
+Yuyin Yang
+Zhang JiDe
+Zhao Yuhang
+Zhen Lu
+hjk hjk
