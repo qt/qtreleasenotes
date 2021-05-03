@@ -1,0 +1,150 @@
+Release note
+===========
+
+Qt 6.0.4 release is a bug fix releases to the top of Qt 6.0.3.
+
+The goal has been to retain as much source compatibility with Qt 5.15 as
+possible, but some changes were inevitable to make Qt a better framework.
+
+To make it easier to port to Qt 6.0, we have created a porting guide to
+summarize those changes and provide guidance to handle them. In the guide, you
+can find links to articles about changes that may affect your application and
+help you transition from Qt 5.15 to Qt 6.0:
+
+https://doc.qt.io/qt-6/portingguide.html
+
+For more details refer to the online documentation of Qt 6.0:
+https://doc.qt.io/qt-6/index.html
+
+Note: This release note is only for Qt 6.0.4 release and does not contain
+details for Additional Modules released together with Qt 6.0.4
+
+Important Changes
+_________________
+
+[qtbase]
+917509c914 QTextHtmlParserNode: Limit colspan to avoid segfault
+    QTextDocument::setHtml: column spans are limited to 20480, an arbitrarily high but reasonable value.
+
+567e7f1518 Read DPI from X Settings initially as well
+    Qt now reads Xft/DPI from X settings at startup, and will prefer this value over Xft.dpi from X resources.
+
+dc9b55d6b2 Fix case sensitivity handling QSFPM
+    Case sensitivity as well as regular expression options handling have been fixed. The original value is properly kept when using setFilterWildCard and setFilterFixedString. The regular expression options are now also properly kept when changing the case senstitivity through setFilterCaseSensitivity.
+
+
+Fixes
+_____
+
+[qtbase]
+955ce882f7 fixes QTBUG-91539 QThread::quit() is unreliable on Windows
+da7c44770f fixes QTBUG-91029 Windows/Accessibility: Focused QListWidget is not announced by screen readers
+8f7bcbf1c6 fixes QTBUG-92087 No shortcuts possible with SysReq key
+687685f649 fixes QTBUG-89456 QTypeTraits templates break existing code
+5a09a21b60 fixes QTBUG-86134 [Reg 5.9 -> 5.12] QPushButton: icon not aligned when menu-indicator is removed
+cc3cb77f62 fixes QTBUG-92275 Slow and memory intensive handling of input to QDateTime::fromString
+4f042c8262 fixes QTBUG-88031 iOS: quickcontrols2/gallery fails to build in release mode (Failed to parse qmlimportscanner output)
+
+[qtsvg]
+0f219c8 fixes QTBUG-90744 [REG: 5.13 -> 5.14] QPixmap::load returns false for svg files if file encoding not utf-8 & format not specified
+
+[qtdeclarative]
+69d8760481 fixes QTBUG-92064 PinchHandler target scale jumps when pinching a second time via native gesture
+30c9ed29be fixes QTBUG-92099 TableView: content height doesn't change when adding new rows
+a80ce81b5f fixes QTBUG-92026 qt6_qml_type_registration() generates CMP0116 warnings with CMake 3.20
+4a8942cc1f fixes QTBUG-72757 iOS: Text input cursor moving incorrect with using magnifying glass
+0a07a62612 fixes QTBUG-92447 [Reg 5.15 -> 6.0] qmllint: Property "length" not found on type "QString"
+06aca6a1d5 fixes QTBUG-92236 When the cache for a QML file is generated and then loaded it will cause a crash
+af29de3efc fixes QTBUG-91749 Incorrect batching using overlapping QSGGeometry with lines having a width > 1
+b659354694 fixes QTBUG-89892 crash when assigning null to anchors.horizontalCenter
+52c6fd1437 fixes QTBUG-89736 focusable item becomes impossible to focus after reparenting to a newly loaded item
+9d426d0f03 fixes QTBUG-91867 TextInput cursorDelegate position not updated after left padding change
+4e5f5caed0 fixes QTBUG-93048 Signal and Handler Event System   demo Grammatical errors
+bc5ae286c8 fixes QTBUG-86708 When using DelegateModelGroup to group items then when a created item which is set to not be included will trigger an assert
+52feae162b fixes QTBUG-91276 DelegateModel can crash with retranslate()
+50b679a03c fixes QTBUG-92447 [Reg 5.15 -> 6.0] qmllint: Property "length" not found on type "QString"
+3ba6fe4b62 fixes QTBUG-92861 QtQml does not provide version 6.2
+
+[qttools]
+26676dbf fixes QTBUG-92478 [QDoc] Links for obsolete methods point to the wrong page
+
+[qtwayland]
+44362069 fixes QTBUG-91206 Input hints not delivered to virtual keyboard with new text input protocol
+5d81abe0 fixes QTBUG-89680 Touch is ignored if up and down arrives in the same wl_touch.frame
+0609d6fb fixes QTBUG-92861 QtQml does not provide version 6.2
+
+[qtquickcontrols2]
+e3753afbc fixes QTBUG-87236 NinePatchImage causes crash due to repeated presses.
+06eefa58c fixes QTBUG-92883 [qt6] duplicate symbols in mac style plugin
+a29d29c02 fixes QTBUG-93039 Crash when scrolling ScrollView with zero-sized item
+7d1410711 fixes QTBUG-93172 Duplicate symbol qInitResources_qmake_immediate when building qtquickcontrols2 gallery example against static macOS Qt
+3b4f4a5d4 fixes QTBUG-88220 Add documentation pages for the new native styles
+3d5254938 fixes QTBUG-92861 QtQml does not provide version 6.2
+dd6c6714f fixes QDS-4212 Changing Range Slider snap mode changes it's orientation
+
+[qtquick3d]
+7e74e2b8 fixes QTBUG-92861 QtQml does not provide version 6.2
+
+Contributors
+____________
+
+Aavitsland Eirik
+Agocs Laszlo
+Avtomonov Nikolay
+Baijot Vincent
+Beldi Luca
+Blomfeldt Eskil Abrahamsen
+Bornemann Joerg
+Broulik Kai Uwe
+Buhr Andreas
+Butirsky Andrey
+Chuan Wang
+Croitor Alexandru
+Curtis Mitch
+D'Angelo Giuseppe
+Edelev Alexey
+Faure David
+Fedin Ilya
+Gaist Samuel
+Gehör Pekka
+Goldstein Maximilian
+Golubev Andrei
+Gruendl Henning
+Gustavsen Richard Moe
+Haixiang Tang
+Hao Zhang
+Heikkinen Jani
+Heimrich Karsten
+Hermann Ulf
+Hilsheimer Volker
+Jensen Allan Sandfeld
+Karlsson Jonas
+Keller Christoph
+Khang Hyunkook
+Kleint Friedemann
+Kosmale Fabian
+Kushnir Igor
+Li Qiang
+Löhning Robert
+Macieira Thiago
+Nordheim Mårten
+Pohjanheimo Milla
+Poikelin Joni
+Pol Aleix
+Qi Liang
+Reinio Topi
+Rocha Andre de la
+Rutledge Shawn
+Schmertmann Lars
+Scott Craig
+Shaw Andy
+Strømme Christian
+Suzuki Tasuku
+Sæther Jan Arve
+Trotsenko Alex
+Verria Doris
+Volkov Alexander
+Wang ChunLin
+Welbourne Edward
+Wicking Paul
+Xuetian Weng
