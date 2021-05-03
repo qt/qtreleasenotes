@@ -1,4 +1,4 @@
-Relase note
+Release note
 ===========
 
 Qt 6.0.2 release is a bug fix releases to the top of Qt 6.0.1.

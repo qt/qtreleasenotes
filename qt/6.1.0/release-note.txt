@@ -1,4 +1,4 @@
-Relase note
+Release note
 ===========
 
 Qt 6.1 introduces many new features and improvements as well as bugfixes
