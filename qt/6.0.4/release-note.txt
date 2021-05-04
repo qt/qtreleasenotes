@@ -30,7 +30,9 @@ _________________
     Qt now reads Xft/DPI from X settings at startup, and will prefer this value over Xft.dpi from X resources.
 
 dc9b55d6b2 Fix case sensitivity handling QSFPM
-    Case sensitivity as well as regular expression options handling have been fixed. The original value is properly kept when using setFilterWildCard and setFilterFixedString. The regular expression options are now also properly kept when changing the case senstitivity through setFilterCaseSensitivity.
+    Case sensitivity as well as regular expression options handling have been fixed.
+    The original value is properly kept when using setFilterWildCard and setFilterFixedString.
+    The regular expression options are now also properly kept when changing the case senstitivity through setFilterCaseSensitivity.
 
 
 Fixes
