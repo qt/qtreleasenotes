@@ -744,6 +744,7 @@ fa54c39062 fixes QTBUG-92078 qmleasing uses removed API
 d250e00707 fixes QTBUG-89892 crash when assigning null to anchors.horizontalCenter
 bcd7b0fe55 fixes QTBUG-92562 qtdeclarative build error on x86-windows
 ab253c6bc7 fixes QTBUG-89736 focusable item becomes impossible to focus after reparenting to a newly loaded item
+2423608d6c fixes QTBUG-93083 setSceneGraphBackend(const QString &backend): where is the list of possible strings?
 ae1b9c6d94 fixes QTBUG-84458 QML Text doesn't reset lineCount when text is empty
 06f333bfc5 fixes QTBUG-88626 tst_qqmltimer::restartWhenEventPosted() failed on msvc2019 developer build in CI
 1ddc6b5216 fixes QTBUG-88646 tst_qquicktext::contentSize() failed on msvc2019 developer build in CI
@@ -850,6 +851,7 @@ f02e1544 fixes QTBUG-91753 Designer cannot change font
 b3242805 fixes QTBUG-91746 Incomplete statement in QDoc documentation on \instantiates
 419a0d3e fixes QTBUG-91754 qdoc crash when generic documents of qtbase
 96f53ec6 fixes QTBUG-91990 qdoc: \property command fails with a const property type
+a73f31b1 fixes QTBUG-65810 Outdated copyright notes
 b463cd69 fixes QTBUG-62697 qhc files cannot be created in a reproducible way
 62a01a55 fixes QTBUG-89093 Qt Designer makes use of AllDockWidgetFeatures which is marked as depricated
 147e098c fixes QTBUG-89479 TimelineAnimation type documentation is missing properties
@@ -867,6 +869,7 @@ b784e557 fixes QTBUG-90640 examples-android.html links to invalid Creating a Mob
 563dfa08 fixes QTBUG-90747 Highlighted example demos/photosurface not compiling with Android (unknown target 'apk')
 09aa835c fixes QTBUG-86614 When a service is set to be started at boot time it is not being started after a reboot of the device
 8c2c14f5 fixes QTBUG-92047 Configure "-help" does not mention "-xplatform"
+a9bc7108 fixes QTBUG-93245 Documentation: New 6.1 modules missing from overview
 53d40c60 fixes QTBUG-86800 QDoc link errors qtdoc Qt 6
 41593a00 fixes QTBUG-86800 QDoc link errors qtdoc Qt 6
 fff18204 fixes QTBUG-88833 Unable to install Qt6.0.0 on openSUSE15.1
@@ -932,6 +935,7 @@ df33c79fb fixes QTBUG-87283 REG: Popup position changes after opening once
 71b2ed58d fixes QTBUG-87018 Touch/mouse-related test failures in qtquickcontrols2
 6495c0da7 fixes QTBUG-91989 Default theme in Gallery on Windows is 'Basic' (expecting the 'Windows')
 386ff4f6a fixes QTBUG-87236 NinePatchImage causes crash due to repeated presses.
+30cf78d48 fixes QTBUG-88220 Add documentation pages for the new native styles
 3013fce99 fixes QTBUG-89006 Native style: running controls on Windows with a dpr = 1.25 has drawing glitches
 84c44a805 fixes QTBUG-89006 Native style: running controls on Windows with a dpr = 1.25 has drawing glitches
 b5b36db63 fixes QTBUG-88533 qdoc errors in QtCore
@@ -958,6 +962,7 @@ a6a96e6e fixes QTBUG-91381 tst_qmltestWrapperRelWithDebInfo is failing in 6.1
 a6e2c06a fixes QTBUG-91347 tst_proxy::multiMatch() Received a fatal error
 a2d7e0a5 fixes QTBUG-90663 RHI backend selection is not documented
 1d067e8a fixes QTBUG-92167 Adding additional libraries to qt5.git fails
+32c7d9b7 fixes QTBUG-93263 QtDatavisualization examples not compiling on Android
 09e93778 fixes QTBUG-82978 Allow "-Wextra-semi-stmt" on Q_UNUSED
 32203587 fixes QTBUG-90583 conanfile.py: Accept QTDIR in addition to QT_PATH
 95ebd340 fixes QTBUG-90664 Some examples do not work correctly
