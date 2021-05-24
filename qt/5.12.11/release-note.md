@@ -126,7 +126,6 @@ that there are problems with the property cache
 * QTBUG-91867 TextInput cursorDelegate position not updated after left  
 padding change  
 * QTBUG-90401 Heap-use-after-free in QAbstractAnimationJob  
-* QTBUG-90401 Heap-use-after-free in QAbstractAnimationJob  
 * QTBUG-46350 Crash when deleting item currently set in PropertyChanges  
 target  
   
@@ -153,10 +152,14 @@ values
   
 ### qtremoteobjects  
 * QTBUG-82284 TestModelView::testDataInsertionTree fails for Windows 7  
-* QTBUG-82284 TestModelView::testDataInsertionTree fails for Windows 7  
 * QTBUG-84640 Disconnected ExternalIODevice Not Handled  
-* QTBUG-82284 TestModelView::testDataInsertionTree fails for Windows 7  
-  
+
+Known Issues  
+------------
+
+* RTA reported issues from Qt 5.12 LTS:  
+https://bugreports.qt.io/issues/?filter=22251
+
 Credits for the  release goes to:  
 ---------------------------------  
   
