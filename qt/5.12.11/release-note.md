@@ -153,13 +153,19 @@ values
 ### qtremoteobjects  
 * QTBUG-82284 TestModelView::testDataInsertionTree fails for Windows 7  
 * QTBUG-84640 Disconnected ExternalIODevice Not Handled  
-
+  
 Known Issues  
 ------------
-
+  
 * RTA reported issues from Qt 5.12 LTS:  
 https://bugreports.qt.io/issues/?filter=22251
-
+  
+### Linux
+* Qt Creator (or other GUI applications like Assistant, Designer, etc)  
+from installer won't start properly if xcb isn't installed  
+https://bugreports.qt.io/browse/QTBUG-94244  
+Workaround: Install xcb in your development host  
+  
 Credits for the  release goes to:  
 ---------------------------------  
   
