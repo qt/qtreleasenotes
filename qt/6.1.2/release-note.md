@@ -261,6 +261,27 @@ counterpart
   
 Known Issues  
 ------------  
+
+* Check that your system meets Qt's requirements:  
+https://doc.qt.io/qt-6/gettingstarted.html#platform-requirements  
+* RTA reported issues from Qt 6.1  
+https://bugreports.qt.io/issues/?filter=22879  
+* Supported development platforms are listed here:  
+https://bugreports.qt.io/browse/QTBUG-86432  
+  
+### Linux
+* Minimum glibc version for prebuild binaries is still 2.28, see  
+https://bugreports.qt.io/browse/QTBUG-88833.  
+Workaround: compile Qt 6.1.2 by yourself or update glibc to 2.28 or newer  
+  
+### Windows
+* Wrong rendering in Dialog with native Windows style  
+https://bugreports.qt.io/browse/QTBUG-91755  
+  
+### Android
+* Old openssl version used on Linux hosts  
+https://bugreports.qt.io/browse/QTBUG-94355  
+https://bugreports.qt.io/browse/QTQAINFRA-4501  
   
 Credits for the  release goes to:  
 ---------------------------------  
