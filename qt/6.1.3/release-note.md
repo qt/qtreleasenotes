@@ -243,8 +243,6 @@ Ahead-of-Time Compilation
 ### qt3d  
 * QTBUG-93035 Adding a disable entity to the scene and enabling it later  
 isn't properly picked up  
-* QTBUG-93035 Adding a disable entity to the scene and enabling it later  
-isn't properly picked up  
 * QTBUG-95130 Qt3D ShaderProgram sources cannot compile on iOS (RHI)  
   
 ### qtquickcontrols2  
@@ -252,8 +250,6 @@ isn't properly picked up
 transitionDuration (line 77)  
 * QTBUG-93041 If Button is used as delegate of ListView then application  
 fails  
-* QTBUG-83630 Qt Quick Control 2 Tooltip can be way too big when you  
-have newlines  
 * QTBUG-83630 Qt Quick Control 2 Tooltip can be way too big when you  
 have newlines  
   
