@@ -2082,8 +2082,6 @@ are added while filtering QSortFilterProxyModel is used
 * QTBUG-92148 QSemaphore::acquire is not woken when release is called()  
 * QTBUG-92275 Slow and memory intensive handling of input to  
 QDateTime::fromString  
-* QTBUG-88031 iOS: quickcontrols2/gallery fails to build in release mode  
-(Failed to parse qmlimportscanner output)  
 * QTBUG-90611 Shortcut Alt+` is not working with non US layout  
 * QTBUG-92239 Incorporate Android's MediaStore into Qt for Android  
 * QTBUG-92079 QFINDTESTDATA does not find data relative to test source  
@@ -2161,8 +2159,6 @@ wrong source_location selection
 * QTBUG-88441 No longer possible to build docs with an already installed  
 qdoc  
 * PYSIDE-1404 Incompatible import of "Object" in compiled UI  
-* QTBUG-86670 Fix qtwayland / qtquickcontrols2 static builds failing to  
-reconfigure in a non-prefix build  
 * QTBUG-91770 qvnc: Arbitrary memory read vulnerability  
 * QTBUG-67944 If user pressed back button during application startup.  
 Application becomes unresponsive.  
@@ -2178,8 +2174,6 @@ and slots
 QDialog  
 * QTBUG-63393 [iOS]: When typing in a TextEdit and then using Undo, it  
 is only possible to undo the very last change  
-* QTBUG-91171 QTextCharFormat setFontUnderline does not sets the  
-attribute to document  
 * QTBUG-91171 QTextCharFormat setFontUnderline does not sets the  
 attribute to document  
 * QTBUG-88374 QTextDocument::toHtml: nested lists (ul, ol) not nested in  
@@ -2245,7 +2239,6 @@ possible after pasting
 * QTBUG-92188 Stack smashing detected using QImage::scaled  
 * QTBUG-71701 QFileSystemModel fails to locate a host from the root  
 node's visible children  
-* QTBUG-93713 Trivial WASM example crashes when running for a minute  
 * QTBUG-85051 CMake doesn't support big resources  
 * QTBUG-93770 Wrong pixel ratio when using OpenGL in an embedded window  
 context  
@@ -2297,7 +2290,6 @@ libopengl0
 * QTBUG-94143 QProperty: tst_qsequentialanimationgroup crashes  
 * QTBUG-89273 Building almost any Qt example for iOS throws a big list  
 of warnings  
-* QTBUG-73990 Context Menu Items Fonts and Hotkeys Not Displaying  
 * QTBUG-73990 Context Menu Items Fonts and Hotkeys Not Displaying  
 * QTBUG-90442 QFileDialog::saveFileContent crashes on accept  
 * QTBUG-94178 QNativeGestureEvent with gestureType EndNativeGesture  
@@ -2354,8 +2346,6 @@ aligned right
 properly drawing the tabs  
 * QTBUG-71894 Hangul composition bug  
 * QTBUG-94400 /EHsc flag removal wrong  
-* QTBUG-94264 When building for Android, instead of an apk, just .so is  
-built  
 * QTBUG-91120 QDate::fromString() fails on isolated dates on macOS with  
 TZ=Europe/Lisbon  
 * QTBUG-94347 QRandomGenerator64 refers to functions as static, aren't.  
@@ -2376,12 +2366,10 @@ linux terminal (recursion crash)
 static build  
 * QTBUG-89379 QQuickWindow::QtTextRendering cause font problem on Apple  
 M1  
-* QTBUG-94568 Build error when depending on internal module in qtbase  
 * QTBUG-85714 QOpenGLWidget with NativeWindow QDockWidget does not  
 render when undocked  
 * QTBUG-94069 MacOS ComboBox Focus Ring is Too Tall  
 * QTBUG-82835 Stale socket notifications can be emitted to new sockets  
-* QTBUG-94568 Build error when depending on internal module in qtbase  
 * QTBUG-91130 SIGSYS error in QSystemSemaphore for iOS  
 * QTBUG-94175 QGraphicsProxyWidget: rendered Arabic text incomplete in  
 large font sizes when OpenGL is used  
@@ -2402,9 +2390,6 @@ Android
 * QTBUG-94839 QSystemTrayIcon::isSystemTrayAvailable() opens a new file  
 descriptor on each call which isn't closed  
 * QTBUG-92477 Memory leak in QFontDatabase  
-* QTBUG-91398 When QFont::NoFontMerging is set then if bold or italics  
-is requested that is not provided by the font then it will end up not  
-synthesizing this  
 * QTBUG-88508 some tests are not saving result output to file on Android  
 * QTBUG-92157 Qt configured without Vulkan support in 6.1 Android  
 packages [Vulkan crashes on SA8155 (Qualcomm)]  
@@ -2419,7 +2404,6 @@ both INSTALL_MKSPECSDIR and QT_QMAKE_TARGET_MKSPEC set
 * QTBUG-95005 Typo in QOpenGLPaintDevice::dotsPerMeterY  
 * QTBUG-91632 Make /usr/local/Qt-6.x the default install folder instead  
 of /usr/local  
-* QTBUG-94069 MacOS ComboBox Focus Ring is Too Tall  
 * QTBUG-94824 In qlinedit, icon and text overlap  
 * QTBUG-95027 Building a DEBUG CMake project against a -debug-and-  
 release Qt fails  
@@ -2438,8 +2422,6 @@ should now be set to  "OFF" when importing features from Qt6::Core.
 square button so it can be made smaller  
 * QTBUG-91125 QTextFormat::FullWidthSelection does not work with right-  
 to-left text layout  
-* QTBUG-65637 Window minimizing broken after building QT app with Mac OS  
-High Sierra SDK  
 * QTBUG-92561 Strange selection behavior of with ExtendedSelection +  
 SelectRows  
 * QTBUG-95011 QLineEdit inconsistently changes layout direction when  
@@ -2566,8 +2548,6 @@ item
 really the QDir::setCurrent() one  
 * QTBUG-45737 No touch events handling (QGraphicsProxyWidget / QWidget)  
 * QTBUG-96009 tst_QGraphicsProxyWidget::mouseDoubleClickEvent fails  
-* QTBUG-95255 After setDefaultAction for a QToolButton and call  
-setChecked, then checked status wrong  
 * QTBUG-89549 Linker error when building Qt 6 statically with cmake +  
 clang on Windows  
 * QTBUG-46300 Qt's application ignore some input method behavior  
@@ -2592,7 +2572,6 @@ fullscreen mode on macOS
 into window  
 * QTBUG-95358 Possible null pointer dereference in qpixmap.cpp  
 * QTBUG-96197 Yocto build fails in CI for 6.2.0-beta4 qtbase  
-* QTBUG-45737 No touch events handling (QGraphicsProxyWidget / QWidget)  
 * QTBUG-96170 WASM: data URI scheme does not work  
 * QTBUG-91707 [Reg 5.15->6.0] Recursive QMap as MetaType cannot have key  
 with custom operator==  
@@ -2600,7 +2579,15 @@ with custom operator==
 * QTBUG-95565 Qt Creator cannot build Qt 6 for iOS from the start  
 * QTBUG-96062 Integrity linker can't cope with duplicate object files on  
 command line  
-* QTBUG-89889 tst_QDateTime::systemTimeZoneChange fails on 32bit systems  
+* QTBUG-96285 QProcess can't be restarted  
+* QTBUG-96619 QRhi declares types with non-relocatable QVLA in them as  
+relocatable which can lead to crashes  
+* QTBUG-96606 CA certificates not fetched on Android  
+* QTBUG-96690 Qt6. Build failed when use std::optional as a signal  
+argument  
+* QTBUG-54848 Problem with QAbstractItemDelegate and IME (chinese Input  
+Method) with edit trigger QAbstractItemView::AnyKeyPressed  
+* QTBUG-96838 signing Android app bundles fails with 6.2.0-rc  
 * QTBUG-89423 QAbstractItemModel::multiData SC/BC fallout  
 * QTBUG-84906 qt6_qml_type_registration requires automoc  
 * QTBUG-90980 CMake configure failure with given multiline toolchain  
@@ -2614,48 +2601,31 @@ compilation
 * QTBUG-56552 QDateTime/QTime truncates milliseconds when converting to  
 Qt::ISODate string  
 * QTBUG-88728 80M of rows crash QTableView while 70M do not  
-* QTBUG-90943 Qt 6.0.0 ignores ANDROID_PACKAGE_SOURCE_DIR  
-* QTBUG-90662 Fix CI warnings qtbase  
 * QTBUG-90662 Fix CI warnings qtbase  
 * QTBUG-91180 Cant' start Android emulator with Ubuntu 18.04  
 * QTBUG-91147 Correct wrong snippet paths reported by CI  
 * QTBUG-91104 REG->6.0/Windows : QFileSystemModel no longer displays  
 file icons  
-* QTBUG-91224 BIC breakage in QStyleOptionHeader  
 * QTBUG-86013 [evdev] protocol b touch device doesn't get release event  
-* QTBUG-90819 Linking relationships to plugins are incorrectly specified  
-* QTBUG-90819 Linking relationships to plugins are incorrectly specified  
 * QTBUG-90819 Linking relationships to plugins are incorrectly specified  
 * QTBUG-89082 The previous tips is still displayed when mouse move to  
 another Action without tips.  
 * QTBUG-89948 [HiDpi] Qt renders incorrectly if user's scaling factor is  
 less than 1  
 * QTBUG-82617 Crash on exit via back button on Huawei Mate 20 Pro  
-* QTBUG-89082 The previous tips is still displayed when mouse move to  
-another Action without tips.  
-* QTBUG-91117 Build error in Windows Visual Studio 2019,  c++20  
-referring to std::popcount  
-* QTBUG-89082 The previous tips is still displayed when mouse move to  
-another Action without tips.  
 * QTBUG-83932 Port configure.cmake missing libraries that are marked  
 with FIXME  
-* QTBUG-91500 There is no file 'QWGLContext'  
 * QTBUG-91423 tst_QGlobalStatic gets stuck after "realloc(): invalid  
 next size" message  
 * QTBUG-91392 ProtocolFailure with certain HTTP requests to  
 transmission-daemon  
 * QTBUG-91253 QConcatenateTablesProxyModel crushes being sourceModel in  
 QSortFilterProxyModel  
-* QTBUG-90662 Fix CI warnings qtbase  
 * QTCREATORBUG-23574 cmake support for iOS  
 * QTBUG-79140 [REG 5.13.0 -> 5.14.0]OTF fonts don't work correctly  
-* QTBUG-90662 Fix CI warnings qtbase  
 * QTBUG-91888 Item2D + importScene = crash due to the well-known dead-  
 rhi-objects-in-cache-key problem  
-* QTBUG-90662 Fix CI warnings qtbase  
 * QTBUG-91782 clang compiler crashes in CI  
-* QTBUG-87580 Add minimal set of tests to build for static Qt configs in  
-Coin  
 * QTBUG-87580 Add minimal set of tests to build for static Qt configs in  
 Coin  
 * QTBUG-92211 Android emulator VM fails to run  
@@ -2663,233 +2633,102 @@ tst_QRhi::renderPassDescriptorCompatibility once OpenGL ES 3.0 is
 enabled  
 * QTBUG-91417 Selection does not work in read-only text editing controls  
 - QtWidgets  
-* QTBUG-91915 Gui applications that are built as part of a static Qt  
-build miss the default QPA plugin  
-* QTBUG-20984 tst_macgui autotest is unstable  
 * QTBUG-92163 top-level configure returns with exit code != 0 if qt3d is  
 checked out  
-* QTBUG-90662 Fix CI warnings qtbase  
-* QTBUG-87580 Add minimal set of tests to build for static Qt configs in  
-Coin  
-* QTBUG-92275 Slow and memory intensive handling of input to  
-QDateTime::fromString  
 * QTBUG-52523 tst_gestures event counts fail on RHEL 7.x  
 * QTBUG-92861 QtQml does not provide version 6.2  
 * QTBUG-92947 QPalette doesn't return the correct color when querying  
 QPalette::PlaceholderText  
 * QTBUG-91911 Qt combines values from unrelated enum types  
-* QTBUG-88093 qtbase unable to build with system jpeg  
-* QTBUG-87580 Add minimal set of tests to build for static Qt configs in  
-Coin  
 * QTBUG-58013 Cursor position changes not properly passed to input  
 method  
-* QTBUG-87580 Add minimal set of tests to build for static Qt configs in  
-Coin  
 * QTBUG-93033 Deprecated Function "isTopLevel" in qwidget.h defined  
 * QTBUG-90341 The QtStartUpFunction function may be called repeatedly  
 * QTBUG-93069 QSettings leads to deadlock  
-* QTBUG-87580 Add minimal set of tests to build for static Qt configs in  
-Coin  
 * QTBUG-93037 Conan builds are unable to run tst_qmake  
-* QTBUG-86033 Update QtPlatformAndroid.cmake to include features in the  
-old Qt5AndroidSupport.cmake  
-* QTBUG-86033 Update QtPlatformAndroid.cmake to include features in the  
-old Qt5AndroidSupport.cmake  
 * QTBUG-86033 Update QtPlatformAndroid.cmake to include features in the  
 old Qt5AndroidSupport.cmake  
 * QTBUG-93093 The tests for QSharedPointer are disabled  
 * QTBUG-91801 Potential memory leak in sending queued signals?  
 * QTBUG-93019 [REG 5.15-6.0] QList/QVector regressions  
-* QTBUG-93019 [REG 5.15-6.0] QList/QVector regressions  
-* QTBUG-93019 [REG 5.15-6.0] QList/QVector regressions  
 * QTBUG-93176 Data race in tst_qurl::testThreading() detected by Thread  
 Sanitizer  
 * QTBUG-92930 QRawFont::advancesForGlyphIndexes seems to ignore  
 KernedAdvances  
-* QTCREATORBUG-25389 Can't use manual tests from Creator  
 * QTBUG-92944 input problems in DynamicTexture example  
-* QTBUG-93093 The tests for QSharedPointer are disabled  
 * QTBUG-87057 QListView item looses items from models that don't  
 override moveRows during internal drag'n'drop  
-* PYSIDE-1404 Incompatible import of "Object" in compiled UI  
-* QTBUG-92944 input problems in DynamicTexture example  
 * QTBUG-92500 When using a ShaderEffect which has been compiled with the  
 qsb tool, it does not apply the effect at all  
 * QTBUG-89512 binding a computed property to another property should  
 give an error  
-* QTBUG-61652 Android's virtual keyboard "OK" button must not accept the  
-QDialog  
 * QTBUG-86677 QToolBar button resize chops text  
-* QTBUG-93494 iOS A11Y VoiceOver: QAccessible::EditableText not  
-implemented as "TextField" and value is missing last character  
 * QTBUG-93565 Unnecessary dependency to host Tools package in cross-  
 builds  
 * QTBUG-63557 Showing / hiding QML Dialog type keeps allocating memory  
 without releasing it  
-* QTBUG-87580 Add minimal set of tests to build for static Qt configs in  
-Coin  
-* QTBUG-84664 When QLineEdit is in password mode then it will still  
-allow characters to be composed but it will lose what the intended  
-character is  
-* QTBUG-70137 Dockwidgets - Placing QDockWidget is almost impossible  
 * QTBUG-71900 Double tapping on a word does not show the selection  
 handles in the right place after the initial selection  
-* QTBUG-88989 Build errors on Android with latest gradle  
 * QTBUG-80863 [cmake] excessive compilation of Import.cpp files for  
 static plugins  
 * QTBUG-88414 CMake multi-config build still build some debug tools  
 * QTBUG-64446 tst_QWidget::multipleToplevelFocusCheck() on linux  
 * QTBUG-86726 qt_add_resource BASE argument doesn't behave as the qmake  
 counterpart  
-* QTBUG-80863 [cmake] excessive compilation of Import.cpp files for  
-static plugins  
 * QTBUG-92905 QFile/pipe reading blocks when using a file descriptor  
 instead of a handle  
-* QTBUG-80863 [cmake] excessive compilation of Import.cpp files for  
-static plugins  
-* QTBUG-88414 CMake multi-config build still build some debug tools  
 * QTBUG-93838 Consider SHA-1 algorithm deprecated  
 * QTBUG-90799 Select handles Left- and RightPoint goes to the wrong  
 place when double tapping on a word on the widget dialog  
-* PYSIDE-1404 Incompatible import of "Object" in compiled UI  
-* PYSIDE-1404 Incompatible import of "Object" in compiled UI  
 * QTBUG-62102 QKeySequenceEdit handles meta keys incorrectly on Wayland  
 * QTBUG-93360 Compile Qt with gcc 11  
-* QTBUG-93360 Compile Qt with gcc 11  
-* QTBUG-64446 tst_QWidget::multipleToplevelFocusCheck() on linux  
 * QTBUG-87775 Passing INTERNAL_MODULE to qt_internal_add_module should  
 only create a single Qt::FooPrivate target  
-* QTBUG-80863 [cmake] excessive compilation of Import.cpp files for  
-static plugins  
-* QTBUG-93002 CMake: linker error with Linux Static Libraries while  
-using QtQuick.Controls  
 * QTBUG-94043 MSVC warning C4996: 'ID2D1Factory::GetDesktopDpi':  
 Deprecated. Use DisplayInformation::LogicalDpi for Windows Store Apps or  
 GetDpiForWindow for desktop apps.  
-* QTBUG-73990 Context Menu Items Fonts and Hotkeys Not Displaying  
-* QTBUG-90812 androiddeployqt doesn't bundle JARs or include permissions  
-set on a plugin  
-* QTBUG-87429 tst_QRhi::renderToTextureArrayOfTexturedQuad fails on  
-Android Emulator in CI  
-* PYSIDE-1404 Incompatible import of "Object" in compiled UI  
-* QTBUG-94127 Testing in android emulator hangs  
-* QTBUG-87775 Passing INTERNAL_MODULE to qt_internal_add_module should  
-only create a single Qt::FooPrivate target  
-* QTBUG-59888 UX Issue: Drag & Drop does not work well with  
-MultiSelection/ExtendedSelection  
 * QTBUG-94127 Testing in android emulator hangs  
 * QTBUG-85879 Print Preview inconsistent icons  
-* QTBUG-59888 UX Issue: Drag & Drop does not work well with  
-MultiSelection/ExtendedSelection  
-* QTBUG-73990 Context Menu Items Fonts and Hotkeys Not Displaying  
 * QTBUG-94194 Qt 6.1/6.1.1 compilation fails after MSVC 2019 16.10  
 update with "/std:c++latest" compiler flag  
-* QTBUG-93995 Doc: Clean up warnings in qtbase  
-* QTBUG-93995 Doc: Clean up warnings in qtbase  
-* QTBUG-59888 UX Issue: Drag & Drop does not work well with  
-MultiSelection/ExtendedSelection  
-* QTBUG-88508 some tests are not saving result output to file on Android  
-* QTBUG-94264 When building for Android, instead of an apk, just .so is  
-built  
-* QTBUG-85714 QOpenGLWidget with NativeWindow QDockWidget does not  
-render when undocked  
 * QTBUG-93752 When setting the inactive colorgroup in the palette and  
 then making the window inactive it will not trigger an update on any  
 colors bound to the palette  
 * QTBUG-87263 QMap<QVariant, QVariant> compilation error  
 * QTBUG-60822 [REG: 4->5] WA_TranslucentBackground cannot be changed  
 after widget has been shown  
-* QTBUG-38776 QDockWidget titlebar icons are not drawn with high DPI  
-* QTBUG-87775 Passing INTERNAL_MODULE to qt_internal_add_module should  
-only create a single Qt::FooPrivate target  
-* QTBUG-64543 When starting a drag scroll via QScroller in a listview  
-there will be a slight jump right before the scrolling starts  
-* QTBUG-92878 [qt6/cmake] Qt Resource object libraries not found in  
-sibling scopes due to not being global  
 * QTBUG-88248 QObject orphaned connections soft-leak  
-* QTBUG-93002 CMake: linker error with Linux Static Libraries while  
-using QtQuick.Controls  
-* QTBUG-93002 CMake: linker error with Linux Static Libraries while  
-using QtQuick.Controls  
 * QTBUG-88081 Failed to build Qt from source through clang-cl  
 * QTBUG-92941 REG 5->6: QVector size() does not reach capacity() before  
 reallocating  
 * QTBUG-89536 Remove configure.json files for building Qt 6  
-* QTBUG-93360 Compile Qt with gcc 11  
-* QTBUG-93002 CMake: linker error with Linux Static Libraries while  
-using QtQuick.Controls  
-* QTBUG-87775 Passing INTERNAL_MODULE to qt_internal_add_module should  
-only create a single Qt::FooPrivate target  
 * QTBUG-94613 [FTFBS] qttools does not compile: QtTools/private/qttools-  
 config_p.h: No such file or directory  
 * QTBUG-94753 QtFlagHandlingHelpers.cmake overrides flags -On from the  
 user  
-* QTBUG-38776 QDockWidget titlebar icons are not drawn with high DPI  
 * QTBUG-87989 "ASan runtime does not come first in initial library list"  
 when building Qt Quick application with Qt configured with -sanitize  
 address  
-* QTBUG-87989 "ASan runtime does not come first in initial library list"  
-when building Qt Quick application with Qt configured with -sanitize  
-address  
-* QTBUG-87989 "ASan runtime does not come first in initial library list"  
-when building Qt Quick application with Qt configured with -sanitize  
-address  
-* QTBUG-94708 qCDebug() and friends could pass the category as a tag in  
-Android  
 * QTBUG-94355 Revice changes in configure summary options, 6.1.1 ->  
 6.2.0  
 * QTBUG-85201 Deprecate Ministro in Qt for Android  
 * QTBUG-94971 QHoverEvent::scenePosition() is actually local position  
-* QTBUG-88248 QObject orphaned connections soft-leak  
-* QTBUG-91713 QtBase benchmarks fail for qtimezone, qdiriterator, and  
-qfile  
 * QTBUG-91713 QtBase benchmarks fail for qtimezone, qdiriterator, and  
 qfile  
 * QTBUG-95004 XCB: Qt packages are built without session management  
 support  
-* QTBUG-94973 Build fails when configuring twice with CMake and with  
-both INSTALL_MKSPECSDIR and QT_QMAKE_TARGET_MKSPEC set  
-* QTBUG-90819 Linking relationships to plugins are incorrectly specified  
-* QTBUG-94921 Feature poll_select is already defined to be "ON" and  
-should now be set to  "OFF" when importing features from Qt6::Core.  
 * QTBUG-88090 Installed CMake files reference the SOURCE TREE  
 * QTBUG-94463 QThreadPool creates one thread more than maxThreadCount  
-* QTBUG-73966 When using QMenu::icon:checked inside a stylesheet it is  
-being ignored and has no effect  
-* QTBUG-90819 Linking relationships to plugins are incorrectly specified  
-* QTBUG-91713 QtBase benchmarks fail for qtimezone, qdiriterator, and  
-qfile  
-* QTBUG-95050 [REG: 5.2->5.14] Locale used by  
-QString::localeAwareCompare() no longer changeable  
-* QTBUG-95199 Incorrect propagation of iOS bitcode and -fapplication-  
-extension flags to user projects  
 * QTBUG-95199 Incorrect propagation of iOS bitcode and -fapplication-  
 extension flags to user projects  
 * QTBUG-95208 Linker error regarding bitcode when linking CMake app  
 targeting iOS  
-* QTBUG-94942 QML type registration emits "qt6quick_metatypes.json:  
-illegal value"  
-* QTBUG-8096 icon-size stylesheet property is defined as length but only  
-lengths in px can be used  
-* QTBUG-91713 QtBase benchmarks fail for qtimezone, qdiriterator, and  
-qfile  
-* QTBUG-8096 icon-size stylesheet property is defined as length but only  
-lengths in px can be used  
-* QTBUG-91713 QtBase benchmarks fail for qtimezone, qdiriterator, and  
-qfile  
 * QTBUG-95268 test_QT_TESTCASE_BUILDDIR fails when built with CMake 3.21  
-* QTBUG-91713 QtBase benchmarks fail for qtimezone, qdiriterator, and  
-qfile  
-* QTBUG-91713 QtBase benchmarks fail for qtimezone, qdiriterator, and  
-qfile  
-* QTBUG-91713 QtBase benchmarks fail for qtimezone, qdiriterator, and  
-qfile  
 * QTBUG-95303 Internal module pri files are missing public include  
 header locations  
 * QTBUG-85839 Documentation: wrong default value for Layout Direction  
 * QTBUG-80957 QFutureInterface: reportResults with an empty vector  
 breaks results  
-* QTBUG-95429 Expired certificates in tst_QSslCertificate  
 * QTBUG-95394 Crash in RHI when exiting a QtWaylandCompositor with  
 active clients.  
 * QTBUG-53706 QString::number(-17, 16) should return "-11" not  
@@ -2897,63 +2736,23 @@ active clients.
 * QTBUG-94831 Crash on MSVC in ~QMetaTypeFunctionRegistry() on program  
 end with dynamically loaded Qt  
 * QTBUG-95314 WASM: Diverging timezones in C++/QML  
-* QTBUG-95577 Incorrect punycode encoding and decoding for non-BMP  
-codepoints  
 * QTBUG-95532 Can't build qtquickcalendar due to missing SQL dependency  
 * QTBUG-58749 QListView AdjustToContents not working  
 * QTBUG-95072 Menu is shown at displaced position on enable/disable  
-* QTBUG-53706 QString::number(-17, 16) should return "-11" not  
-"0xffffffffffffffef"  
-* QTBUG-93004 Assert and crash in qcalendar.cpp when the first call to  
-QDateTime::toString is done from two simultaneous threads  
-* QTBUG-95689 Missing overflow handling allows alternative Punycode-  
-encoded domain name representations  
-* QTBUG-55444 Documentation doesn't explain that login and password  
-provided to MySQL plugin (QSqlDatabase::setUserName and  
-QSqlDatabase::setPassword) must be in latin1 encoding  
-* QTBUG-95689 Missing overflow handling allows alternative Punycode-  
-encoded domain name representations  
-* QTBUG-95689 Missing overflow handling allows alternative Punycode-  
-encoded domain name representations  
-* QTBUG-95689 Missing overflow handling allows alternative Punycode-  
-encoded domain name representations  
 * QTBUG-71590 Qt is using "Non-SDK" interfaces, will be blocked by  
 Android  
-* QTBUG-70137 Dockwidgets - Placing QDockWidget is almost impossible  
-* QTBUG-71590 Qt is using "Non-SDK" interfaces, will be blocked by  
-Android  
-* QTBUG-95689 Missing overflow handling allows alternative Punycode-  
-encoded domain name representations  
-* QTBUG-95552 Reproducible crash from wheelEvent in QGraphicsScene  
-containing a QWidget with a Q*BoxLayout  
-* QTBUG-95552 Reproducible crash from wheelEvent in QGraphicsScene  
-containing a QWidget with a Q*BoxLayout  
-* QTBUG-95471 Unable to compose characters on Mac OS in text edits  
-* QTBUG-87580 Add minimal set of tests to build for static Qt configs in  
-Coin  
 * QTBUG-95453 Mouse move pointer does not reflect when drag will move -  
 eglfs  
-* QTBUG-54848 Problem with QAbstractItemDelegate and IME (chinese Input  
-Method) with edit trigger QAbstractItemView::AnyKeyPressed  
 * QTBUG-95636 Update cmake_minimum_required to 3.16 in all CMake Qt  
 example projects  
 * QTBUG-95845 qt_add_qml_module unconditionally installs metatypes.json  
 files into "arbitrary" directory  
-* QTBUG-95943 qt-configure-module -help is not implemented  
 * QTBUG-93340 trafficlight_qml_dynamic crashes on Android device  
 * QTBUG-89122 Building Qt with cmake needs 15% more space than with  
 qmake  
-* QTBUG-80863 [cmake] excessive compilation of Import.cpp files for  
-static plugins  
 * QTBUG-95668 Webengine widget not visible in Designer UI  
 * QTBUG-35700 single punctuation input via CJK input method doesn't work  
 * QTBUG-95921 scxml examples fail to build for iOS target  
-* QTBUG-89296 No way to specify C standard for Visual Studio 2019 in  
-qmake project  
-* QTBUG-89296 No way to specify C standard for Visual Studio 2019 in  
-qmake project  
-* QTBUG-89296 No way to specify C standard for Visual Studio 2019 in  
-qmake project  
 * QTBUG-89296 No way to specify C standard for Visual Studio 2019 in  
 qmake project  
 * QTBUG-95661 Test result counts are incorrect  
@@ -2962,15 +2761,20 @@ qmake project
 enter, it will take two presses before the enter key is actually invoked  
 * QTBUG-96121 Versionless CMake commands prevent setting variables in  
 calling scope  
-* QTBUG-45737 No touch events handling (QGraphicsProxyWidget / QWidget)  
 * QTBUG-88535 List of modules in configure output is incomplete  
 * QTBUG-96219 Conversion of versionless wrapper functions to macros  
 needs to be reverted  
-* QTBUG-96121 Versionless CMake commands prevent setting variables in  
-calling scope  
 * QTBUG-84877 QLocale::system() uses short names of days and months for  
 narrow formats  
 * QTBUG-96303 Review (again) CodeChecker issues for Qt Core  
+* QTBUG-95832 QtRemoteObjects CMake API is using the internal  
+qt_manual_moc API  
+* QTBUG-96127 Broken external links in Qt docs  
+* QTBUG-96441  [REG 6.1.0 - 6.2.0] Windows: QWindow doesn't respect  
+minimumWidth/minimumHeight  
+* QTBUG-96790 crash in QWindowsFileSystemWatcherEngine::addPaths  
+* QTBUG-96718 Crash in inBindingWrapper() (Creator built against Qt 6.2  
+build)  
   
 ### qtsvg  
 * QTBUG-91507 Out of bounds read in function  
@@ -3013,8 +2817,6 @@ defined
 holding for about a second  
 * QTBUG-73179 qt.labs.platform.FileDialog folder property doesn't work  
 * QTBUG-72786 ComboBox: can't customize popup palette  
-* QTBUG-72811 [Reg 5.11 -> 5.12] QQC2 buttons not react to click when  
-holding for about a second  
 * QTBUG-73412 Dial.inputMode property not recognized by Qt Creator  
 * QTBUG-72023 Fusion Qt Quick Controls style no longer honors  
 palette/font settings from qtquickcontrols2.conf  
@@ -3040,7 +2842,6 @@ is changed
 * QTBUG-70161 iOS: editable QML combobox menu does not open  
 * QTBUG-70451 DialogButtonBox to order buttons as defined when absent of  
 buttonRole  
-* QTBUG-72786 ComboBox: can't customize popup palette  
 * QTBUG-74711  
 DialogButtonBox::test_oneButtonAlignedRightInImplicitWidthBox is flaky  
 * QTBUG-74688 SpinBox indicators stay hovered after being pressed and  
@@ -3070,8 +2871,6 @@ quickcontrols2\src\imports\controls\designer\images*.png for input
 * QTBUG-77909 tst_revisions::window() failed  
 * QTBUG-77946 tst_QQuickDrawer::Universal::position(right) failed on  
 Linux openSUSE_15_0 (gcc-x86_64)  
-* QTBUG-77946 tst_QQuickDrawer::Universal::position(right) failed on  
-Linux openSUSE_15_0 (gcc-x86_64)  
 * QTBUG-75338 Editable ComboBox: currentIndex is not set to -1 and  
 currentText not cleared after confirming non-existent value  
 * QTBUG-77734 tst_Snippets::verify(qtquickcontrols2-combobox-custom)  
@@ -3082,7 +2881,6 @@ have any effect on the buttons in a DialogButtonBox
 function call, expected 6, have 4  
 * QTBUG-78470 tst_calendar::MonthGrid::test_range() and  
 WeekNumberColumn::test_range() failed  
-* QTBUG-76369 TextArea draw something strange when use "Material Style"  
 * QTBUG-66799 Tumbler: displacement calculation goes wrong if wrap is  
 disabled and tumbler gets resized  
 * QTBUG-73243 ToolTip will crash application  
@@ -3098,18 +2896,13 @@ visibility
 * QTBUG-79370 tst_QQuickPopup::Default::cursorShape() is failing in CI  
 * QTBUG-77306 MenuBarItem does not lose highlight when a Menu is added  
 using MenuBar.addMenu  
-* QTBUG-76077 SplitView documentation says "import QtQuick.Controls 2.5"  
-but was added later  
 * QTBUG-79302 New SplitView ignores children generated by Repeater  
-* QTBUG-76077 SplitView documentation says "import QtQuick.Controls 2.5"  
-but was added later  
 * QTBUG-79326 Dialog is not getting closed with Esc key press even with  
 closePolicy set to Popup.CloseOnEscape  
 * QTBUG-79501 When a Drawer isn't modal, isTabFence should be false  
 * QTBUG-78858 Editable ComboBox is very slow  
 * QTBUG-79275 QQC2: libqtquickcontrols2imaginestyleplugin should be much  
 smaller  
-* QTBUG-79501 When a Drawer isn't modal, isTabFence should be false  
 * QTBUG-79790  
 tst_controls::Default::Control::test_font_explicit_attributes(family)  
 failed  
@@ -3161,11 +2954,6 @@ failing
 * QTBUG-73687 When specifying a scale for a Menu it will be positioned  
 as if the scale was not set, and therefore can be placed unexpectedly  
 * QTBUG-82473 Menu does not take padding properly into account  
-* QTBUG-82643  
-tst_controls::Default::ToolTip::test_openDuringExitTransitionWithTimeout  
-is flaky  
-* QTBUG-83554 currentValue not updated after model change in ComboBox if  
-currentIndex does not change  
 * QTBUG-83554 currentValue not updated after model change in ComboBox if  
 currentIndex does not change  
 * QTBUG-84443 'std::bad_alloc' when  
@@ -3212,8 +3000,6 @@ tst_QQuickDrawer::Universal::flickable(touch,diagonal)
 'flickable->isDragging()' returned FALSE. ()  
 * QTBUG-88463 static build not executing the initialisation code of qml  
 plugins  
-* QTBUG-88492 QmlComponent: Component is not ready error with static  
-compiled Controls 2  
 * QTBUG-88492 QmlComponent: Component is not ready error with static  
 compiled Controls 2  
 * QTBUG-88955 [REG 5.15.2 -> 6.0.0] Cannot change style of  
@@ -3513,8 +3299,6 @@ appending listModel.
 * QTBUG-96167 Ownership of C++ owned object flips when added to  
 ListModel  
 * QTBUG-96150 QML best practices docs are outdated  
-* QTBUG-96118 FTBFS top-level: The "moc" executable  
-"BUÏLDDIR/qtbase/libexec/moc" does not exist.  
 * QTBUG-96190 Rendering glitches when resizing window containing  
 QQuickPaintedItem  
 * QTBUG-96099 Drag and Drop example crashes on KDE Plasma  
@@ -3529,8 +3313,6 @@ suffix
 * QTBUG-47949 StackView: transitions are broken  
 * QTBUG-47318 ApplicationWindow: item within a StackView that fills the  
 window doesn't get correct initial size  
-* QTBUG-47963 TextField auto tests fail  
-* QTBUG-47317 StackView: pushed items still show up after being popped  
 * QTBUG-48086 SwipeView: can't set initial currentIndex  
 * QTBUG-48072 ApplicationWindow doesn't respect its maximumWidth/Height  
 * QTBUG-47754 Duplicate "count" property in documentation for Tumbler in  
@@ -3541,13 +3323,10 @@ QtQuick.Controls 2
 * QTBUG-48808 'make qmltypes' fails  
 * QTBUG-48993 TabBar set wrong width for tabs dynamically created by  
 Repeater  
-* QTBUG-48993 TabBar set wrong width for tabs dynamically created by  
-Repeater  
 * QTBUG-48718 Mis-aligned text in tabs  
 * QTBUG-48989 SpinBox always converts value in contentItem as int  
 * QTBUG-48720 Stack before/after warnings in auto tests  
 * QTBUG-49338 tst_applicationwindow crash  
-* QTBUG-47963 TextField auto tests fail  
 * QTBUG-49361 Test qtquickcontrols2\tests\auto\accessibility frequently  
 fails on Windows  
 * QTBUG-49551 Material Button highlighted state  
@@ -3556,7 +3335,6 @@ fails on Windows
 outcommented code  
 * QTBUG-49924 ComboBox produces warning about incorrect sRGB profile  
 with default style  
-* QTBUG-48718 Mis-aligned text in tabs  
 * QTBUG-50018 ToolButton can't be highlighted  
 * QTBUG-50008 Button: disabled state is not visualized clearly enough  
 * QTCREATORBUG-15137 metainfo file for Qt.labs.controls 1.0 doesn't work  
@@ -3566,16 +3344,12 @@ missing
 * QTBUG-50048 Build fails on ARM with -qreal float in qtquickcontrols2  
 * QTBUG-50045 Drawer is too eager to steal touch  
 * QTBUG-50033 SpinBox nearly unusable on touch-based devices  
-* QTBUG-50033 SpinBox nearly unusable on touch-based devices  
 * QTBUG-50143 ComboBox display empty  when model is  ListModel  
 * QTBUG-50025 Toolbar or ApplicationWindow header/footer transparent in  
 Material style  
 * QTBUG-49958 Stretched Dial  
-* QTBUG-49468 Missing baseline offsets  
-* QTBUG-49468 Missing baseline offsets  
 * QTBUG-50274 StackView: replacing of the topmost item clears the whole  
 stack  
-* QTBUG-49468 Missing baseline offsets  
 * QTBUG-50203 Menu object doesn't have a title property  
 * QTBUG-50332 ToolBar switch crashes in  
 QQmlJavaScriptExpression::hasError()  
@@ -3587,12 +3361,9 @@ ComboBox or TextArea
 QQuickListViewPrivate::lastPosition()  
 * QTBUG-50470 Universal Style: ComboBox and ListView don't use user  
 defined accent color  
-* QTBUG-50332 ToolBar switch crashes in  
-QQmlJavaScriptExpression::hasError()  
 * QTBUG-50412 TextArea placeholder text does not disappear on Android  
 until word is committed  
 * QTBUG-50329 Material: primary color is missing  
-* QTBUG-50330 Material: wrong toolbar color  
 * QTBUG-50330 Material: wrong toolbar color  
 * QTBUG-50327 Default style Button & TextField look too similar  
 * QTBUG-50577 Using scrollwheel on a (modal) Popup moves application  
@@ -3608,34 +3379,23 @@ mouse events
 * QTBUG-50815 Flickable clips too much content of a Quick Control 2  
 Label on iOS  
 * QTBUG-50575 Using ComboBox makes SwipeView animation unsmooth  
-* QTBUG-50575 Using ComboBox makes SwipeView animation unsmooth  
 * QTBUG-50933 Review Qt Labs Controls doc  
 * QTBUG-50972 Range Slider qt.labs.controls not usable (Material,  
 Universal)  
 * QTBUG-50971 Text too small (material design) qt.labs.controls Gallery  
-* QTBUG-50971 Text too small (material design) qt.labs.controls Gallery  
-* QTBUG-50933 Review Qt Labs Controls doc  
 * QTBUG-50937 Error when accessing StackView attached properties via  
 popped item  
-* QTBUG-50937 Error when accessing StackView attached properties via  
-popped item  
-* QTBUG-50933 Review Qt Labs Controls doc  
 * QTBUG-51114 SpinBox resets to "from" value when loses focus  
 * QTBUG-51118 ComboBox doesn't show/select currentIndex  
-* QTBUG-51118 ComboBox doesn't show/select currentIndex  
 * QTBUG-50295 tst_activeFocusOnTab crashes randomly on Ubuntu 14.04  
-* QTBUG-50043 Tab position  
 * QTBUG-51278 QQC2: plugins.qmltypes is quite outdated, please  
 regenerate  
-* QTBUG-50295 tst_activeFocusOnTab crashes randomly on Ubuntu 14.04  
 * QTBUG-51257 Material: Controls that don't have focused highlight  
 (there is no difference between normal & focused states)  
-* QTBUG-51114 SpinBox resets to "from" value when loses focus  
 * QTBUG-51108 Invalid month index returned by model  
 * QTBUG-51312 [REG Qt 5.6.0 Beta -> Qt 5.6.0 RC] ProgressBar  
 indeterminate property results in a displaced progress bar with Material  
 style  
-* QTBUG-50220 SpinBox can't be inc/dec using mouse wheel  
 * QTBUG-50220 SpinBox can't be inc/dec using mouse wheel  
 * QTBUG-50221 Slider can't be inc/dec using mouse wheel  
 * QTBUG-51322 Popup doesn't respect height  
@@ -3645,8 +3405,6 @@ example
 * QTBUG-51645 QQC2: Combobox reacts strangely on return key pressed  
 * QTBUG-51078 Use of Item obligatory in SwipeView?  
 * QTBUG-51708 Static builds fail  
-* QTBUG-50933 Review Qt Labs Controls doc  
-* QTBUG-50933 Review Qt Labs Controls doc  
 * QTBUG-51616 Complete documentation Control QML Type  
 * QTBUG-51916 Background color does not change if closing one popup and  
 opening another in javascript  
@@ -3656,19 +3414,11 @@ opening another in javascript
 * QTBUG-51989 Popup cannot be created with enabled visible property  
 * QTBUG-52003 Velocity-related tests in tst_swipedelegate and tst_drawer  
 are unstable  
-* QTBUG-51991 ApplicationWindow attached property not available in Popup  
-* QTBUG-52003 Velocity-related tests in tst_swipedelegate and tst_drawer  
-are unstable  
-* QTBUG-50993 The default style doesn't have focused highlight  
-* QTBUG-50993 The default style doesn't have focused highlight  
-* QTBUG-50993 The default style doesn't have focused highlight  
 * QTBUG-50993 The default style doesn't have focused highlight  
 * QTBUG-51972 Qt Controls 2.0: ComboBox doesn't load properly with async  
 set to true  
 * QTBUG-52233 ScrollBar behaves weirdly with certain paddings  
 * QTBUG-52156 ToolTip typo  
-* QTBUG-51796 Controls focus handling is not consistent when using a  
-mouse  
 * QTBUG-51796 Controls focus handling is not consistent when using a  
 mouse  
 * QTBUG-52448 QQuickAbstractButton: clicked() called before  
@@ -3679,48 +3429,29 @@ Column
 with code  
 * QTBUG-52615 [REG] StackView.initialitem is not equivalent to push() in  
 Component.onCompleted  
-* QTBUG-50993 The default style doesn't have focused highlight  
-* QTBUG-50993 The default style doesn't have focused highlight  
 * QTBUG-51254 Material: SpinBox doesn't respect the minimum touch target  
 size  
 * QTBUG-52631 Material: changing primary/accent colors doesn't update  
 dependent colors in popup and it's children  
 * QTBUG-52730 QQC2: There is no way to turn off the Drawer touch support  
-* QTBUG-51796 Controls focus handling is not consistent when using a  
-mouse  
 * QTBUG-52738 Input text not visible with Universal's dark theme  
-* QTBUG-51796 Controls focus handling is not consistent when using a  
-mouse  
 * QTBUG-52919 Wrong link on page: Material Style documentation  
 * QTBUG-52608 Popup cannot properly reposition from right and bottom  
 window borders  
-* QTBUG-51257 Material: Controls that don't have focused highlight  
-(there is no difference between normal & focused states)  
 * QTBUG-52979 Regression: Material combobox menu cannot be scrolled  
 * QTBUG-51677 QQC2: TextArea can't be used to show long very long texts  
 * QTBUG-51785 Need a "HOWTO create/include/build/maintain your  
 qt56controls style"  
-* QTBUG-51257 Material: Controls that don't have focused highlight  
-(there is no difference between normal & focused states)  
 * QTBUG-52731 tst_material keeps crashing in the CI (win 10)  
-* QTBUG-52731 tst_material keeps crashing in the CI (win 10)  
-* QTBUG-52731 tst_material keeps crashing in the CI (win 10)  
-* QTBUG-50993 The default style doesn't have focused highlight  
-* QTBUG-50993 The default style doesn't have focused highlight  
 * QTBUG-49371 signal implicitWidthChanged() from QQuickTextEdit  
 redefined in QQuickTextArea  
 * QTBUG-53061 Regression: First item in Tumbler disapperas  
-* QTBUG-50993 The default style doesn't have focused highlight  
-* QTBUG-52731 tst_material keeps crashing in the CI (win 10)  
 * QTBUG-53066 Regression: After Popup open, drawer shadowed by an  
 overlay  
 * QTBUG-53157  tst_accessibility fails in Ubuntu 16.04  
 * QTBUG-52558 Behavioral incompatibility between QQuick* checkables and  
 QWidget/Quick.Controls checkables  
-* QTBUG-50993 The default style doesn't have focused highlight  
 * QTBUG-53208 Statically compiled QQC2 and QQC1 cannot find plugins  
-* QTBUG-53066 Regression: After Popup open, drawer shadowed by an  
-overlay  
 * QTBUG-53120 Tumbler's displacement is incorrect when model has 2 items  
 * QTBUG-53203 Style-specific file selectors fail if the first letter  
 isn't uppercased  
@@ -3730,7 +3461,6 @@ adding item via addItem()
 ApplicationWindow upon closing  
 * QTBUG-53262 overlapping text (Popup - Menu - MenuItem)  
 * QTBUG-53309 Setting dim to false on a modal Popup doesn't work  
-* QTBUG-50993 The default style doesn't have focused highlight  
 * QTBUG-52953 Examples are not  installed in the correct directory  
 * QTBUG-53348 Material Button missing checked state visuals  
 * QTBUG-53350 Default Button colors  
@@ -3740,17 +3470,9 @@ dimensions on orientation change
 * QTBUG-53377 Theme font ignored in QQC2 due to not exact match  
 * QTBUG-53420 Non-modal popups shouldn't affect focus  
 * QTBUG-53519 API review findings to be fixed before the release  
-* QTBUG-53519 API review findings to be fixed before the release  
-* QTBUG-53519 API review findings to be fixed before the release  
-* QTBUG-53519 API review findings to be fixed before the release  
-* QTBUG-53519 API review findings to be fixed before the release  
-* QTBUG-53519 API review findings to be fixed before the release  
-* QTBUG-53556 tst_material fails on numerous locations  
-* QTBUG-53556 tst_material fails on numerous locations  
 * QTBUG-53556 tst_material fails on numerous locations  
 * QTCREATORBUG-16371 Qt Quick Designer does not work for a newly created  
 Qt Quick Controls 2 application  
-* QTBUG-53556 tst_material fails on numerous locations  
 * QTBUG-33179 QML revisioning does not work for grouped properties  
 * QTBUG-53846 Slider is not set if only clicked  
 * QTBUG-51527 Material: ScrollBar doesn't respect the minimum touch  
@@ -3771,24 +3493,13 @@ bit
 paragraph  
 * QTBUG-54629 Drawer can not disabled with dragMargin  
 * QTBUG-54658 SwipeDelegate not always emits swipe.complete  
-* QTBUG-54658 SwipeDelegate not always emits swipe.complete  
 * QTBUG-54660 SwipeDelegate Layouting problem if orientation changes  
-* QTBUG-54764 Material: Buttons (and the other controls) have no ripple  
-effect  
-* QTBUG-54764 Material: Buttons (and the other controls) have no ripple  
-effect  
 * QTBUG-54764 Material: Buttons (and the other controls) have no ripple  
 effect  
 * QTBUG-54780 SwipeDelegate's contentItem is not resized automatically  
 when the control's height changes  
 * QTBUG-54552 Settings (Qt.labs.settings) cannot be used inside  
 Component  
-* QTBUG-54764 Material: Buttons (and the other controls) have no ripple  
-effect  
-* QTBUG-54764 Material: Buttons (and the other controls) have no ripple  
-effect  
-* QTBUG-53419 hovered property is true even when under a popup  
-* QTBUG-53419 hovered property is true even when under a popup  
 * QTBUG-53419 hovered property is true even when under a popup  
 * QTBUG-54897 TextArea in Flickable handles mouse input outside  
 flickable area making elements underneath unusable  
@@ -3796,8 +3507,6 @@ flickable area making elements underneath unusable
 to parent  
 * QTBUG-54269 Material colors don't work as documented  
 * QTBUG-55174 Doc: SwipeDelegate missing from "Delegate Controls"  
-* QTBUG-55143 ApplicationWindow contents is not relayouted when  
-header.visibility or footer.visibility changes  
 * QTBUG-55143 ApplicationWindow contents is not relayouted when  
 header.visibility or footer.visibility changes  
 * QTBUG-55118 ComboBox text errors after modifications of underlying  
@@ -3813,28 +3522,15 @@ through ListView
 "from"  
 * QTBUG-55228 Dial's stepSize handling is broken  
 * QTBUG-55129 TabButton always squeezed to fit in TabBar  
-* QTBUG-54935 Material style ComboBox has white text (on a white  
-background) when put in a ToolBar  
-* QTBUG-52738 Input text not visible with Universal's dark theme  
 * QTBUG-54917 Material style ToolButton's checked state is only visible  
 when hovered  
-* QTBUG-55129 TabButton always squeezed to fit in TabBar  
 * QTBUG-55050 ComboBox popup does not exploit available space  
 * QTBUG-55347 QtQuick Controls 2 ToolTip crashes when previous parent  
 Item is destroyed before new ToolTip is displayed  
 * QTBUG-55366 Specifying foreground and background in  
 qtquickcontrols2.conf has no effect  
-* QTBUG-55366 Specifying foreground and background in  
-qtquickcontrols2.conf has no effect  
-* QTBUG-55347 QtQuick Controls 2 ToolTip crashes when previous parent  
-Item is destroyed before new ToolTip is displayed  
-* QTBUG-55347 QtQuick Controls 2 ToolTip crashes when previous parent  
-Item is destroyed before new ToolTip is displayed  
-* QTBUG-55347 QtQuick Controls 2 ToolTip crashes when previous parent  
-Item is destroyed before new ToolTip is displayed  
 * QTBUG-54995 TextInput crashes qml2puppet if QtQuick Controls 2 are  
 imported  
-* QTBUG-55129 TabButton always squeezed to fit in TabBar  
 * QTBUG-55620 ScrollIndicator overshoot doesn't respect paddings  
 * QTBUG-54797 Property dim doesn't work properly on Windows  
 * QTBUG-55647 Switch is not focused by mouse clicking on indicator.  
@@ -3846,8 +3542,6 @@ ApplicationWindow
 * QTBUG-54913 hovered property is true even when under a popup in a  
 Window  
 * QTBUG-55687 Some Material controls do not respect Material.background  
-* QTBUG-55687 Some Material controls do not respect Material.background  
-* QTBUG-55687 Some Material controls do not respect Material.background  
 * QTBUG-54794 Drawer bad behavior after close a popup menu  
 * QTBUG-50992 QQC2: Object destroyed during incubation  
 * QTBUG-55769 Modal popups and drawers leak wheel events through  
@@ -3857,8 +3551,6 @@ and reopening the menu
 * QTBUG-56010 Drawer: cannot drag to close from the outside on touch  
 * QTBUG-56025 Popup does not respect explicit size  
 * QTBUG-55686 SwitchDelegate's handle is not draggable  
-* QTBUG-53168 Drawer has wrong height and position if ApplicationWindow  
-or page has header/footer  
 * QTBUG-53168 Drawer has wrong height and position if ApplicationWindow  
 or page has header/footer  
 * QTBUG-55360 QtQuick.Controls Drawer component ignores "y" parametr  
@@ -3873,19 +3565,15 @@ be called
 * QTBUG-56243 Crash when showing tooltip in an ApplicationWindow via  
 attached show() function  
 * QTBUG-56265 TabBar: cannot mix fixed and implicitly resized tabs  
-* QTBUG-55129 TabButton always squeezed to fit in TabBar  
 * QTBUG-55520 Material ripple effect must be activated on press not on  
 release  
 * QTBUG-54206 Material ToolTip quickly disappears when hovering from one  
 control to another  
-* QTBUG-52631 Material: changing primary/accent colors doesn't update  
-dependent colors in popup and it's children  
 * QTBUG-56297 Cannot override popup.contentItem on ComboBox  
 * QTBUG-53266 Material Popup color wrong on dark theme  
 * QTBUG-55572 Child ToolTip ignores delay and timeout properties  
 * QTBUG-55749 StackView (Controls 2.0) doesn't work with http url on  
 first try  
-* QTBUG-55129 TabButton always squeezed to fit in TabBar  
 * QTBUG-56556 Button stays hovered while pressed  
 * QTBUG-55652 Material style ToolButton's ripple/hover effect breaks  
 when text is cleared on click  
@@ -3895,19 +3583,11 @@ when text is cleared on click
 * QTBUG-56562 Shortcut does not play well with Qt Quick Controls 2  
 popups  
 * QTBUG-56755 Popup: binding loops with size-dependent positioning  
-* QTBUG-56562 Shortcut does not play well with Qt Quick Controls 2  
-popups  
-* QTBUG-56562 Shortcut does not play well with Qt Quick Controls 2  
-popups  
 * QTBUG-56884 ComboBox missing home/end & key search  
-* QTBUG-56884 ComboBox missing home/end & key search  
-* QTBUG-56297 Cannot override popup.contentItem on ComboBox  
 * QTBUG-56061 tst_Drawer::touch() fails  
 * QTBUG-57167 ComboBox: binding loop for Material.foreground  
 * QTBUG-57069 QQC2 Slider's documentation should say "ratio", not  
 "percentage"  
-* QTBUG-57085 autorepeat stops in SpinBox stops when mouse or touch  
-moved  
 * QTBUG-57085 autorepeat stops in SpinBox stops when mouse or touch  
 moved  
 * QTBUG-57243 SwipeDelegate: calling swipe.close() breaks the internal  
@@ -3925,7 +3605,6 @@ clears the stack
 * QTBUG-57256 ComboBox::test_modelReset() fails occasionally in the CI  
 * QTBUG-57242 SwipeDelegate::position value jumps abruptly  
 * QTBUG-57618 Qt Quick Controls crash on Android 6 and 7  
-* QTBUG-57618 Qt Quick Controls crash on Android 6 and 7  
 * QTBUG-57800 Android: Qt Quick Controls 2 Combobox  background arrow is  
 much bigger than it should be  
 * QTBUG-57858 Hang due to infinite loop when removing tabs from TabBar  
@@ -3937,21 +3616,16 @@ state it stays there
 enabled/disabled accordingly  
 * QTBUG-58343 Description of PageIndicator is incorrect  
 * QTBUG-57846 Using fastblur and crashing when closing  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
 * QTBUG-58810 Menu uses a wrong cursor shape.  
 * QTBUG-59026 Qt Quick Materials Controls crash on Android  
 * QTBUG-59034 tst_controls::Default::StackView crashes  
 * QTBUG-59098 StackView Blocking UngrabMouse  
-* QTBUG-59034 tst_controls::Default::StackView crashes  
 * QTBUG-58828 Unwanted animation when toggling Material controls between  
 various states  
 * QTBUG-58932 ApplicationWindow documentation contains contentData  
 property which does not exist  
-* QTBUG-59026 Qt Quick Materials Controls crash on Android  
 * QTBUG-59233 Update Button's GIF in the documentation  
 * QTBUG-58060 Wrong dialog buttons order with Material  
-* QTBUG-59536  
-tst_controls::Default::SwipeDelegate::test_horizontalAnchors() failed  
 * QTBUG-59536  
 tst_controls::Default::SwipeDelegate::test_horizontalAnchors() failed  
 * QTBUG-57650 "SignalSpy.qml:253: TypeError: Cannot read property of  
@@ -3959,39 +3633,26 @@ null" when running Controls 2 auto tests
 * QTBUG-59661 Incorrect binding for implicitHeight in Popup  
 * QTBUG-59532 Crash in QQmlDebugService  
 * QTBUG-59634 StackView replace SIGSEGV  
-* QTBUG-59634 StackView replace SIGSEGV  
-* QTBUG-59634 StackView replace SIGSEGV  
-* QTBUG-59532 Crash in QQmlDebugService  
 * QTBUG-58606 tst_Snippets::screenshots tests fail occasionally  
 * QTBUG-59911 Material BusyIndicator is invisible  
 * QTBUG-59629 Scrollbar has no implicit setted cursor  
 * QTBUG-59309 StackView resolves relative path is incorrect.  
-* QTBUG-59629 Scrollbar has no implicit setted cursor  
-* QTBUG-59920 Sliders and Dials do not immediately move when dragged  
-* QTBUG-59920 Sliders and Dials do not immediately move when dragged  
 * QTBUG-59920 Sliders and Dials do not immediately move when dragged  
 * QTBUG-58105 [Android] Back key terminates QtQuickControls2 gallery  
 example  
-* QTBUG-58606 tst_Snippets::screenshots tests fail occasionally  
 * QTBUG-58667 Set position of Scrollbar at mousePressEvent  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
-* QTBUG-59746 Performance regression for Button creation benchmark  
 * QTBUG-59746 Performance regression for Button creation benchmark  
 * QTBUG-58925 QQC2: Combobox *checked* image is weird on Android  
 emulator  
 * QTBUG-60200 QPainter warnings when running Gallery example with  
 Material style  
-* QTBUG-50295 tst_activeFocusOnTab crashes randomly on Ubuntu 14.04  
 * QTBUG-60356 Editable SpinBox's text input doesn't have focus when the  
 SpinBox is focused  
-* QTBUG-58060 Wrong dialog buttons order with Material  
 * QTBUG-60405 Presses and releases leak through modal Menu  
 * QTBUG-60358 Popup's modal documentation is too brief  
 * QTBUG-58797 Material TextField / TextArea: cursorVisible ignores  
 readOnly state  
-* QTBUG-57618 Qt Quick Controls crash on Android 6 and 7  
 * QTBUG-60493 Gallery drawer flickers when opening for the first time  
-* QTBUG-60521 Drawer interferes with flicking on touch  
 * QTBUG-60521 Drawer interferes with flicking on touch  
 * QTBUG-60528 Changing IconImage's iconColor also affects its size  
 * QTBUG-60598 [REG] Drawer: can't close by dragging over the drawer on  
@@ -4000,10 +3661,6 @@ touch
 * QTBUG-60807 Icon not colourised after becoming enabled  
 * QTBUG-60893 Assigning screens in ApplicationWindow possible only AFTER  
 they have been created  
-* QTBUG-57650 "SignalSpy.qml:253: TypeError: Cannot read property of  
-null" when running Controls 2 auto tests  
-* QTBUG-59423 Dialog reacts only to the accepting and rejecting roles of  
-the standard buttons  
 * QTBUG-59423 Dialog reacts only to the accepting and rejecting roles of  
 the standard buttons  
 * QTBUG-58646 Artifacts in the Material style ItemDelegate  
@@ -4020,24 +3677,17 @@ set
 * QTCREATORBUG-18321 ButtonGroup is marked as Unknown Component. (M300),  
 but code runs fine  
 * QTBUG-61310 Container crashes with Repeater  
-* QTBUG-61310 Container crashes with Repeater  
 * QTBUG-61426 SpinBox press and hold + or - does not trigger  
 valueModified  
 * QTBUG-61336 ApplicationWindow can't be used with  
 QQuickView/QQuickWidget  
 * QTBUG-61585 Qt 5.9 MonthGrid gets no clicked signal on touch  
-* QTBUG-61336 ApplicationWindow can't be used with  
-QQuickView/QQuickWidget  
 * QTBUG-61535 tst_calendar::MonthGrid::test_locale  
-* QTBUG-61336 ApplicationWindow can't be used with  
-QQuickView/QQuickWidget  
 * QTBUG-60492 ToolTip blocks Shortcut  
 * QTBUG-61647 Incorrect description for RangeSlider first & second  
 values  
 * QTBUG-61608 Default value of Menu's closePolicy differs from the  
 description in docs and conflicts with onPressAndHold events  
-* QTBUG-61785 Non-interactive controls are blocking touch  
-* QTBUG-61785 Non-interactive controls are blocking touch  
 * QTBUG-61785 Non-interactive controls are blocking touch  
 * QTBUG-61698 Modal Overlay don't block multi touch  
 * QTBUG-61374 "TypeError: Cannot read property 'text' of null" with  
@@ -4057,16 +3707,11 @@ the Popup
 * QTBUG-62289 Compilation error in qtquickcontrols2 (during qt5.git  
 integration in 'dev')  
 * QTBUG-62383 tst_menu::mouse fails on Ubuntu 16.04 CI machine  
-* QTBUG-62363 tst_qquickmenubar::mouse() fails for all styles on Ubuntu  
-16.04 CI machines  
 * QTBUG-62412 SwipeDelegate tests fail  
-* QTBUG-62549 tst_controls::Default::Dialog::test_reject() fails during  
-qt5.git integration in 'dev'  
 * QTBUG-62549 tst_controls::Default::Dialog::test_reject() fails during  
 qt5.git integration in 'dev'  
 * QTBUG-62628 tst_Drawer::multiple() fails during qt5.git integration in  
 'dev'  
-* QTBUG-62412 SwipeDelegate tests fail  
 * QTBUG-62292 [Windows] Crash with ScrollView + TextArea  
 * QTBUG-62508 SpinBox value can be outside of from-to range  
 * QTBUG-62926 Crash in qtquickcontrols2 tests during qt5.git integration  
@@ -4074,8 +3719,6 @@ in 'dev'
 * QTBUG-59652 Non-modal Drawer does not drag/swipe open  
 * QTBUG-63037 tst_controls::Material::UnknownTestFunc() fails during  
 qt5.git integration in '5.10'  
-* QTBUG-63119 windowText palette colour role not inherited by controls  
-within ListView  
 * QTBUG-63119 windowText palette colour role not inherited by controls  
 within ListView  
 * QTBUG-61135 Attached Keys signal handlers don't work for an editable  
@@ -4090,14 +3733,11 @@ using beginRemoveRows()/endRemoveRows()
 * QTBUG-60480 tst_controls::Default::ComboBox::test_mouse() fails  
 occasionally in the CI  
 * QTBUG-63674 Qt Quick Controls 2 ActionGroup is not working  
-* QTBUG-63674 Qt Quick Controls 2 ActionGroup is not working  
-* QTBUG-63674 Qt Quick Controls 2 ActionGroup is not working  
 * QTBUG-63618 No customisation documentation for GroupBox's title  
 * QTBUG-63672 Modal popup causes crash when used in StackView  
 * QTBUG-63626 'Environment variable 'PWD' undefined' error for QtQuick:  
 Controls docs build on Windows  
 * QTBUG-63644 QML ToolTip impossible to rely on  
-* QTBUG-61310 Container crashes with Repeater  
 * QTBUG-63898 DialogButtonBox leads to segfault when being styled  
 * QTBUG-63895 5.10: Broken image links in QQC2 imagine style  
 documentation  
@@ -4113,45 +3753,21 @@ Slider.SnapAlways"
 * QTBUG-56557 ScrollBar handle minimum length  
 * QTBUG-64259 Qt.labs.platform SystemTrayIcon activated signal missing  
 reason argument  
-* QTBUG-64065 The error in Slider.Value with stepSize and "snapMode:  
-Slider.SnapAlways"  
-* QTBUG-56557 ScrollBar handle minimum length  
-* QTBUG-63238 Add ability provide next state for tristate CheckBox  
 * QTBUG-64430 [REG 5.10] gallery (delegates) shows wrong checkboxes in  
 default style  
 * QTBUG-64492 [REG 5.10] Button's text is no-longer center-aligned  
 * QTBUG-64548 Shortcut doesn't work in QQuickWidget  
 * QTBUG-64761 qtquickcontrols2/examples/quickcontrols2/flatstyle  
 configure/compile failure with disabled widgets module  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
 * QTBUG-62874 [REG: 5.8->5.9]: Controls 2 BusyIndicator animation does  
 not update if it is inside QQuickWidget  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
 * QTBUG-65108 'checkable' feature of a Button doesn't work if the Button  
 has an action connected to it  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
 * QTBUG-65165 Tumbler's animation accelerates slowly with large  
 scrolling distances  
 * QTBUG-65016 QQuickStyle::setFallbackStyle is broken on iOS  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
 * QTBUG-62110 Slow swipe on HighDPI android device  
 * QTBUG-65084 QtQuickControls2: StackView eats all touch events  
-* QTBUG-65341 Broken customization  
-* QTBUG-65341 Broken customization  
-* QTBUG-65341 Broken customization  
 * QTBUG-65341 Broken customization  
 * QTBUG-57147 License files LGPLv2 is still present  
 * QTBUG-65052 Hovering bug for ToolButton in Listview with less than 3  
@@ -4159,19 +3775,6 @@ character text
 * QTBUG-60550 Drawer has no documentation for adding content to it  
 * QTBUG-65500 Cannot configure Font property for Imagine style  
 * QTBUG-65445 Improve Style/FallbackStyle documentation  
-* QTBUG-65341 Broken customization  
-* QTBUG-65341 Broken customization  
-* QTBUG-65341 Broken customization  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
-* QTBUG-50992 QQC2: Object destroyed during incubation  
 * QTBUG-65880 [REG 5.9.3 => 5.9.4] Popup opened at 0, 0 has no  
 background  
 * QTBUG-65889 Shortcut stops triggering Action when the Action is  
@@ -4179,7 +3782,6 @@ assigned to a Button in a Repeater
 * QTBUG-65784 [Reg 5.10 -> 5.11] Stack overflow crash caused by 9e1b044  
 (QTBUG-56557)  
 * QTBUG-65962 [REG: 5.9.3->5.9.4] ComboBox popup doesn't show up  
-* QTBUG-63185 grabImage() doesn't work on software renderer  
 * QTBUG-63185 grabImage() doesn't work on software renderer  
 * QTBUG-55251 Context menu opens further away from the cursor the  
 further the mouse is clicked from the top-left edge of the window  
@@ -4189,28 +3791,16 @@ transparent when background is black
 Action's image is drawn as a black box in Quick Controls 2  
 * QTBUG-66113 Nested popups cause Keys.onBackPressed event handler to  
 not be executed  
-* QTBUG-65193 When having multiple Actions with same icon set, first  
-Action's image is drawn as a black box in Quick Controls 2  
 * QTBUG-51321 StackView should clear focus when a new item is pushed  
 * QTBUG-51921 Mixing QtQuickControls2 and QtQuickControls breaks menu  
 fonts  
-* QTBUG-51921 Mixing QtQuickControls2 and QtQuickControls breaks menu  
-fonts  
-* QTBUG-66176 QML TextField QuickControls2 - placeholderText is almost  
-transparent when background is black  
 * QTBUG-66358 Tumbler has no means of setting currentIndex without  
 animation  
-* QTBUG-51921 Mixing QtQuickControls2 and QtQuickControls breaks menu  
-fonts  
-* QTBUG-62241 tst_switch fails  
 * QTBUG-59719 DialogButtonBox don't create a button when there is only  
 one button.  
 * QTBUG-66669 Segfault when running qmlplugindump on Qt Quick Templates  
-* QTBUG-51921 Mixing QtQuickControls2 and QtQuickControls breaks menu  
-fonts  
 * QTBUG-66752 QtQuickControls2 BusyIndicator not showing with fusion  
 style  
-* QTBUG-58646 Artifacts in the Material style ItemDelegate  
 * QTBUG-66658 StackView documentation don't explain memory management  
 and is confusing  
 * QTBUG-66430 QML font size changes after calling QApplication::font()  
@@ -4221,8 +3811,6 @@ of platform menu items
 * QTBUG-66876 Can't use qsTr() in submenu titles on macOS  
 * QTBUG-66889 Crash when closing application that uses nested native  
 menus on Windows  
-* QTBUG-66637 When a Slider resides on a Drawer then the slider handle  
-is not updating when dragging correctly  
 * QTBUG-66637 When a Slider resides on a Drawer then the slider handle  
 is not updating when dragging correctly  
 * QTBUG-66995 FAIL!  : tst_controls::Default::Button::test_checkable()  
@@ -4247,22 +3835,13 @@ status in Material Style
 * QTBUG-67574 RadioIndicator does not have a color for the disabled  
 status in Material Style  
 * QTBUG-60156 Padding for background in Control  
-* QTBUG-60156 Padding for background in Control  
 * QTBUG-67478 Slider's snapMode docs don't mention stepSize  
-* QTBUG-60156 Padding for background in Control  
-* QTBUG-60156 Padding for background in Control  
-* QTBUG-60156 Padding for background in Control  
 * QTBUG-67684 If QML ComboBox is closed through a timer (visible =  
 false), the open popup is not closed  
 * QTBUG-66455 When specifying the implicitWidth for a background item on  
 a Button, the implicitWidth is not propagated to the Button correctly  
-* QTBUG-67684 If QML ComboBox is closed through a timer (visible =  
-false), the open popup is not closed  
 * QTBUG-67930 tst_controls::Material::ComboBox::test_keyClose(Escape)  
 and test_keyClose(Back) failed  
-* QTBUG-67684 If QML ComboBox is closed through a timer (visible =  
-false), the open popup is not closed  
-* QTBUG-60156 Padding for background in Control  
 * QTBUG-68665 tst_controls::Default::AbstractButton::test_trigger(click  
 disabled button) failed  
 * QTBUG-68556 Last tab in TabBar not shown correctly with Fusion style  
@@ -4271,11 +3850,9 @@ disabled button) failed
 off text on high-dpi displays  
 * QTBUG-68618 QtQuickControls2 won't build  
 * QTBUG-68737 Tumbler resets currentIndex after modelChanged was emitted  
-* QTBUG-66834 Missing docs for exporting Imagine assets  
 * QTBUG-68222 QQuickStyle::addStylePath does not work with qrc:/ paths  
 * QTBUG-68858 QtQuickControls 2 Menu does not scroll if height is larger  
 than screen  
-* QTBUG-69141 TabButton missing documentation on web  
 * QTBUG-69141 TabButton missing documentation on web  
 * QTBUG-69286 Regression in DialogButtonBox attached properties (5.11 =>  
 dev)  
@@ -4298,16 +3875,8 @@ failed on macOS 10.13
 * QTBUG-67559 Setting a reusable delegate for a Menu (QML type) doesn't  
 work  
 * QTBUG-70413 tst_controls::Default::Popup::test_shortcut is flaky  
-* QTBUG-70413 tst_controls::Default::Popup::test_shortcut is flaky  
-* QTBUG-70413 tst_controls::Default::Popup::test_shortcut is flaky  
-* QTBUG-70413 tst_controls::Default::Popup::test_shortcut is flaky  
-* QTBUG-70063 tst_font::font(Control) crash on macOS 10.13  
-* QTBUG-67559 Setting a reusable delegate for a Menu (QML type) doesn't  
-work  
 * QTBUG-70063 tst_font::font(Control) crash on macOS 10.13  
 * QTBUG-71387 Crash after calling qmlClearTypeRegistrations()  
-* QTBUG-71694 Qt Quick Controls (former Qt Quick Controls 2)  
-documentation not found from Qt Creator's Help  
 * QTBUG-71694 Qt Quick Controls (former Qt Quick Controls 2)  
 documentation not found from Qt Creator's Help  
 * QTBUG-70652 Fusion palette regression in 5.12 (macOS)  
@@ -4317,29 +3886,19 @@ MouseArea
 * QTBUG-72539 QRegularExpression:: wildcardToRegularExpression does not  
 work as expected  
 * QTBUG-72750 Slider wheel event propagation  
-* QTBUG-70652 Fusion palette regression in 5.12 (macOS)  
 * QTBUG-73202 Can't tab out from QtQuick.Controls.TextArea cotrol  
 * QTBUG-69682 QtQuickControls 2 Menu does not close if Action becomes  
 disabled  
-* QTBUG-72536 [REG 5.11.2 -> 5.12] TextArea's initialization with long  
-text bug  
 * QTBUG-73849 Documentation: wrong link for Number.toLocaleString  
 * QTBUG-71290 QML Drawer lockup when attached to top edge which does not  
 coincide with screen top edge  
-* QTBUG-73687 When specifying a scale for a Menu it will be positioned  
-as if the scale was not set, and therefore can be placed unexpectedly  
 * QTBUG-74226 Attached ToolTip timeout copied across to other attached  
 ToolTips  
-* QTBUG-74512 tst_sanity.cpp:186:23: error: variable type  
-'FunctionValidator' is an abstract class  
 * QTBUG-70597 Tumbler::test_itemsCorrectlyPositioned() is flaky  
 * QTBUG-74919 qquickcombobox.cpp:187:13: error: ‘QString  
 QQuickComboBoxDelegateModel::stringValue(int, const QString&)’ marked  
 ‘override’, but does not override  
 * QTBUG-74902 StackView doesn't fit its content  
-* QTBUG-74919 qquickcombobox.cpp:187:13: error: ‘QString  
-QQuickComboBoxDelegateModel::stringValue(int, const QString&)’ marked  
-‘override’, but does not override  
 * QTBUG-75546 QML Menu documentation is not mentioning default value of  
 focus property  
 * QTBUG-75558 Non-existing property is used in code snippet for QML  
@@ -4353,9 +3912,7 @@ Namespace "" has invalid syntax in file:
 * QTBUG-78261 tst_focus::policy is failing on OpenSUSE  
 * QTBUG-78799 Docs link to Qt Quick Controls 1 StackView  
 * QTBUG-78690 QML API Review for 5.14  
-* QTBUG-79302 New SplitView ignores children generated by Repeater  
 * QTBUG-59330 Content of a QRC-file conflicting with the Material style  
-* QTBUG-70768 Disabled Slider should be gray (Material Style)  
 * QTBUG-83172 tst_QQuickHeaderView::listModel() 'vhvCell2' returned  
 FALSE. ()  
 * QTBUG-82279 NumberAnimation on enter/exit of Menu is not working with  
@@ -4363,7 +3920,6 @@ negative starting value
 * QTBUG-82954 QTextDocument height includes leading of last line  
 * QTBUG-81976 ListView delegates produces "TypeError: Cannot read  
 property 'width' of null" when removing item from QAbstractItemModel  
-* QTBUG-84102 Qt.labs.platform/MenuItem 1.1  
 * QTBUG-84102 Qt.labs.platform/MenuItem 1.1  
 * QDS-2278 Dial specifics snap mode not working  
 * QTBUG-82978 Allow "-Wextra-semi-stmt" on Q_UNUSED  
@@ -4376,29 +3932,7 @@ when erasing last digit of "2,000" in editable SpinBox
 files' QML imports specify version and some don't  
 * QTBUG-85699 Material ToolBar: "QML Material: Binding loop detected for  
 property "foreground""  
-* QTBUG-86303 Fallback styles overwrite themes  
-* QTBUG-86276 QtQuick.Controls 2 Menu does not override other &mnemonic  
-key shortcuts  
-* QTBUG-86276 QtQuick.Controls 2 Menu does not override other &mnemonic  
-key shortcuts  
 * QTBUG-86399 Windows: add remaining native style patches for Windows  
-* QTBUG-85884 When a Dialog is hidden then it is possible that it does  
-not reset the focus correctly if when it loses active focus it does the  
-process again to hide the dialog  
-* QTBUG-82989 Decide upon and document our stance on binding to parent  
-in delegates  
-* QTBUG-86815 Rename all internal CMake functions to start with  
-qt_internal  
-* QTBUG-86851 QQC2 Menu contentModel not deleted  
-* QTBUG-87018 Touch/mouse-related test failures in qtquickcontrols2  
-* QTBUG-87018 Touch/mouse-related test failures in qtquickcontrols2  
-* QTBUG-87018 Touch/mouse-related test failures in qtquickcontrols2  
-* QTBUG-87018 Touch/mouse-related test failures in qtquickcontrols2  
-* QTBUG-87018 Touch/mouse-related test failures in qtquickcontrols2  
-* QTBUG-87018 Touch/mouse-related test failures in qtquickcontrols2  
-* QTBUG-87018 Touch/mouse-related test failures in qtquickcontrols2  
-* QTBUG-86815 Rename all internal CMake functions to start with  
-qt_internal  
 * QTBUG-86815 Rename all internal CMake functions to start with  
 qt_internal  
 * QTBUG-87164 qmllint library search regression  
@@ -4409,160 +3943,77 @@ qmake non-Packaging ones
 * QTBUG-87664 Adjust behavior of add_qt_gui_executable /  
 qt_add_executable as per API review  
 * QTBUG-88114 Make sure QFontDatabase methods are used as static methods  
-* QTBUG-88038 FAIL!  :  
-tst_QQuickDrawer::Universal::flickable(touch,diagonal)  
-'flickable->isDragging()' returned FALSE. ()  
-* QTBUG-70597 Tumbler::test_itemsCorrectlyPositioned() is flaky  
-* QTBUG-86399 Windows: add remaining native style patches for Windows  
-* QTBUG-88158 Finish 'Porting to Qt 6 - Qt Quick Controls 2' Page  
-* QTBUG-88158 Finish 'Porting to Qt 6 - Qt Quick Controls 2' Page  
 * QTBUG-88343 Mirror -no-gui qmake configuration in CMake  
 * QTBUG-88372 Rewrite of Qt object breaks QtQuickControls2 tests  
 * QTBUG-87818 AUX_QML_FILES Designer files are missing from cmake build  
-* QTBUG-89006 Native style: running controls on Windows with a dpr =  
-1.25 has drawing glitches  
-* QTBUG-89006 Native style: running controls on Windows with a dpr =  
-1.25 has drawing glitches  
 * QTBUG-88533 qdoc errors in QtCore  
-* QTBUG-88492 QmlComponent: Component is not ready error with static  
-compiled Controls 2  
 * QTBUG-88553 "invalid nullptr parameter" when running Qt Quick Controls  
 - Contact List example  
 * QTBUG-52466 Styles need to be explicitly imported to work with static  
 builds  
-* QTBUG-61021 Autocomplete of editable ComboBox not working on Android  
-* QTBUG-90401 Heap-use-after-free in QAbstractAnimationJob  
 * QTBUG-90401 Heap-use-after-free in QAbstractAnimationJob  
 * QTBUG-86567 When destroying an item in a model that has an animation  
 running as part of its delegate then it can cause a crash to occur  
-* QTBUG-63185 grabImage() doesn't work on software renderer  
 * QTBUG-90869 tst_qquickdesignersupport: tests segfault when running on  
 QEMU and Windows MinGW developer build  
 * QTBUG-90439 Doc: Fix CI warnings qtdeclarative  
-* QTBUG-90401 Heap-use-after-free in QAbstractAnimationJob  
-* QTBUG-90401 Heap-use-after-free in QAbstractAnimationJob  
 * QTBUG-41867 disabled particle Emitter still causes QSG renderer  
 uploads  
 * QTBUG-89943 Deprecate injected arguments for signal handlers  
-* QTBUG-89943 Deprecate injected arguments for signal handlers  
-* QTBUG-90439 Doc: Fix CI warnings qtdeclarative  
-* QTBUG-90439 Doc: Fix CI warnings qtdeclarative  
-* QTBUG-89943 Deprecate injected arguments for signal handlers  
-* QTBUG-89943 Deprecate injected arguments for signal handlers  
-* QTBUG-90239 TextField with regex clears text if unmatched char is  
-typed  
 * QTBUG-91116 tst_qquickflickable is unstable on macOS 11  
 * QTBUG-89938 tst_QQuickPopup::macOS fails with macOS 10.15 and 11.1 and  
 with Xcode 12.3  
-* QTBUG-90869 tst_qquickdesignersupport: tests segfault when running on  
-QEMU and Windows MinGW developer build  
 * QTBUG-46350 Crash when deleting item currently set in PropertyChanges  
 target  
 * QTBUG-88263 [REG v6.0.0-beta3 -> dev] cmake-based configure pollutes  
 the source tree  
-* QTBUG-84895 QML annotations should be actively supported in tooling  
 * QTBUG-91141 qdoc/WebXML (Qt 6): Invalid links to "Changes to Qt  
 <Module>" are inserted into \brief of classes and other places  
 * QTBUG-91276 DelegateModel can crash with retranslate()  
-* QTBUG-92000 tst_qquickitem::hoverEvent is flaky on Ubuntu 20.04  
 * QTBUG-86708 When using DelegateModelGroup to group items then when a  
 created item which is set to not be included will trigger an assert  
 * QTBUG-86729 many Qt Quick test failures after input event refactoring  
-* QTBUG-92447 [Reg 5.15 -> 6.0] qmllint: Property "length" not found on  
-type "QString"  
-* QTBUG-92447 [Reg 5.15 -> 6.0] qmllint: Property "length" not found on  
-type "QString"  
 * QTBUG-92861 QtQml does not provide version 6.2  
-* QTBUG-92861 QtQml does not provide version 6.2  
-* QTBUG-92571 qmllint: Cannot assign to default property of incompatible  
-type  
-* QTBUG-92861 QtQml does not provide version 6.2  
-* QTBUG-92944 input problems in DynamicTexture example  
 * QDS-4212 Changing Range Slider snap mode changes it's orientation  
-* QTBUG-92571 qmllint: Cannot assign to default property of incompatible  
-type  
-* QTBUG-92944 input problems in DynamicTexture example  
-* QTBUG-93189 qmllint does not handle Behavior correctly  
 * QTBUG-72906 ListView rejects QList models  
 * QTBUG-93358 qmllint: Add support for UiArrayBindings  
 * QTBUG-92500 When using a ShaderEffect which has been compiled with the  
 qsb tool, it does not apply the effect at all  
 * QTBUG-80415 segfault in software renderer inside  
 QSGSoftwareInternalImageNode  
-* QTBUG-63673 PinchArea uses wrong coordinate system when inside a  
-rotated container item  
-* QTBUG-92944 input problems in DynamicTexture example  
-* QTBUG-92944 input problems in DynamicTexture example  
-* QTBUG-56075 QML Flickable: high-precision trackpad scrolling is too  
-fast  
 * QTBUG-87260 TextArea with QSyntaxHighlighter : setUnderlineColor and  
 setUnderlineStyle not working  
 * QTBUG-88644 tst_QQuickGridView::snapToRow() failed on msvc2019  
 developer build in CI  
 * QTBUG-92984 Image is painted with wrong Z order  
-* QTBUG-83630 Qt Quick Control 2 Tooltip can be way too big when you  
-have newlines  
-* QTBUG-92944 input problems in DynamicTexture example  
-* QTBUG-88644 tst_QQuickGridView::snapToRow() failed on msvc2019  
-developer build in CI  
 * QTBUG-78996 JavaScript getDay() regression on MinGW  
 * QTBUG-93841 Superfluous calls to int qRegisterMetaType(const char  
 *typeName)  
 * QTBUG-27671 QMLTest: Some subtests of  
 tests/auto/qmltest/events/tst_events.qml are flaky  
 * QTBUG-88672 REG: Performance regression in Qt Quick Controls 2  
-* QTBUG-88672 REG: Performance regression in Qt Quick Controls 2  
 * QTBUG-86726 qt_add_resource BASE argument doesn't behave as the qmake  
 counterpart  
-* QTBUG-86726 qt_add_resource BASE argument doesn't behave as the qmake  
-counterpart  
-* QTBUG-90869 tst_qquickdesignersupport: tests segfault when running on  
-QEMU and Windows MinGW developer build  
 * QTBUG-93983 GeoLocation::test_Location_complete fails  
-* QTBUG-33179 QML revisioning does not work for grouped properties  
 * QTBUG-94030 Minimal plugin not found in static build although  
 explicitly imported  
 * QTBUG-93972 ASTC compressed textures rendering orientation not  
 consistent  
-* QTBUG-33179 QML revisioning does not work for grouped properties  
 * QTBUG-87775 Passing INTERNAL_MODULE to qt_internal_add_module should  
 only create a single Qt::FooPrivate target  
-* QTBUG-87775 Passing INTERNAL_MODULE to qt_internal_add_module should  
-only create a single Qt::FooPrivate target  
-* QTBUG-93752 When setting the inactive colorgroup in the palette and  
-then making the window inactive it will not trigger an update on any  
-colors bound to the palette  
 * QTBUG-94068 Undefined behavior  
 * QTBUG-87708 [Reg 5.15.0 -> 5.15.1] header's width isn't resized to  
 window's width when Layout is used  
 * QTBUG-94251 tst_QQuickPopup fails with OpenSUSE 15.3  
-* QTBUG-77946 tst_QQuickDrawer::Universal::position(right) failed on  
-Linux openSUSE_15_0 (gcc-x86_64)  
-* QTBUG-93746 There's no PlaceholderText property in ColorGroup  
-* QTBUG-94068 Undefined behavior  
-* QTBUG-89536 Remove configure.json files for building Qt 6  
 * QTBUG-89536 Remove configure.json files for building Qt 6  
 * QTBUG-93257 qt6_import_qml_plugins does not compose  
 * QTBUG-77417 qmllint: need to handle SignalTransition guard properties  
-* QTBUG-93257 qt6_import_qml_plugins does not compose  
-* QTBUG-94703 REG: Binding to var properties that are undefined is  
-broken in 6.2.0  
 * QTBUG-54267 Qt Quick Calqlatr example does not properly reflect the  
 current way of using Qt Quick  
 * QTBUG-94798 crash in QQuickDesignerSupport with gcc at ubuntu  
 * QTBUG-94971 QHoverEvent::scenePosition() is actually local position  
 * QTBUG-93890 Crash in webOS emulator with recent meta-qt6  
 * QTBUG-90819 Linking relationships to plugins are incorrectly specified  
-* QTBUG-90819 Linking relationships to plugins are incorrectly specified  
-* QTBUG-94703 REG: Binding to var properties that are undefined is  
-broken in 6.2.0  
-* QTBUG-56075 QML Flickable: high-precision trackpad scrolling is too  
-fast  
-* QTBUG-56075 QML Flickable: high-precision trackpad scrolling is too  
-fast  
-* QTBUG-95139 Using backticks for ListElement value results in "cannot  
-use script for property value"  
-* QTBUG-94622 svg Image is  Pixelated when windows is scaled  
 * QTBUG-95208 Linker error regarding bitcode when linking CMake app  
 targeting iOS  
 * QTBUG-94928 loop QQuickDesignerSupport with simple example  
@@ -4571,21 +4022,11 @@ targeting iOS
 * QTBUG-95152 A QtWebEngine build fails on dev on M1 MacBook  
 * QTBUG-94844 Rendering errors with ShaderEffect after hiding and  
 reshowing a window  
-* QTBUG-95365 QML module files copied to build dir have nothing  
-depending on them  
-* QTBUG-95567 Failure in TestQmllint when merging qtquickcontrols2 into  
-qtdeclarative  
 * QTBUG-95567 Failure in TestQmllint when merging qtquickcontrols2 into  
 qtdeclarative  
 * QTBUG-87580 Add minimal set of tests to build for static Qt configs in  
 Coin  
-* QTBUG-89938 tst_QQuickPopup::macOS fails with macOS 10.15 and 11.1 and  
-with Xcode 12.3  
 * QTBUG-88138 tst_QQuickDrawer::macOS::slider is failing  
-* QTBUG-83630 Qt Quick Control 2 Tooltip can be way too big when you  
-have newlines  
-* QTBUG-83630 Qt Quick Control 2 Tooltip can be way too big when you  
-have newlines  
 * QTBUG-95756 tst_QQmlImport::removeDynamicPlugin() is flaky on macOS  
 * QTBUG-95609 cmake names for qml plugins  
 * QTBUG-95636 Update cmake_minimum_required to 3.16 in all CMake Qt  
@@ -4594,29 +4035,19 @@ example projects
 fails when using the Xcode generator  
 * QTBUG-95845 qt_add_qml_module unconditionally installs metatypes.json  
 files into "arbitrary" directory  
-* QTBUG-95845 qt_add_qml_module unconditionally installs metatypes.json  
-files into "arbitrary" directory  
 * QTBUG-95788 Singletons with clearComponentCache don't fully work  
-* QTBUG-95593 Customised SpinBox buttons don't work with macOS style  
 * QTBUG-93340 trafficlight_qml_dynamic crashes on Android device  
-* QTBUG-93340 trafficlight_qml_dynamic crashes on Android device  
-* QTBUG-95609 cmake names for qml plugins  
 * QTBUG-96121 Versionless CMake commands prevent setting variables in  
 calling scope  
 * QTBUG-96159 Qt5.git integration fails in '6.2':  The "moc" executable  
 "/Users/qt/work/qt/qt5/qtbase/libexec/moc" does not exist  
 * QTBUG-96219 Conversion of versionless wrapper functions to macros  
 needs to be reverted  
-* QTBUG-96219 Conversion of versionless wrapper functions to macros  
-needs to be reverted  
 * QTBUG-96144 qmlsc generates bad code for assigning strings to colors  
 * QTBUG-81302 WheelHandler wheel signal is not documented  
-* QTBUG-96118 FTBFS top-level: The "moc" executable  
-"BUÏLDDIR/qtbase/libexec/moc" does not exist.  
-* QTBUG-96144 qmlsc generates bad code for assigning strings to colors  
-* QTBUG-96144 qmlsc generates bad code for assigning strings to colors  
 * QTBUG-95587 icon.source of Control is not resolved relative to user  
 code  
+* QTBUG-96127 Broken external links in Qt docs  
   
 ### qtactiveqt  
 * QTBUG-92351 Update dependencies on 'dev' in qt/qtactiveqt fails  
@@ -4653,8 +4084,6 @@ global namespace
 * QTBUG-65810 Outdated copyright notes  
 * QTBUG-91644 macdeployqt doesn't deploy plugins when build qt with  
 custom -plugindir and frameworks in app bundle cannot resolve rpath  
-* QTBUG-91644 macdeployqt doesn't deploy plugins when build qt with  
-custom -plugindir and frameworks in app bundle cannot resolve rpath  
 * QTBUG-92386 [QDoc]  \omitvalue does not omit the enum's description  
 * QTBUG-93422 qlitehtml library is not installed  
 * QTBUG-49591 Qt Designer: QTableWidget : Horizontal labels are not  
@@ -4666,7 +4095,6 @@ gracefully
 Qt::AlignHCenter|Qt::AlignVCenter visually but Designer shows AlignLeft  
 * QTBUG-93646 .gitignore files in qttools  
 * QTBUG-94034 qlitehtml: compiler warning C4530  
-* QTBUG-93646 .gitignore files in qttools  
 * QTBUG-94395 qdoc: Incorrect signature generated for QML signals  
 * QTBUG-74353 Qt Assistant doesn't take stylesheet into account with  
 search result view  
@@ -4682,7 +4110,6 @@ filters anymore
 * QTBUG-95561 Typo in the "Introduction To QDoc" manual page.  
 * QTBUG-87677 windeployqt locates a release version of icudtXX.dll for a  
 debug binary  
-* QTBUG-65810 Outdated copyright notes  
 * QTBUG-95948 qdoc: Tagging an \fn does not work for \fn commands that  
 share a doc comment  
 * QTBUG-94796 macdeployqt does not deploy  
@@ -4694,11 +4121,9 @@ names
 * QTBUG-96220 qt6_create_translation() mishandles -extensions due to  
 malformed regex  
 * QTBUG-95247 windeployqt does not copy tls plugins  
+* QTBUG-96694 broken "Contents" links in assistant  
 * QTBUG-91141 qdoc/WebXML (Qt 6): Invalid links to "Changes to Qt  
 <Module>" are inserted into \brief of classes and other places  
-* QTBUG-85513 QTableWidget header item alignment defaults to  
-Qt::AlignHCenter|Qt::AlignVCenter visually but Designer shows AlignLeft  
-* QTBUG-92386 [QDoc]  \omitvalue does not omit the enum's description  
 * QTBUG-86726 qt_add_resource BASE argument doesn't behave as the qmake  
 counterpart  
 * QTBUG-89860 Document QDoc warnings  
@@ -4708,16 +4133,12 @@ constructor for a static QString it will fail to find the context
 * QTBUG-89536 Remove configure.json files for building Qt 6  
 * QTBUG-90819 Linking relationships to plugins are incorrectly specified  
 * QTBUG-88090 Installed CMake files reference the SOURCE TREE  
-* QTBUG-90819 Linking relationships to plugins are incorrectly specified  
 * QTBUG-95305 ninja dependency error when configuring a project that  
 uses AUTOUIC and CMake 3.21.0  
-* QTBUG-91082 [REG: 5.12->5.13] Assistant does not support custom  
-filters anymore  
 * QTBUG-96121 Versionless CMake commands prevent setting variables in  
 calling scope  
 * QTBUG-96219 Conversion of versionless wrapper functions to macros  
 needs to be reverted  
-* QTBUG-96096 translations are not installed anymore  
   
 ### qttranslations  
 * QTBUG-93280 [Reg 5.15.3->6.0] Dialog buttons translated even though  
@@ -4739,6 +4160,8 @@ policy not documented
 Ahead-of-Time Compilation  
 * QTBUG-93245 Documentation: New 6.1 modules missing from overview  
 * QTBUG-94903 Add new 6.2 modules to "All Modules"  
+* QTBUG-95990 Add support for multi-abi application builds for Android  
+with qmake  
 * QTBUG-93895 Error C2440: 'initializing': cannot convert from 'const  
 TCHAR *' to 'const wchar_t *  
 * QTBUG-86726 qt_add_resource BASE argument doesn't behave as the qmake  
@@ -4749,6 +4172,7 @@ input file 'propsys.obj'
 Qt installation should be listed in CMAKE_PREFIX_PATH  
 * QTBUG-95748 QtSensors:  update qtdoc module listing  
 * QTBUG-96150 QML best practices docs are outdated  
+* QTBUG-96127 Broken external links in Qt docs  
   
 ### qtwayland  
 * QTBUG-91206 Input hints not delivered to virtual keyboard with new  
@@ -4781,8 +4205,6 @@ counterpart
 * QTBUG-90819 Linking relationships to plugins are incorrectly specified  
 * QTBUG-95636 Update cmake_minimum_required to 3.16 in all CMake Qt  
 example projects  
-* QTBUG-95464 Qt wayland surface is empty when gst-launch client is  
-playing video  
 * QTBUG-95715 Incorrect texture handling in multi-screen wayland  
 compositor  
 * QTBUG-96121 Versionless CMake commands prevent setting variables in  
@@ -4794,7 +4216,6 @@ needs to be reverted
 * QTBUG-92163 top-level configure returns with exit code != 0 if qt3d is  
 checked out  
 * QTBUG-92259 Missing qmltypes support for quick3dcoreplugin  
-* QTBUG-92259 Missing qmltypes support for quick3dcoreplugin  
 * QTBUG-93240 Configure error in qt3d for -developer-build -release  
 * QTBUG-93428 Examples not finding QtConcurrent  
 * QTBUG-90243 Unable to build Qt3D Add-On with Conan, Qt6.0.1,  
@@ -4804,10 +4225,7 @@ Qt6.1.0Alpha,6.0.2, 6.0.3, 6.0.4
 counterpart  
 * QTBUG-93035 Adding a disable entity to the scene and enabling it later  
 isn't properly picked up  
-* QTBUG-93035 Adding a disable entity to the scene and enabling it later  
-isn't properly picked up  
 * QTBUG-95130 Qt3D ShaderProgram sources cannot compile on iOS (RHI)  
-* QTBUG-90819 Linking relationships to plugins are incorrectly specified  
 * QTBUG-90819 Linking relationships to plugins are incorrectly specified  
 * QTBUG-90321 QT_BEGIN_LICENSE:LGPL3 references non-existing file  
 LICENSE.GPL  
@@ -4818,7 +4236,6 @@ example projects
 * QTBUG-86726 qt_add_resource BASE argument doesn't behave as the qmake  
 counterpart  
 * QTBUG-89536 Remove configure.json files for building Qt 6  
-* QTBUG-90819 Linking relationships to plugins are incorrectly specified  
 * QTBUG-90819 Linking relationships to plugins are incorrectly specified  
   
 ### qtcharts  
@@ -4831,11 +4248,8 @@ property
 * QTBUG-94472 [REG 6.2 snapshot->6.2 current] qml/QtCharts/designer -dir  
 missing  
 * QTBUG-95307 Qt Charts is missing in module upgrade documentation  
-* QTBUG-79218 When zooming out enough then the labels on the axes will  
-end up showing drawing errors  
 * QTBUG-90583 conanfile.py: Accept QTDIR in addition to QT_PATH  
 * QTBUG-92861 QtQml does not provide version 6.2  
-* QTBUG-93672 zooming infinitely causes infinite allocating loop  
 * QTBUG-93672 zooming infinitely causes infinite allocating loop  
 * QTBUG-86726 qt_add_resource BASE argument doesn't behave as the qmake  
 counterpart  
@@ -4871,7 +4285,6 @@ documentation says
 * QTBUG-90583 conanfile.py: Accept QTDIR in addition to QT_PATH  
 * QTBUG-91381 tst_qmltestWrapperRelWithDebInfo is failing in 6.1  
 * QTBUG-90664 Some examples do not work correctly  
-* QTBUG-90664 Some examples do not work correctly  
 * PYSIDE-1438 Using QBar3DSeries.dataProvider().addRow() segfaults  
 * QTBUG-92861 QtQml does not provide version 6.2  
 * QTBUG-86815 Rename all internal CMake functions to start with  
@@ -4905,8 +4318,6 @@ as such
 * QTBUG-86726 qt_add_resource BASE argument doesn't behave as the qmake  
 counterpart  
 * QTBUG-89536 Remove configure.json files for building Qt 6  
-* QTBUG-94017 Cursor position moves when un-converted Japanese is  
-deleted  
 * QTBUG-90819 Linking relationships to plugins are incorrectly specified  
 * QTBUG-95636 Update cmake_minimum_required to 3.16 in all CMake Qt  
 example projects  
@@ -4945,6 +4356,7 @@ FEATURE_thread=OFF
 counterpart  
 * QTBUG-95636 Update cmake_minimum_required to 3.16 in all CMake Qt  
 example projects  
+* QTBUG-96127 Broken external links in Qt docs  
   
 ### qtlottie  
 * QTBUG-92861 QtQml does not provide version 6.2  
@@ -4981,7 +4393,6 @@ rhi-objects-in-cache-key problem
 * QTBUG-92389 QQuick3DInstancing not clearing m_instanceDataChanged  
 * QTBUG-92917 Changing instanceCountOverride has no effect  
 * QTBUG-92959 QtQuick3D fails to compile targeting WebAssembly  
-* QTBUG-92959 QtQuick3D fails to compile targeting WebAssembly  
 * QTBUG-93097 Quick3D Texture might not capture the latest state of  
 sourceItem  
 * QTBUG-90564 Crash if some importer plugin can't be loaded  
@@ -5010,8 +4421,6 @@ Studio
 generation do not work on Android  
 * QTBUG-90409 quick3d: consume 4x memory for custom geometry and memory  
 leak  
-* QTBUG-90409 quick3d: consume 4x memory for custom geometry and memory  
-leak  
 * QTBUG-95534 Rename depthSorting property in Instancing  
 * QTBUG-95586 Z-Prepass doesn't render correctly if scene has only  
 transparent objects with depth write  
@@ -5033,17 +4442,9 @@ component to Navigator (Qt6 project)
 * QTBUG-88263 [REG v6.0.0-beta3 -> dev] cmake-based configure pollutes  
 the source tree  
 * QTBUG-91195 Emitters do not work correctly when in node hierarchy  
-* QTBUG-91195 Emitters do not work correctly when in node hierarchy  
-* QTBUG-91412 Texture.sourceItem does not handle all textureProvider  
-items correctly  
-* QTBUG-91195 Emitters do not work correctly when in node hierarchy  
 * QTBUG-90788 Fix eulerRotation etc. with particles  
 * QTBUG-91730 Fix affector extra updates  
 * QTBUG-91729 Fix velocity with rotated emitter  
-* QTBUG-91195 Emitters do not work correctly when in node hierarchy  
-* QTBUG-91871 View3D with no size specified crashes with OpenGL only  
-* QTBUG-91729 Fix velocity with rotated emitter  
-* QTBUG-91681 Consistant rendering order for particles  
 * QTBUG-91681 Consistant rendering order for particles  
 * QTBUG-92019 Fix Attractor3D on node tree  
 * QTBUG-92028 Particles rotating too fast on android  
@@ -5052,17 +4453,12 @@ items correctly
 * QTBUG-92255 ParticleSystem trail ghost emits when restarted  
 * QTBUG-92169 Asset handling: Qml write for the intermediate scene  
 format needs to output resources correctly  
-* QTBUG-92169 Asset handling: Qml write for the intermediate scene  
-format needs to output resources correctly  
 * QTBUG-89175 quick3d: set property 'parent' of Node not work  
 * QTBUG-92831 Particles testbed Animated Sprite not working with qmake  
-* QTBUG-92169 Asset handling: Qml write for the intermediate scene  
-format needs to output resources correctly  
 * QTBUG-92171 Asset handling: Complete the assimp importer for the new  
 intermediate format  
 * QTBUG-92861 QtQml does not provide version 6.2  
 * QTBUG-93034 No changed signals from particlesystem time  
-* QTBUG-92917 Changing instanceCountOverride has no effect  
 * QTBUG-92892 Rotated emitter velocity not always correct  
 * QTBUG-90817 Quick3D Model bounds not set in an imported scene  
 * QTBUG-93648 Crash when going back in particles example after viewing  
@@ -5070,16 +4466,12 @@ Fire And Smoke
 * QTBUG-86726 qt_add_resource BASE argument doesn't behave as the qmake  
 counterpart  
 * QDS-4399 Properties missing for some components  
-* QTBUG-92944 input problems in DynamicTexture example  
 * QDS-4477 Imported Qt3DStudio project looks different in DS built with  
 Qt6.1 compared to QDS 2.1  
-* QTBUG-94453 Rectangles can't be used for light probs in View3D  
-* QTBUG-94453 Rectangles can't be used for light probs in View3D  
 * QTBUG-94453 Rectangles can't be used for light probs in View3D  
 * QTBUG-89536 Remove configure.json files for building Qt 6  
 * QTBUG-94548 Multimeshes not working with model-blend particles  
 * QDS-4509 Cannot run a project that has QtQuick3D Effects module added  
-* QDS-4399 Properties missing for some components  
 * QDS-4471 Adding 2D content to a 3D scene breaks 3D Editor  
 * QTBUG-90819 Linking relationships to plugins are incorrectly specified  
 * QTBUG-95284 QtQuick3D fails to build in CI when targeting WebAssembly  
@@ -5102,11 +4494,13 @@ calling scope
 needs to be reverted  
 * QDS-4978 Wrong default value of property editor Model pickable  
 property  
+* QTBUG-96307 Issue with stopped particle system and startTime  
   
 ### qtshadertools  
 * QTBUG-92882 qtshadertools and qtdeclarative Quick not built for QNX  
 * QTBUG-95048 Linkage error during building any qt quick3D application  
 for Integrity based on Qt6  
+* QTBUG-96618 qtquick3d examples fail to build for QNX  
 * QTBUG-86726 qt_add_resource BASE argument doesn't behave as the qmake  
 counterpart  
 * QTBUG-96121 Versionless CMake commands prevent setting variables in  
@@ -5128,6 +4522,15 @@ example projects
 Known Issues  
 ------------  
   
+* Check that your system meets Qt's requirements:  
+https://doc.qt.io/qt-6/gettingstarted.html#platform-requirements  
+* RTA reported issues from Qt 6.2  
+https://bugreports.qt.io/issues/?filter=23315  
+* Supported development platforms are listed here:  
+https://bugreports.qt.io/browse/QTBUG-90021  
+* See Qt 6.2.0 Known Issues from:  
+https://wiki.qt.io/Qt_6.2.0_Known_Issues  
+
 Credits for the  release goes to:  
 ---------------------------------  
   
@@ -5174,6 +4577,7 @@ D'Angelo Giuseppe
 David Szabolcs  
 Dhumal Shrikant  
 Dietrich Gabriel de  
+Dietz Pascal  
 Dippold Michael  
 Dushistov Evgeniy A.  
 Edelev Alexey  
@@ -5380,6 +4784,7 @@ Verbruggen Erik
 Verria Doris  
 Vertriest Nico  
 Vestbø Tor Arne  
+Voelker Jannis  
 Volgutov Valery  
 Volkov Alexander  
 Voutilainen Ville  
