@@ -523,6 +523,15 @@ architectures without -no-warnings-are-errors
 Known Issues  
 ------------  
   
+* Check that your system meets Qt's requirements:  
+https://doc.qt.io/qt-6/gettingstarted.html#platform-requirements  
+* RTA reported issues from Qt 6.2  
+https://bugreports.qt.io/issues/?filter=23315  
+* Supported development platforms are listed here:  
+https://bugreports.qt.io/browse/QTBUG-90021  
+* See Qt 6.2 Known Issues from:  
+https://wiki.qt.io/Qt_6.2_Known_Issues  
+
 Credits for the  release goes to:  
 ---------------------------------  
   
