@@ -118,6 +118,28 @@ in CI
 ### qtwebengine  
 * QTBUG-71895 [REG 5.10->5.11] When calling clearHttpCache() it can  
 cause a crash when loading a url  
+* Security fixes from Chromium up to version 95.0.4638.69, including:  
+  - CVE-2021-3517:  libxml2: Heap-based buffer overflow in  
+    xmlEncodeEntitiesInternal() in entities.c  
+  - CVE-2021-3541: libxml2 Exponential entity expansion attack bypasses all  
+    existing protection mechanisms  
+  - CVE-2021-30522: Use after free in WebAudio  
+  - CVE-2021-30547: Out of bounds write in ANGLE  
+  - CVE-2021-30553: Use after free in Network service  
+  - CVE-2021-30559: Out of bounds write in ANGLE  
+  - CVE-2021-30560: Use after free in Blink XSLT  
+  - CVE-2021-30569: Use after free in sqlite  
+  - CVE-2021-30585: Use after free in sensor handling  
+  - CVE-2021-30603: Race in WebAudio  
+  - CVE-2021-30618: Inappropriate implementation in DevTools  
+  - CVE-2021-30627: Type Confusion in Blink layout  
+  - Security bug 1184294  
+  - Security bug 1197786  
+  - Security bug 1198216  
+  - Security bug 1202534  
+  - Security bug 1204814  
+  - Security bug 1242257  
+  - Security bug 1252858  
   
 ### qtvirtualkeyboard  
 * QTBUG-94259 High CPU load on embedded targets caused by timers  
