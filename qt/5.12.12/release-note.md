@@ -114,10 +114,17 @@ got a non-public api references error
 ### qtwebchannel  
 * QTBUG-74611 Flaky tests/auto/webchannel crashes on multiple platforms  
 in CI  
+* QTBUG-51366 QWebChannel cannot emit signals from SIGNALS in different  
+QThread  
+* QTBUG-80729 TestWebChannel::testAsyncObject() is flaky and crashes on  
+many platforms  
   
 ### qtwebengine  
+* QTBUG-96925 tst_QWebEngineProfile::qtbug_71895 fails in 5.12  
 * QTBUG-71895 [REG 5.10->5.11] When calling clearHttpCache() it can  
 cause a crash when loading a url  
+* QTBUG-98401 CVE-2021-3517 in chromium  
+* QTBUG-98400 CVE-2021-3541 in chromium  
 * Security fixes from Chromium up to version 95.0.4638.69, including:  
   - CVE-2021-3517:  libxml2: Heap-based buffer overflow in  
     xmlEncodeEntitiesInternal() in entities.c  
