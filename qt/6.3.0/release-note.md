@@ -2167,8 +2167,7 @@ horizontal header only works when the first row is visible
 * QTBUG-98532 CMake - _qmltyperegistration.cpp do not get updated  
 * QTBUG-83165 Android .aab bundle fails to link static library in subdir  
 * QTBUG-48815 QTextEdit: When pressing enter at the end of last item in  
-an ordered list (HTML: <ol>) then it will put in extra space before the  
-new line  
+an ordered list...  
 * QTBUG-97459 when hitting enter in QTextEdit at the end of a line with  
 a checked checkbox, next line is also checked  
 * QTBUG-80473 Inserting an <HR> tag into QTextDocument does Bad Things  
