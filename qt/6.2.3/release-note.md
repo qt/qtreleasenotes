@@ -679,6 +679,7 @@ Credits for the  release goes to:
 Aavitsland Eirik  
 Agocs Laszlo  
 Apostolou Dimitrios  
+Astals Cid Albert  
 Belyavsky Vladimir  
 Bennett Nicholas  
 Blechmann Tim  
@@ -689,7 +690,6 @@ Boudjelthia Assam
 Brüning Michael  
 Buhr Andreas  
 Burtsev Kirill  
-Cid Albert Astals  
 Cieślak Michał  
 Croitor Alexandru  
 Curtis Mitch  

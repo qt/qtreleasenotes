@@ -541,6 +541,7 @@ Ackers Dan
 Agocs Laszlo  
 Akulich Alexander  
 Apostolou Dimitrios  
+Astals Cid Albert  
 Bennett Nicholas  
 Bin Chen  
 Blasche Alex  
@@ -554,7 +555,6 @@ Buhr Andreas
 Burtsev Kirill  
 Casafranca Juan  
 Chuan Wang  
-Cid Albert Astals  
 Croitor Alexandru  
 Curtis Mitch  
 D'Angelo Giuseppe  

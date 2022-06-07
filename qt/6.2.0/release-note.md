@@ -4542,6 +4542,7 @@ Akulich Alexander
 Akulich Alexandr  
 Angelelli Paolo  
 Apostolou Dimitrios  
+Astals Cid Albert  
 Avtomonov Nikolay  
 Bai Yulong  
 Baijot Vincent  
@@ -4570,7 +4571,6 @@ Byun Jungi
 Callegari Massimo  
 Chao Caroline  
 Chuan Wang  
-Cid Albert Astals  
 Croitor Alexandru  
 Curtis Mitch  
 D'Angelo Giuseppe  

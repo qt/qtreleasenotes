@@ -4771,6 +4771,7 @@ Waqar Ahmed
 Alexander Akulich  
 Dimitrios Apostolou  
 Viktor Arvidsson  
+Albert Astals Cid  
 Luca Beldi  
 Vladimir Belyavsky  
 Nicholas Bennett  
@@ -4795,7 +4796,6 @@ Giulio Camuffo
 Méven Car  
 Juan Casafranca  
 Wang Chuan  
-Albert Astals Cid  
 Michał Cieślak  
 Raphael Cotty  
 Alexandru Croitor  

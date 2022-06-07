@@ -288,13 +288,13 @@ Credits for the  release goes to:
   
 Aavitsland Eirik  
 Agocs Laszlo  
+Astals Cid Albert  
 Bennett Nicholas  
 Blomfeldt Eskil Abrahamsen  
 Bornemann Joerg  
 Boudjelthia Assam  
 Buddenhagen Oswald  
 Butirsky Andrey  
-Cid Albert Astals  
 Croitor Alexandru  
 Curtis Mitch  
 D'Angelo Giuseppe  

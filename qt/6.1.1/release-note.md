@@ -521,6 +521,7 @@ Aavitsland Eirik
 Adam Cristian  
 Agocs Laszlo  
 Apostolou Dimitrios  
+Astals Cid Albert  
 Baijot Vincent  
 Beldi Luca  
 Bin Chen  
@@ -530,7 +531,6 @@ Bornemann Joerg
 Boudjelthia Assam  
 Broulik Kai Uwe  
 Chuan Wang  
-Cid Albert Astals  
 Croitor Alexandru  
 Curtis Mitch  
 D'Angelo Giuseppe  

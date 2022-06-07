@@ -478,6 +478,7 @@ Achtelik Mike
 Adam Cristian  
 Agocs Laszlo  
 Asaduzzaman Nadim  
+Astals Cid Albert  
 Bin Chen  
 Blasche Alex  
 Blomfeldt Eskil Abrahamsen  
@@ -493,7 +494,6 @@ Casafranca Juan José
 Castro Helio Chissini de  
 Chuan Wang  
 ChunLin Wang  
-Cid Albert Astals  
 Croitor Alexandru  
 Curtis Mitch  
 D'Angelo Giuseppe  
