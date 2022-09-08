@@ -671,6 +671,13 @@ compound statement deprecation in C++20
 Known Issues  
 ------------  
   
+* Check that your system meets Qt's requirements:  
+https://doc.qt.io/qt-6/supported-platforms.html
+* RTA reported issues from Qt 6.3  
+https://bugreports.qt.io/issues/?filter=23976  
+* See Qt 6.3 Known Issues from:  
+https://wiki.qt.io/Qt_6.3_Known_Issues  
+  
 Credits for the  release goes to:  
 ---------------------------------  
   
