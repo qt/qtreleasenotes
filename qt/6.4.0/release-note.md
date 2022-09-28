@@ -4256,6 +4256,15 @@ code in dev
 Known Issues  
 ------------  
   
+* Check that your system meets Qt's requirements:  
+https://doc.qt.io/qt-6.4/supported-platforms.html  
+* RTA reported issues from Qt 6.4  
+https://bugreports.qt.io/issues/?filter=24174  
+* Supported development platforms are listed here:  
+https://bugreports.qt.io/browse/QTBUG-102789  
+* See Qt 6.4.0 Known Issues from:  
+https://wiki.qt.io/Qt_6.4.0_Known_Issues  
+  
 Credits for the  release goes to:  
 ---------------------------------  
   
