@@ -672,6 +672,15 @@ windows
 Known Issues  
 ------------  
   
+* Check that your system meets Qt's requirements:  
+https://doc.qt.io/qt-6.4/supported-platforms.html  
+* RTA reported issues from Qt 6.4  
+https://bugreports.qt.io/issues/?filter=24174  
+* See Qt 6.4 known issues from:  
+https://wiki.qt.io/Qt_6.4_Known_Issues  
+* Qt 6.4.3 Open issues in Jira:  
+https://bugreports.qt.io/issues/?filter=24820 
+  
 Credits for the  release goes to:  
 ---------------------------------  
   
@@ -679,6 +688,7 @@ Eirik Aavitsland
 Amir Masoud Abdol  
 Laszlo Agocs  
 Martin Andersson  
+Albert Astals Cid  
 Mate Barany  
 Sebastian Beckmann  
 Rolf Eike Beer  
@@ -691,7 +701,6 @@ Joerg Bornemann
 Assam Boudjelthia  
 Aurélien Brooke  
 Michael Brüning  
-Albert Astals Cid  
 Creapermann  
 Alexandru Croitor  
 Mitch Curtis  
