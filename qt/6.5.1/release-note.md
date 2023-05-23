@@ -830,6 +830,17 @@ link to the .proto files in the list of the example sources
 Known Issues  
 ------------  
   
+* Check that your system meets Qt's requirements:  
+https://doc.qt.io/qt-6.5/supported-platforms.html  
+* RTA reported issues from Qt 6.5  
+https://bugreports.qt.io/issues/?filter=24558  
+* See Qt 6.5 known issues from:  
+https://wiki.qt.io/Qt_6.5_Known_Issues  
+* Qt 6.5.1 Open issues in Jira:  
+https://bugreports.qt.io/issues/?filter=25090  
+  
+------------  
+  
 Credits for the  release goes to:  
 ---------------------------------  
   
