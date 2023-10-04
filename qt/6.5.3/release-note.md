@@ -31,10 +31,7 @@ https://doc.qt.io/qt-6/portingguide.html
 Important Changes  
 -----------------  
   
-### Security fixes  
-  
-* CVE-2023-43114 in qtbase  
-   
+### Security fixes    
 * CVE-2023-38197 in qtbase  
     
 ### qtbase  
