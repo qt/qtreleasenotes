@@ -29,6 +29,15 @@ https://doc.qt.io/qt-6/portingguide.html
 Important Changes  
 -----------------  
   
+### Security fixes  
+* CVE-2023-38197 in qtbase  
+* CVE-2023-43114 in qtbase  
+* CVE-2023-32763 in qtbase  
+* CVE-2023-37369 in qtbase  
+* CVE-2023-34410 in qtbase  
+* CVE-2023-33285 in qtbase  
+* CVE-2023-32762 in qtbase  
+  
 ### qtbase  
 * 9773f0175c Return qt-configure-module to bin/  
 Upon further consideration, qt-configure-module was deemed user-facing,  
@@ -4613,6 +4622,15 @@ baseline, but is not
   
 Known Issues  
 ------------  
+  
+* Check that your system meets Qt's requirements:  
+https://doc.qt.io/qt-6.6/supported-platforms.html  
+* RTA reported issues from Qt 6.6  
+https://bugreports.qt.io/issues/?filter=25128  
+* See Qt 6.6  known issues from:  
+https://wiki.qt.io/Qt_6.6_Known_Issues  
+* Qt 6.6.0 Open issues in Jira:  
+https://bugreports.qt.io/issues/?filter=25286  
   
 Credits for the  release goes to:  
 ---------------------------------  
