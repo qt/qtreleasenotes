@@ -30,6 +30,9 @@ https://doc.qt.io/qt-6/portingguide.html
   
 Important Changes  
 -----------------  
+
+### Security fixes  
+* CVE-2023-45872 in qtsvg  
   
 ### qtbase  
 * 66d10dc253 Document q(u)int128 and QT_SUPPORTS_INT128  
@@ -899,6 +902,15 @@ qtinsight.conf
   
 Known Issues  
 ------------  
+  
+* Check that your system meets Qt's requirements:  
+https://doc.qt.io/qt-6.6/supported-platforms.html  
+* RTA reported issues from Qt 6.6  
+https://bugreports.qt.io/issues/?filter=25128  
+* See Qt 6.6  known issues from:  
+https://wiki.qt.io/Qt_6.6_Known_Issues  
+* Qt 6.6.1 Open issues in Jira:  
+https://bugreports.qt.io/issues/?filter=25370
   
 Credits for the  release goes to:  
 ---------------------------------  
