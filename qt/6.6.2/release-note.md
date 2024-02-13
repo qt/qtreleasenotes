@@ -30,7 +30,10 @@ https://doc.qt.io/qt-6/portingguide.html
   
 Important Changes  
 -----------------  
-  
+### Security fixes  
+* CVE-2024-25580 in qtbase  
+* CVE-2023-51714 in qtbase  
+    
 ### qtbase  
 * 9ceb7cb555 QMimeDatabase: handle buggy type definitions with circular  
 inheritance  
@@ -905,6 +908,15 @@ error: packagemanagerdbuscontextadaptor.h: No such file or directory
   
 Known Issues  
 ------------  
+  
+* Check that your system meets Qt's requirements:  
+https://doc.qt.io/qt-6.6/supported-platforms.html  
+* RTA reported issues from Qt 6.6  
+https://bugreports.qt.io/issues/?filter=25128  
+* See Qt 6.6  known issues from:  
+https://wiki.qt.io/Qt_6.6_Known_Issues  
+* Qt 6.6.2 Open issues in Jira:  
+https://bugreports.qt.io/issues/?filter=25663
   
 Credits for the  release goes to:  
 ---------------------------------  
