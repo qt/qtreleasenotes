@@ -33,6 +33,7 @@ Important Changes
   
 ### Security fixes  
 * CVE-2024-33861 in qtbase  
+* CVE-2024-36048 in qtnetworkauth  
   
 ### qtbase  
 * e1f069e65d Update bundled libpng to version 1.6.43  
