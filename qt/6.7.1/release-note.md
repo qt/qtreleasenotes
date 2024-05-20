@@ -31,6 +31,9 @@ https://doc.qt.io/qt-6/portingguide.html
 Important Changes  
 -----------------  
   
+### Security fixes  
+* CVE-2024-33861 in qtbase  
+  
 ### qtbase  
 * e1f069e65d Update bundled libpng to version 1.6.43  
 libpng was updated to version 1.6.43  
@@ -870,6 +873,15 @@ arm binaries
   
 Known Issues  
 ------------  
+  
+* Check that your system meets Qt's requirements:  
+https://doc.qt.io/qt-6.7/supported-platforms.html  
+* RTA reported issues from Qt 6.7  
+https://bugreports.qt.io/issues/?filter=25756  
+* See Qt 6.7 known issues from:  
+https://wiki.qt.io/Qt_6.7_Known_Issues  
+* Qt 6.7.1 Open issues in Jira:  
+https://bugreports.qt.io/issues/?filter=26028  
   
 Credits for the  release goes to:  
 ---------------------------------  
