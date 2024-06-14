@@ -495,6 +495,15 @@ arm binaries
 Known Issues
 ------------
 
+* Check that your system meets Qt's requirements:
+https://doc.qt.io/qt-6.7/supported-platforms.html
+* RTA reported issues from Qt 6.7
+https://bugreports.qt.io/issues/?filter=25756
+* See Qt 6.7 known issues from:
+https://wiki.qt.io/Qt_6.7_Known_Issues
+* Qt 6.7.2 Open issues in Jira:
+https://bugreports.qt.io/issues/?filter=26139
+
 Credits for the  release goes to:
 ---------------------------------
 
