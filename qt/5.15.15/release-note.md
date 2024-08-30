@@ -2,7 +2,7 @@ Release note
 ============  
   
 Qt 5.15.15 release is a patch release made on the top of Qt 5.15.14. As a patch  
-release, Qt 5.15.14 does not add any new functionality but provides bug fixes  
+release, Qt 5.15.15 does not add any new functionality but provides bug fixes  
 and other improvements.  
   
 For detailed information about Qt, see the Qt 5.15 online documentation:  
