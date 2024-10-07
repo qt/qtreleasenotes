@@ -29,6 +29,14 @@ https://doc.qt.io/qt-6/portingguide.html
 Important Changes
 -----------------
 
+### Security fixes
+* CVE-2024-39936 in qtbase
+* CVE-2024-36048 in qtnetworkauth
+* CVE-2024-33861 in qtbase
+* CVE-2024-30161 in qtbase
+* CVE-2024-25580 in qtbase
+* CVE-2023-51714 in qtbase
+
 ### qtbase
 * 7a829eaf518 Fix return value of qbswap(qint128) to qint128 (was: quint128).
 
@@ -5605,6 +5613,15 @@ QGraphs3D
 
 Known Issues
 ------------
+
+* Check that your system meets Qt's requirements:
+https://doc.qt.io/qt-6.8/supported-platforms.html
+* RTA reported issues from Qt 6.8
+https://bugreports.qt.io/issues/?filter=26458
+* See Qt 6.8 known issues from:
+https://wiki.qt.io/Qt_6.8_Known_Issues
+* Qt 6.8.0 Open issues in Jira:
+https://bugreports.qt.io/issues/?filter=26530
 
 Credits for the release goes to:
 ---------------------------------
