@@ -3615,7 +3615,7 @@ model is reset with less number of items
 * QTBUG-123227 Qt Quick Test missing cmake support
 * QTBUG-124359 Cannot use variableAxes due to wrong component versioning
 * QTBUG-111337 Text incorrectly renders bullet list points after a link
-* QTBUG-123855 Inconsistent RichText Formatting of "<ol>" and "<ul>" in
+* QTBUG-123855 Inconsistent RichText Formatting of "\<ol\>" and "\<ul\>" in
 Text QML type
 * QTBUG-63741 Subsequent bullet points incorrectly colored by hyperlink
 * QTBUG-57833 QTextEdit list number/bullets inherit the following text
@@ -4497,7 +4497,7 @@ sanitizer check
 * QTBUG-120323 qdoc: Document \attribution command
 * QTBUG-122994 [Reg 6.6.1->6.6.2] Performance regression in
 qhelpcollection.cpp
-* QTBUG-123034 Accidental strikethrough (<s>) in QSpan documentation
+* QTBUG-123034 Accidental strikethrough (\<s\>) in QSpan documentation
 * QTBUG-123011 wrong xxx_lupdate_project.json is generated when no
 targets are specified in qt6_add_lupdate
 * QTBUG-123109 qdoc fails to compile with clang 18
@@ -5040,7 +5040,7 @@ granted devices with PersistentPermissionsPolicy::AskEveryTime
 * QTBUG-128361 Draggable elements don't work
 * QTBUG-126256 [REG 6.6 -> 6.7] WebOTP crashes renderer process
 * QTBUG-127797 screen sharing capabilities over WebRTC is not working
-* QTBUG-119908 HTML <select> Element Triggers Program Crash in QT on
+* QTBUG-119908 HTML \<select\> Element Triggers Program Crash in QT on
 EGLFS/KMS Platforms
 * QTBUG-127726 Screen sharing crashes in DesktopCapturer
 * QTBUG-112825 Changing the user agent should disable client hints
@@ -5626,295 +5626,295 @@ https://bugreports.qt.io/issues/?filter=26530
 Credits for the release goes to:
 ---------------------------------
 
-Eirik Aavitsland
-Amir Masoud Abdol
-Matt Aber
-Cristian Adam
-James Addison
-Laszlo Agocs
-Dilek Akcay
-Owais Akhtar
-Dmitrii Akshintsev
-Konsta Alajärvi
-Anu Aliyas
-Even Oscar Andersen
-Tim Angus
-Dimitrios Apostolou
-Soheil Armin
-Viktor Arvidsson
-Albert Astals Cid
-Mahmoud Badri
-Karolina Sofia Bang
-Mate Barany
-Chris Von Bargen
-Vladimir Belyavsky
-Nicholas Bennett
-Lena Biliaieva
-Alex Blasche
-Tim Blechmann
-Eskil Abrahamsen Blomfeldt
-Tatiana Borisova
-Joerg Bornemann
-Rym Bouabid
-Assam Boudjelthia
-Mark Brand
-Aurélien Brooke
-Kai Uwe Broulik
-Michael Brüning
-Alex Bu
-Alexander Busse
-Olivier De Cannière
-Alexei Cazacov
-Kaloyan Chehlarski
-Mike Chen
-Kirikaze Chiyuki
-Wang Chuan
-Ed Cooke
-Miguel Costa
-Alexandru Croitor
-Mitch Curtis
-Thibaut Cuvelier
-Giuseppe D'Angelo
-Szabolcs David
-Noah Davis
-Oliver Dawes
-Pavel Dubsky
-Artem Dyomin
-Alexey Edelev
-David Edmundson
-Oliver Eftevaag
-Christian Ehrlicher
-Hatem ElKharashy
-Andreas Eliasson
-Amr Essam
-Fabio Falsini
-David Faure
-Ilya Fedin
-Wang Fei
-Nicolas Fella
-Ted Feng
-Jesus Fernandez
-Isak Fyksen
-Simo Fält
-GHENADY
-Samuel Gaist
-Florian de Gaulejac
-Zoltan Gera
-Nazar Gerasymchuk
-Joshua Goins
-Andrei Golubev
-Aleix Pol Gonzalez
-Julian Greilich
-Robert Griebl
-Mikko Gronoff
-Magnus Groß
-Jan Grulich
-Johannes Grunenberg
-Kaj Grönholm
-Richard Moe Gustavsen
-Lucie Gérard
-Kamil Hajdukiewicz
-Rob Hall
-Mikko Hallamaa
-Amanda Hamblin-Trué
-Jøger Hansegård
-Inkamari Harjula
-Andre Hartmann
-Thomas Hartmann
-Andreas Hartmetz
-Elias Hautala
-Tero Heikkinen
-Jani Heikkinen
-Miikka Heikkinen
-Moss Heim
-Paul Heimann
-Christian Heimlich
-Jari Helaakoski
-Ulf Hermann
-Øystein Heskestad
-Volker Hilsheimer
-Dominik Holland
-Mats Honkamaa
-Alexander Hulander
-Marc Hüskens
-Samuli Hölttä
-Sam James
-Allan Sandfeld Jensen
-Tim Jenssen
-Jukka Jokiniva
-Jonas Karlsson
-Kevin Keating
-Timothée Keller
-Jonathan Ketchker
-Igor Khanin
-Ahmed El Khazari
-Ali Kianian
-Kristof Kiszel
-Marius Kittler
-Friedemann Kleint
-André Klitzing
-Michal Klocek
-Ingo Klöcker
-Jarek Kobus
-Tobias Koenig
-Sze Howe Koh
-Jarkko Koivikko
-Antti Kokko
-Niko Korkala
-Tomi Korpipää
-Jani Korteniemi
-Fabian Kosmale
-Tomasz Kozłowski
-Volker Krause
-Mike Krus
-Jaroslaw Kubik
-Anton Kudryavtsev
-Santhosh Kumar
-Ghenady Kuznetsov
-Keith Kyzivat
-Kai Köhne
-Lauri Laanmets
-Inho Lee
-Frédéric Lefebvre
-Paul Lemire
-Chris Lerner
-Wladimir Leuschner
-Thorbjørn Lindeijer
-Jie Liu
-Jarno Lämsä
-Robert Löhning
-Thiago Macieira
-Andras Mantia
-Sergio Martins
-Łukasz Matysiak
-Ievgenii Meshcheriakov
-Leena Miettinen
-Jan Moeller
-Safiyyah Moosa
-Bartlomiej Moskal
-Marc Mutz
-Tommi Mänttäri
-Antti Määttä
-Jithin Nair
-Antonio Napolitano
-Martin Negyokru
-Andy Nichols
-Mårten Nordheim
-Dennis Oberst
-Kimmo Ollila
-Matti Paaso
-Tinja Paavoseppä
-Kwanghyo Park
-Ari Parkkila
-Jerome Pasion
-Samuli Piippo
-Rayam Pinto
-Timur Pocheptsov
-Milla Pohjanheimo
-Lauri Pohjanheimo
-Joni Poikelin
-Aleix Pol
-Michał Policht
-Cajus Pollmeier
-Jacek Poplawski
-Alessandro Portale
-Rami Potinkara
-Lorn Potter
-Sakaria Pouke
-Shyamnath Premnadh
-MohammadHossein Qanbari
-Liang Qi
-Matthias Rauter
-David Redondo
-Arno Rehn
-Topi Reinio
-Shawn Rutledge
-Toni Saario
-Filip Sajdak
-Ahmad Samir
-Lars Schmertmann
-Philip Schuchardt
-David Schulz
-Carl Schwan
-Thomas Senyk
-Luca Di Sera
-Dmitry Shachnev
-Sami Shalayel
-Orgad Shaneh
-Andy Shaw
-Tian Shilin
-Venugopal Shivashankar
-Pierre-Yves Siret
-Kristoffer Skau
-Nils Petter Skålerud
-Ivan Solovev
-Krzysztof Sommerfeld
-Axel Spoerl
-Stefan Steinwasser
-Martin Storsjö
-Christian Strømme
-Frank Su
-Tarja Sundqvist
-Audun Sutterud
-Lars Sutterud
-Tasuku Suzuki
-Jan Arve Sæther
-Morten Sørvig
-Akira TAGOH
-Sadegh Taghavi
-Nodir Temirkhodjaev
-Marcus Tillmanns
-Ivan Tkachenko
-Elias Toivola
-Orkun Tokdemir
-Jens Trillmann
-Jere Tuliniemi
-Tuukka Turunen
-Paul Olav Tvete
-Esa Törmänen
-Fatih Uzunoglu
-Tuomas Vaarala
-Sami Varanka
-Peter Varga
-Niccolò Venerandi
-Doris Verria
-Tor Arne Vestbø
-Petri Virkkunen
-Jannis Voelker
-Alexander Volkov
-Ville Voutilainen
-Juha Vuolle
-Olli Vuolteenaho
-Sune Vuorela
-Jaishree Vyas
-Jannis Völker
-Dongmei Wang
-Gary Wang
-Michael Weghorn
-Bernd Weimer
-Edward Welbourne
-Fushan Wen
-Paul Wicking
-Piotr Wierciński
-Milian Wolff
-Oliver Wolff
-Li Xinwei
-Weng Xuetian
-Lu YaNing
-Semih Yavuz
-Marianne Yrjänä
-Wang Yu
-Zhao Yuhang
-Vlad Zahorodnii
-Marcin Zdunek
-JiDe Zhang
-Liu Zheng
-Yifan Zhu
-Yansheng Zhu
-Volodymyr Zibarov
-Wang Zichong
-Eike Ziller
-hjk
-shjiu
-Fredrik Ålund
-Michał Łoś
+Eirik Aavitsland  
+Amir Masoud Abdol  
+Matt Aber  
+Cristian Adam  
+James Addison  
+Laszlo Agocs  
+Dilek Akcay  
+Owais Akhtar  
+Dmitrii Akshintsev  
+Konsta Alajärvi  
+Anu Aliyas  
+Even Oscar Andersen  
+Tim Angus  
+Dimitrios Apostolou  
+Soheil Armin  
+Viktor Arvidsson  
+Albert Astals Cid  
+Mahmoud Badri  
+Karolina Sofia Bang  
+Mate Barany  
+Chris Von Bargen  
+Vladimir Belyavsky  
+Nicholas Bennett  
+Lena Biliaieva  
+Alex Blasche  
+Tim Blechmann  
+Eskil Abrahamsen Blomfeldt  
+Tatiana Borisova  
+Joerg Bornemann  
+Rym Bouabid  
+Assam Boudjelthia  
+Mark Brand  
+Aurélien Brooke  
+Kai Uwe Broulik  
+Michael Brüning  
+Alex Bu  
+Alexander Busse  
+Olivier De Cannière  
+Alexei Cazacov  
+Kaloyan Chehlarski  
+Mike Chen  
+Kirikaze Chiyuki  
+Wang Chuan  
+Ed Cooke  
+Miguel Costa  
+Alexandru Croitor  
+Mitch Curtis  
+Thibaut Cuvelier  
+Giuseppe D'Angelo  
+Szabolcs David  
+Noah Davis  
+Oliver Dawes  
+Pavel Dubsky  
+Artem Dyomin  
+Alexey Edelev  
+David Edmundson  
+Oliver Eftevaag  
+Christian Ehrlicher  
+Hatem ElKharashy  
+Andreas Eliasson  
+Amr Essam  
+Fabio Falsini  
+David Faure  
+Ilya Fedin  
+Wang Fei  
+Nicolas Fella  
+Ted Feng  
+Jesus Fernandez  
+Isak Fyksen  
+Simo Fält  
+GHENADY  
+Samuel Gaist  
+Florian de Gaulejac  
+Zoltan Gera  
+Nazar Gerasymchuk  
+Joshua Goins  
+Andrei Golubev  
+Aleix Pol Gonzalez  
+Julian Greilich  
+Robert Griebl  
+Mikko Gronoff  
+Magnus Groß  
+Jan Grulich  
+Johannes Grunenberg  
+Kaj Grönholm  
+Richard Moe Gustavsen  
+Lucie Gérard  
+Kamil Hajdukiewicz  
+Rob Hall  
+Mikko Hallamaa  
+Amanda Hamblin-Trué  
+Jøger Hansegård  
+Inkamari Harjula  
+Andre Hartmann  
+Thomas Hartmann  
+Andreas Hartmetz  
+Elias Hautala  
+Tero Heikkinen  
+Jani Heikkinen  
+Miikka Heikkinen  
+Moss Heim  
+Paul Heimann  
+Christian Heimlich  
+Jari Helaakoski  
+Ulf Hermann  
+Øystein Heskestad  
+Volker Hilsheimer  
+Dominik Holland  
+Mats Honkamaa  
+Alexander Hulander  
+Marc Hüskens  
+Samuli Hölttä  
+Sam James  
+Allan Sandfeld Jensen  
+Tim Jenssen  
+Jukka Jokiniva  
+Jonas Karlsson  
+Kevin Keating  
+Timothée Keller  
+Jonathan Ketchker  
+Igor Khanin  
+Ahmed El Khazari  
+Ali Kianian  
+Kristof Kiszel  
+Marius Kittler  
+Friedemann Kleint  
+André Klitzing  
+Michal Klocek  
+Ingo Klöcker  
+Jarek Kobus  
+Tobias Koenig  
+Sze Howe Koh  
+Jarkko Koivikko  
+Antti Kokko  
+Niko Korkala  
+Tomi Korpipää  
+Jani Korteniemi  
+Fabian Kosmale  
+Tomasz Kozłowski  
+Volker Krause  
+Mike Krus  
+Jaroslaw Kubik  
+Anton Kudryavtsev  
+Santhosh Kumar  
+Ghenady Kuznetsov  
+Keith Kyzivat  
+Kai Köhne  
+Lauri Laanmets  
+Inho Lee  
+Frédéric Lefebvre  
+Paul Lemire  
+Chris Lerner  
+Wladimir Leuschner  
+Thorbjørn Lindeijer  
+Jie Liu  
+Jarno Lämsä  
+Robert Löhning  
+Thiago Macieira  
+Andras Mantia  
+Sergio Martins  
+Łukasz Matysiak  
+Ievgenii Meshcheriakov  
+Leena Miettinen  
+Jan Moeller  
+Safiyyah Moosa  
+Bartlomiej Moskal  
+Marc Mutz  
+Tommi Mänttäri  
+Antti Määttä  
+Jithin Nair  
+Antonio Napolitano  
+Martin Negyokru  
+Andy Nichols  
+Mårten Nordheim  
+Dennis Oberst  
+Kimmo Ollila  
+Matti Paaso  
+Tinja Paavoseppä  
+Kwanghyo Park  
+Ari Parkkila  
+Jerome Pasion  
+Samuli Piippo  
+Rayam Pinto  
+Timur Pocheptsov  
+Milla Pohjanheimo  
+Lauri Pohjanheimo  
+Joni Poikelin  
+Aleix Pol  
+Michał Policht  
+Cajus Pollmeier  
+Jacek Poplawski  
+Alessandro Portale  
+Rami Potinkara  
+Lorn Potter  
+Sakaria Pouke  
+Shyamnath Premnadh  
+MohammadHossein Qanbari  
+Liang Qi  
+Matthias Rauter  
+David Redondo  
+Arno Rehn  
+Topi Reinio  
+Shawn Rutledge  
+Toni Saario  
+Filip Sajdak  
+Ahmad Samir  
+Lars Schmertmann  
+Philip Schuchardt  
+David Schulz  
+Carl Schwan  
+Thomas Senyk  
+Luca Di Sera  
+Dmitry Shachnev  
+Sami Shalayel  
+Orgad Shaneh  
+Andy Shaw  
+Tian Shilin  
+Venugopal Shivashankar  
+Pierre-Yves Siret  
+Kristoffer Skau  
+Nils Petter Skålerud  
+Ivan Solovev  
+Krzysztof Sommerfeld  
+Axel Spoerl  
+Stefan Steinwasser  
+Martin Storsjö  
+Christian Strømme  
+Frank Su  
+Tarja Sundqvist  
+Audun Sutterud  
+Lars Sutterud  
+Tasuku Suzuki  
+Jan Arve Sæther  
+Morten Sørvig  
+Akira TAGOH  
+Sadegh Taghavi  
+Nodir Temirkhodjaev  
+Marcus Tillmanns  
+Ivan Tkachenko  
+Elias Toivola  
+Orkun Tokdemir  
+Jens Trillmann  
+Jere Tuliniemi  
+Tuukka Turunen  
+Paul Olav Tvete  
+Esa Törmänen  
+Fatih Uzunoglu  
+Tuomas Vaarala  
+Sami Varanka  
+Peter Varga  
+Niccolò Venerandi  
+Doris Verria  
+Tor Arne Vestbø  
+Petri Virkkunen  
+Jannis Voelker  
+Alexander Volkov  
+Ville Voutilainen  
+Juha Vuolle  
+Olli Vuolteenaho  
+Sune Vuorela  
+Jaishree Vyas  
+Jannis Völker  
+Dongmei Wang  
+Gary Wang  
+Michael Weghorn  
+Bernd Weimer  
+Edward Welbourne  
+Fushan Wen  
+Paul Wicking  
+Piotr Wierciński  
+Milian Wolff  
+Oliver Wolff  
+Li Xinwei  
+Weng Xuetian  
+Lu YaNing  
+Semih Yavuz  
+Marianne Yrjänä  
+Wang Yu  
+Zhao Yuhang  
+Vlad Zahorodnii  
+Marcin Zdunek  
+JiDe Zhang  
+Liu Zheng  
+Yifan Zhu  
+Yansheng Zhu  
+Volodymyr Zibarov  
+Wang Zichong  
+Eike Ziller  
+hjk  
+shjiu  
+Fredrik Ålund  
+Michał Łoś  
