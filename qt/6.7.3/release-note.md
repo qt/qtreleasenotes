@@ -756,7 +756,7 @@ sourcelanguage attributes
 PLURALS_TS_FILE set
 * QTBUG-128186 qlitehtml is built in a directory called "value-NOTFOUND"
 * QTBUG-128411 Remove 'corefeatures.html' from qdoc manual
-* QTBUG-123034 Accidental strikethrough (<s>) in QSpan documentation
+* QTBUG-123034 Accidental strikethrough (&lt;s&gt;) in QSpan documentation
 * QTBUG-127352 lupdate's -extension option doesn't work
 * QTBUG-80417 QDateTimeEdit cannot handle OffsetFromUTC or TimeZone as
 time-spec
@@ -860,7 +860,7 @@ any effect
 QWebEngineView.
 * QTBUG-128140 Dead link for QWebEngineScript::sourceUrl
 * QTBUG-126256 [REG 6.6 -> 6.7] WebOTP crashes renderer process
-* QTBUG-119908 HTML <select> Element Triggers Program Crash in QT on
+* QTBUG-119908 HTML &lt;select&gt; Element Triggers Program Crash in QT on
 EGLFS/KMS Platforms
 
 ### qtwebview
@@ -968,142 +968,142 @@ https://bugreports.qt.io/issues/?filter=26522
 Credits for the  release goes to:
 ---------------------------------
 
-Eirik Aavitsland
-Laszlo Agocs
-Anu Aliyas
-Even Oscar Andersen
-Tim Angus
-Viktor Arvidsson
-Albert Astals Cid
-Mate Barany
-Vladimir Belyavsky
-Nicholas Bennett
-Tim Blechmann
-Eskil Abrahamsen Blomfeldt
-Joerg Bornemann
-Rym Bouabid
-Assam Boudjelthia
-Kai Uwe Broulik
-Michael Brüning
-Olivier De Cannière
-Alexei Cazacov
-Kaloyan Chehlarski
-Ed Cooke
-Alexandru Croitor
-Mitch Curtis
-Giuseppe D'Angelo
-Szabolcs David
-Pavel Dubsky
-Artem Dyomin
-Alexey Edelev
-David Edmundson
-Oliver Eftevaag
-Christian Ehrlicher
-Hatem ElKharashy
-Andreas Eliasson
-Amr Essam
-David Faure
-Nicolas Fella
-Zoltan Gera
-Robert Griebl
-Magnus Groß
-Kaj Grönholm
-Richard Moe Gustavsen
-Lucie Gérard
-Mikko Hallamaa
-Jøger Hansegård
-Jani Heikkinen
-Ulf Hermann
-Volker Hilsheimer
-Dominik Holland
-Samuli Hölttä
-Sam James
-Allan Sandfeld Jensen
-Jonas Karlsson
-Timothée Keller
-Igor Khanin
-Ahmed El Khazari
-Marius Kittler
-Friedemann Kleint
-Michal Klocek
-Ingo Klöcker
-Jarek Kobus
-Tobias Koenig
-Sze Howe Koh
-Jarkko Koivikko
-Tomi Korpipaa
-Fabian Kosmale
-Mike Krus
-Santhosh Kumar
-Kai Köhne
-Inho Lee
-Paul Lemire
-Chris Lerner
-Wladimir Leuschner
-Thiago Macieira
-Andras Mantia
-Łukasz Matysiak
-Jan Moeller
-Safiyyah Moosa
-Bartlomiej Moskal
-Marc Mutz
-Antti Määttä
-Martin Negyokru
-Andy Nichols
-Mårten Nordheim
-Tinja Paavoseppä
-Karim Pinter
-Timur Pocheptsov
-Lorn Potter
-Sakaria Pouke
-Shyamnath Premnadh
-MohammadHossein Qanbari
-Liang Qi
-Matthias Rauter
-Topi Reinio
-Shawn Rutledge
-Toni Saario
-Ahmad Samir
-Philip Schuchardt
-Luca Di Sera
-Dmitry Shachnev
-Sami Shalayel
-Tian Shilin
-Pierre-Yves Siret
-Nils Petter Skålerud
-Ivan Solovev
-Axel Spoerl
-Christian Strømme
-Lars Sutterud
-Jan Arve Sæther
-Morten Sørvig
-Sadegh Taghavi
-Nodir Temirkhodjaev
-Ivan Tkachenko
-Orkun Tokdemir
-Paul Olav Tvete
-Fatih Uzunoglu
-Sami Varanka
-Niccolò Venerandi
-Doris Verria
-Tor Arne Vestbø
-Petri Virkkunen
-Ville Voutilainen
-Juha Vuolle
-Jaishree Vyas
-Jannis Völker
-Dongmei Wang
-Michael Weghorn
-Edward Welbourne
-Paul Wicking
-Piotr Wierciński
-Milian Wolff
-Oliver Wolff
-Li Xinwei
-Lu YaNing
-Semih Yavuz
-Wang Yu
-Vlad Zahorodnii
-JiDe Zhang
-Liu Zheng
-Michał Łoś
+Eirik Aavitsland  
+Laszlo Agocs  
+Anu Aliyas  
+Even Oscar Andersen  
+Tim Angus  
+Viktor Arvidsson  
+Albert Astals Cid  
+Mate Barany  
+Vladimir Belyavsky  
+Nicholas Bennett  
+Tim Blechmann  
+Eskil Abrahamsen Blomfeldt  
+Joerg Bornemann  
+Rym Bouabid  
+Assam Boudjelthia  
+Kai Uwe Broulik  
+Michael Brüning  
+Olivier De Cannière  
+Alexei Cazacov  
+Kaloyan Chehlarski  
+Ed Cooke  
+Alexandru Croitor  
+Mitch Curtis  
+Giuseppe D'Angelo  
+Szabolcs David  
+Pavel Dubsky  
+Artem Dyomin  
+Alexey Edelev  
+David Edmundson  
+Oliver Eftevaag  
+Christian Ehrlicher  
+Hatem ElKharashy  
+Andreas Eliasson  
+Amr Essam  
+David Faure  
+Nicolas Fella  
+Zoltan Gera  
+Robert Griebl  
+Magnus Groß  
+Kaj Grönholm  
+Richard Moe Gustavsen  
+Lucie Gérard  
+Mikko Hallamaa  
+Jøger Hansegård  
+Jani Heikkinen  
+Ulf Hermann  
+Volker Hilsheimer  
+Dominik Holland  
+Samuli Hölttä  
+Sam James  
+Allan Sandfeld Jensen  
+Jonas Karlsson  
+Timothée Keller  
+Igor Khanin  
+Ahmed El Khazari  
+Marius Kittler  
+Friedemann Kleint  
+Michal Klocek  
+Ingo Klöcker  
+Jarek Kobus  
+Tobias Koenig  
+Sze Howe Koh  
+Jarkko Koivikko  
+Tomi Korpipaa  
+Fabian Kosmale  
+Mike Krus  
+Santhosh Kumar  
+Kai Köhne  
+Inho Lee  
+Paul Lemire  
+Chris Lerner  
+Wladimir Leuschner  
+Thiago Macieira  
+Andras Mantia  
+Łukasz Matysiak  
+Jan Moeller  
+Safiyyah Moosa  
+Bartlomiej Moskal  
+Marc Mutz  
+Antti Määttä  
+Martin Negyokru  
+Andy Nichols  
+Mårten Nordheim  
+Tinja Paavoseppä  
+Karim Pinter  
+Timur Pocheptsov  
+Lorn Potter  
+Sakaria Pouke  
+Shyamnath Premnadh  
+MohammadHossein Qanbari  
+Liang Qi  
+Matthias Rauter  
+Topi Reinio  
+Shawn Rutledge  
+Toni Saario  
+Ahmad Samir  
+Philip Schuchardt  
+Luca Di Sera  
+Dmitry Shachnev  
+Sami Shalayel  
+Tian Shilin  
+Pierre-Yves Siret  
+Nils Petter Skålerud  
+Ivan Solovev  
+Axel Spoerl  
+Christian Strømme  
+Lars Sutterud  
+Jan Arve Sæther  
+Morten Sørvig  
+Sadegh Taghavi  
+Nodir Temirkhodjaev  
+Ivan Tkachenko  
+Orkun Tokdemir  
+Paul Olav Tvete  
+Fatih Uzunoglu  
+Sami Varanka  
+Niccolò Venerandi  
+Doris Verria  
+Tor Arne Vestbø  
+Petri Virkkunen  
+Ville Voutilainen  
+Juha Vuolle  
+Jaishree Vyas  
+Jannis Völker  
+Dongmei Wang  
+Michael Weghorn  
+Edward Welbourne  
+Paul Wicking  
+Piotr Wierciński  
+Milian Wolff  
+Oliver Wolff  
+Li Xinwei  
+Lu YaNing  
+Semih Yavuz  
+Wang Yu  
+Vlad Zahorodnii  
+JiDe Zhang  
+Liu Zheng  
+Michał Łoś  
