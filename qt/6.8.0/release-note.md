@@ -3615,7 +3615,7 @@ model is reset with less number of items
 * QTBUG-123227 Qt Quick Test missing cmake support
 * QTBUG-124359 Cannot use variableAxes due to wrong component versioning
 * QTBUG-111337 Text incorrectly renders bullet list points after a link
-* QTBUG-123855 Inconsistent RichText Formatting of "\<ol\>" and "\<ul\>" in
+* QTBUG-123855 Inconsistent RichText Formatting of "&lt;ol&gt;" and "&lt;ul&gt;" in
 Text QML type
 * QTBUG-63741 Subsequent bullet points incorrectly colored by hyperlink
 * QTBUG-57833 QTextEdit list number/bullets inherit the following text
@@ -4497,7 +4497,7 @@ sanitizer check
 * QTBUG-120323 qdoc: Document \attribution command
 * QTBUG-122994 [Reg 6.6.1->6.6.2] Performance regression in
 qhelpcollection.cpp
-* QTBUG-123034 Accidental strikethrough (\<s\>) in QSpan documentation
+* QTBUG-123034 Accidental strikethrough (&lt;s&gt;) in QSpan documentation
 * QTBUG-123011 wrong xxx_lupdate_project.json is generated when no
 targets are specified in qt6_add_lupdate
 * QTBUG-123109 qdoc fails to compile with clang 18
@@ -5040,7 +5040,7 @@ granted devices with PersistentPermissionsPolicy::AskEveryTime
 * QTBUG-128361 Draggable elements don't work
 * QTBUG-126256 [REG 6.6 -> 6.7] WebOTP crashes renderer process
 * QTBUG-127797 screen sharing capabilities over WebRTC is not working
-* QTBUG-119908 HTML \<select\> Element Triggers Program Crash in QT on
+* QTBUG-119908 HTML &lt;select&gt; Element Triggers Program Crash in QT on
 EGLFS/KMS Platforms
 * QTBUG-127726 Screen sharing crashes in DesktopCapturer
 * QTBUG-112825 Changing the user agent should disable client hints
