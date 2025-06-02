@@ -33,6 +33,7 @@ Important Changes
 * CVE-2025-30348 in qtbase
 * CVE-2025-23050 in qtconnectivity
 * CVE-2024-39936 in qtbase
+* CVE-2025-3512 in qtbase
 
 ### qtbase
 * 993b197d9c9 Entrypoint/Win32: just use __argc and __argv if available
@@ -5895,7 +5896,7 @@ project with a static build of Qt
 Known Issues
 ------------
 * Check that your system meets Qt's requirements:
-https://doc-snapshots.qt.io/qt6-6.9/supported-platforms.html
+https://doc.qt.io/qt-6.9/supported-platforms.html
 * RTA reported issues from Qt 6.9
 https://bugreports.qt.io/issues/?filter=27175
 * See Qt 6.9 known issues from:
