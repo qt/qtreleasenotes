@@ -34,7 +34,8 @@ Important Changes
 -----------------
 
 ### Security fixes
-* N/A
+* [CVE-2025-10728](https://nvd.nist.gov/vuln/detail/CVE-2025-10728) in qtsvg
+* [CVE-2025-10729](https://nvd.nist.gov/vuln/detail/CVE-2025-10729) in qtsvg
 
 ### qtbase
 * 76502f946ce Fix the url construction in the requestUrl method
