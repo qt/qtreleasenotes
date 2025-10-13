@@ -1,7 +1,7 @@
 Release note
 ============
 Qt 6.5.6 release is a patch release made on the top of Qt 6.5.5.  
-As a patch release, Qt 6.5.4 does not add any new functionality but provides  
+As a patch release, Qt 6.5.6 does not add any new functionality but provides  
 bug fixes and other improvements and maintains both forward and backward  
 compatibility (source and binary) with Qt 6.5.5.  
 For detailed information about Qt 6.5, refer to the online documentation  
