@@ -19,6 +19,11 @@ https://doc.qt.io/qt-6.5/.
 Important Changes
 -----------------
 
+### Security fixes
+
+* [CVE-2025-12385](https://nvd.nist.gov/vuln/detail/CVE-2025-12385) in
+qtdeclarative
+
 ### qtbase
 * 80f09dce0c7 qvsnprintf: fail if the result size doesn't fit into an
 int
@@ -288,6 +293,18 @@ Quick 3D
 
 Known Issues
 ------------
+
+* Check that your system meets Qt's requirements:
+https://doc.qt.io/qt-6.5/supported-platforms.html
+
+* The RTA (release test automation) reported issues in Qt 6.5.x:
+https://bugreports.qt.io/issues/?filter=24558
+
+* See Qt 6.5 known issues from:
+https://wiki.qt.io/Qt_6.5_Known_Issues
+
+* Qt 6.5.11 Open issues in Jira:
+https://bugreports.qt.io/issues/?filter=28125
 
 Credits for the release goes to:
 ---------------------------------
