@@ -3390,7 +3390,7 @@ signal even when value remains unchanged
 * [QTBUG-132421](https://bugreports.qt.io/browse/QTBUG-132421) cmake: Specifying PROJECT_VERSION in a Quick project
 fails generation
 * [QTBUG-132528](https://bugreports.qt.io/browse/QTBUG-132528) qmlcompiler/qqmljscompilerstats_p.h", line 33: error
-#276:  name followed by "::" must be a class or namespace name
+\#276:  name followed by "::" must be a class or namespace name
 * [QTBUG-132423](https://bugreports.qt.io/browse/QTBUG-132423) [Reg 6.2.13->6.5] qtquickcompiler.prf is missing from
 cross-compiling kits, so "CONFIG += qtquickcompiler" no longer works
 when cross-compiling
