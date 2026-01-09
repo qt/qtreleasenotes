@@ -733,7 +733,7 @@ Known Issues
 * Check that your system meets Qt's requirements:  
 https://doc.qt.io/qt-6/supported-platforms.html  
 * RTA reported issues from Qt 6.4  
-https://bugreports.qt.io/issues/?filter=24174  
+https://qt-project.atlassian.net/issues/?filter=14465  
 * See Qt 6.4 Known Issues from:  
 https://wiki.qt.io/Qt_6.4_Known_Issues  
   

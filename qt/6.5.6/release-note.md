@@ -644,13 +644,13 @@ Known Issues
 https://doc.qt.io/qt-6.5/supported-platforms.html  
   
 * The RTA (release test automation) reported issues in Qt 6.5.x:  
-https://bugreports.qt.io/issues/?filter=24558  
+https://qt-project.atlassian.net/issues/?filter=15085  
   
 * See Qt 6.5 known issues from:  
 https://wiki.qt.io/Qt_6.5_Known_Issues  
   
 * Qt 6.5.6 Open issues in Jira:  
-https://bugreports.qt.io/issues/?filter=26125  
+https://qt-project.atlassian.net/issues/?filter=16231  
 
 Credits for the  release goes to:
 ---------------------------------

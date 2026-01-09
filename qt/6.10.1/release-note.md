@@ -948,11 +948,11 @@ Known Issues
 * Check that your system meets Qt's requirements:
   https://doc-snapshots.qt.io/qt6-6.10/supported-platforms.html
 * RTA reported issues from Qt 6.10
-  https://bugreports.qt.io/issues/?filter=27755
+  https://qt-project.atlassian.net/issues/?filter=10825
 * See Qt 6.10 known issues from:
   https://wiki.qt.io/Qt_6.10_Known_Issues
 * Qt 6.10.1 Open issues in Jira:
-  https://bugreports.qt.io/issues/?filter=28123
+  https://qt-project.atlassian.net/issues/?filter=16785
 
 Credits for the release goes to:
 --------------------------------

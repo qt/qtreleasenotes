@@ -501,7 +501,7 @@ Known Issues
 * Check that your system meets Qt's requirements:  
 https://doc.qt.io/qt-6/gettingstarted.html#platform-requirements  
 * RTA reported issues from Qt 6.1  
-https://bugreports.qt.io/issues/?filter=22879  
+https://qt-project.atlassian.net/issues/?filter=15397  
 * Supported development platforms are listed here:  
 https://bugreports.qt.io/browse/QTBUG-86432  
   

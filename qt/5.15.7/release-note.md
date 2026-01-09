@@ -276,7 +276,7 @@ Known Issues
 ------------  
   
 The RTA (release test automation) reported issues in Qt 5.15.x:  
-https://bugreports.qt.io/issues/?filter=21874  
+https://qt-project.atlassian.net/issues/?filter=14473  
   
 ### qtwebengine
   The CHROMIUM_VERSION file includes an incorrect version number 94.0.4606.61.  

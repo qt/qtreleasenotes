@@ -217,10 +217,10 @@ Known Issues
 https://doc.qt.io/qt-5.15/supported-platforms.html  
   
 * The RTA (release test automation) reported issues in Qt 5.15.x:  
-https://bugreports.qt.io/issues/?filter=21874  
+https://qt-project.atlassian.net/issues/?filter=14473  
   
 * Qt 5.15.17 Open issues in Jira:  
-https://bugreports.qt.io/issues/?filter=26029  
+https://qt-project.atlassian.net/issues/?filter=16407  
 
 Credits for the  release goes to:
 ---------------------------------

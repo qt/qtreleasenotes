@@ -4259,9 +4259,9 @@ Known Issues
 * Check that your system meets Qt's requirements:  
 https://doc.qt.io/qt-6.4/supported-platforms.html  
 * RTA reported issues from Qt 6.4:  
-https://bugreports.qt.io/issues/?filter=24174  
+https://qt-project.atlassian.net/issues/?filter=14465  
 * Qt 6.4.0 Open issues in Jira:  
-https://bugreports.qt.io/issues/?filter=24448  
+https://qt-project.atlassian.net/issues/?filter=14951  
 * Supported development platforms are listed here:  
 https://bugreports.qt.io/browse/QTBUG-102789  
 * See Qt 6.4.0 Known Issues from:  

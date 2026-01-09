@@ -409,7 +409,7 @@ Known Issues
 ------------  
   
 The RTA (release test automation) reported issues in Qt 5.15.x:  
-https://bugreports.qt.io/issues/?filter=21874  
+https://qt-project.atlassian.net/issues/?filter=14473  
   
 Credits for the  release goes to:  
 ---------------------------------  

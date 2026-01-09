@@ -457,10 +457,10 @@ Known Issues
 https://doc.qt.io/qt-6.2/supported-platforms.html
 
 * The RTA (release test automation) reported issues in Qt 6.2.x:
-https://bugreports.qt.io/issues/?filter=23315
+https://qt-project.atlassian.net/issues/?filter=16060
 
 * Qt 6.2.9 Open issues in Jira:
-https://bugreports.qt.io/issues/?filter=25172
+https://qt-project.atlassian.net/issues/?filter=15653
 
 Credits for the  release goes to:
 ---------------------------------

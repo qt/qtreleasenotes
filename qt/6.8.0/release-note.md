@@ -5617,11 +5617,11 @@ Known Issues
 * Check that your system meets Qt's requirements:
 https://doc.qt.io/qt-6.8/supported-platforms.html
 * RTA reported issues from Qt 6.8
-https://bugreports.qt.io/issues/?filter=26458
+https://qt-project.atlassian.net/issues/?filter=10287
 * See Qt 6.8 known issues from:
 https://wiki.qt.io/Qt_6.8_Known_Issues
 * Qt 6.8.0 Open issues in Jira:
-https://bugreports.qt.io/issues/?filter=26530
+https://qt-project.atlassian.net/issues/?filter=10262
 
 Credits for the release goes to:
 ---------------------------------

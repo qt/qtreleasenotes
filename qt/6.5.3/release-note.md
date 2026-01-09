@@ -1017,11 +1017,11 @@ Known Issues
 * Check that your system meets Qt's requirements:  
 https://doc.qt.io/qt-6.5/supported-platforms.html  
 * RTA reported issues from Qt 6.5  
-https://bugreports.qt.io/issues/?filter=24558  
+https://qt-project.atlassian.net/issues/?filter=15085  
 * See Qt 6.5 known issues from:  
 https://wiki.qt.io/Qt_6.5_Known_Issues  
-* Qt 6.5.2 Open issues in Jira:  
-https://bugreports.qt.io/issues/?filter=25271
+* Qt 6.5.3 Open issues in Jira:  
+https://qt-project.atlassian.net/issues/?filter=15756
   
 Credits for the  release goes to:  
 ---------------------------------  

@@ -675,10 +675,10 @@ Check that your system meets Qt's requirements:
 https://doc.qt.io/qt-6.2/supported-platforms.html  
   
 The RTA (release test automation) reported issues in Qt 6.2.x:  
-https://bugreports.qt.io/issues/?filter=23315  
+https://qt-project.atlassian.net/issues/?filter=16060  
   
 Qt 6.2.7 Open issues in Jira:  
-https://bugreports.qt.io/issues/?filter=24566  
+https://qt-project.atlassian.net/issues/?filter=15055  
   
 Credits for the  release goes to:  
 ---------------------------------  

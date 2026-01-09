@@ -906,11 +906,11 @@ Known Issues
 * Check that your system meets Qt's requirements:  
 https://doc.qt.io/qt-6.6/supported-platforms.html  
 * RTA reported issues from Qt 6.6  
-https://bugreports.qt.io/issues/?filter=25128  
+https://qt-project.atlassian.net/issues/?filter=15625  
 * See Qt 6.6  known issues from:  
 https://wiki.qt.io/Qt_6.6_Known_Issues  
 * Qt 6.6.1 Open issues in Jira:  
-https://bugreports.qt.io/issues/?filter=25370
+https://qt-project.atlassian.net/issues/?filter=15851
   
 Credits for the  release goes to:  
 ---------------------------------  

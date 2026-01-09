@@ -1013,11 +1013,11 @@ Known Issues
 * Check that your system meets Qt's requirements:
 https://doc.qt.io/qt-6.9/supported-platforms.html
 * RTA reported issues from Qt 6.9
-https://bugreports.qt.io/issues/?filter=27175
+https://qt-project.atlassian.net/issues/?filter=10496
 * See Qt 6.9 known issues from:
 https://wiki.qt.io/Qt_6.9_Known_Issues
 * Qt 6.9.1 Open issues in Jira:
-https://bugreports.qt.io/issues/?filter=27443
+https://qt-project.atlassian.net/issues/?filter=10571
 
 Credits for the  release goes to:
 ---------------------------------

@@ -157,7 +157,7 @@ Known Issues
 ------------
   
 * RTA reported issues from Qt 5.12 LTS:  
-https://bugreports.qt.io/issues/?filter=22251  
+https://qt-project.atlassian.net/issues/?filter=14478  
   
 ### Linux  
 * Qt Creator (or other GUI applications like Assistant, Designer, etc)  
