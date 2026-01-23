@@ -32,6 +32,7 @@ Important Changes
 * [CVE-2025-3512](https://nvd.nist.gov/vuln/detail/CVE-2025-3512) in qtbase
 * [CVE-2025-4211](https://nvd.nist.gov/vuln/detail/CVE-2025-4211) in qtbase
 * [CVE-2025-5455](https://nvd.nist.gov/vuln/detail/CVE-2025-5455) in qtbase
+* [CVE-2025-5991](https://nvd.nist.gov/vuln/detail/CVE-2025-5991) in qtbase
 * [CVE-2025-5992](https://nvd.nist.gov/vuln/detail/CVE-2025-5992) in qtbase
 * [CVE-2025-6338](https://nvd.nist.gov/vuln/detail/CVE-2025-6838) in qtbase
 * [CVE-2025-30348](https://nvd.nist.gov/vuln/detail/CVE-2025-30348) in qtbase

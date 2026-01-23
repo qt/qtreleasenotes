@@ -35,6 +35,7 @@ Important Changes
 ### Security fixes
 * CVE-2025-4211 in qtbase
 * CVE-2025-5455 in qtbase
+* CVE-2025-5991 in qtbase
 
 ### qtbase
 * de3cf05b77e QUrl: decode square brackets in fromLocalFile()
