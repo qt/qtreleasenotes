@@ -30,7 +30,7 @@ Important Changes
 -----------------
 ### Security fixes
 * [CVE-2025-5992](https://nvd.nist.gov/vuln/detail/CVE-2025-5992) in qtbase
-* [CVE-2025-6338](https://nvd.nist.gov/vuln/detail/CVE-2025-6838) in qtbase
+* [CVE-2025-6338](https://nvd.nist.gov/vuln/detail/CVE-2025-6338) in qtbase
 * [CVE-2025-12385](https://nvd.nist.gov/vuln/detail/CVE-2025-12385) in qtdeclarative
 * [CVE-2025-14576](https://nvd.nist.gov/vuln/detail/CVE-2025-14576) in qtdeclarative
 
