@@ -8,6 +8,8 @@ Applications compiled for 6.11 will continue to run with 6.140, except for the p
 QWE 6.140.0 can be build against Qt version 6.12.0, 6.11.3, 6.11.2, and 6.8.9,
 but prebuild binaries will only be made available against Qt 6.12.0.
 
+The Chromium copy inside Qt WebEngine has applied security patches up to and including Chromium 157.0.8103.50
+
 Source incompatible changes
 ---------------------------
 In order to comply with upcoming EU regulation about safe defaults. The qrc URL scheme is no
