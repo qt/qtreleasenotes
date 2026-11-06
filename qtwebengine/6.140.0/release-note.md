@@ -5,6 +5,9 @@ Qt WebEngine and Qt Pdf 6.140.0 marks the first independent release of Qt WebEng
 The QWE 6.140 series is binary compatible with the versions that were part of the Qt 6.11.x series.
 Applications compiled for 6.11 will continue to run with 6.140, except for the possible runtime issue mentioned below.
 
+QWE 6.140.0 can be build against Qt version 6.12.0, 6.11.3, 6.11.2, and 6.8.9,
+but prebuild binaries will only be made available against Qt 6.12.0.
+
 Source incompatible changes
 ---------------------------
 In order to comply with upcoming EU regulation about safe defaults. The qrc URL scheme is no
