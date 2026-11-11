@@ -73,6 +73,8 @@ dropdown cannot be dismissed by touch
 DisplaySoftwareOutputSurface::Device::swapFrame() on Windows
 * [QTBUG-150300](https://qt-project.atlassian.net/browse/QTBUG-150300) When WebEngineView is deeply nested inside a scrollable
 item, its <select> drop-downs appear in the wrong location
+* [QTBUG-151304](https://qt-project.atlassian.net/browse/QTBUG-151304) An extension calling chrome.offscreen.createDocument()
+crashes in RenderWidgetHostViewQt::Hide()
 * [QTBUG-137870](https://qt-project.atlassian.net/browse/QTBUG-137870) cmake: qt can only be built once
 * [QTBUG-144178](https://qt-project.atlassian.net/browse/QTBUG-144178) RHEL 10: qtwebengine auto test failures on Wayland
 * [QTBUG-150317](https://qt-project.atlassian.net/browse/QTBUG-150317) 6.140 gets udpate round from dev
@@ -103,6 +105,7 @@ Credits for the release goes to:
 * Allan Sandfeld Jensen
 * Jukka Jokiniva
 * Dennis Kim
+* Ville Kivelä
 * Friedemann Kleint
 * Michal Klocek
 * Sze Howe Koh
