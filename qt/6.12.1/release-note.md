@@ -1584,6 +1584,7 @@ Credits for the release goes to:
 * Joerg Bornemann
 * Rym Bouabid
 * Assam Boudjelthia
+* Taylor Braun-Jones
 * Aurélien Brooke
 * Alex Bu
 * Oswald Buddenhagen
@@ -1693,6 +1694,7 @@ Credits for the release goes to:
 * Thomas Senyk
 * Sami Shalayel
 * Tian Shilin
+* Venugopal Shivashankar
 * Nils Peter Skålerud
 * Nils Petter Skålerud
 * Ivan Solovev
@@ -1717,6 +1719,7 @@ Credits for the release goes to:
 * Bernd Weimer
 * Edward Welbourne
 * Paul Wicking
+* Bernhard M. Wiedemann
 * Szymon Wojtach
 * Oliver Wolff
 * Cai Xiangrong
